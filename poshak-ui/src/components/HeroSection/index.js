@@ -32,7 +32,11 @@ const  HeroSection = () => {
                 <HeroH1>Calorie Tracking Made Easy</HeroH1>
                 <HeroP>Sign up today and start monitoring your calories consumption.</HeroP>
                 <HeroBtnWrapper>
-                    <Button to='signup' onMouseEnter={onHover} onMouseLeave={onHover}>
+                    <Button to='signup' 
+                    onMouseEnter={onHover} 
+                    onMouseLeave={onHover}
+                    primary='true'
+                    dark='true'>
                         Get started {hover ? <ArrowForward />:<ArrowRight />}
                     </Button>
                 </HeroBtnWrapper>
