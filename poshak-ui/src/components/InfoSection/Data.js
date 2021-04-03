@@ -17,3 +17,41 @@ export const homeObjOne = {
     primary: true,
     darkText: false
 };
+
+
+export const homeObjTwo = {
+
+    id: 'discover',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    topLine: 'Unlimited Acess',
+    headline: 'Login to your account at any time',
+    description: ' Three Line description needs to be added, Three Line description needs to be added, Three Line description needs to be added, ',
+    buttonLabel: 'Learn More',
+    imgStart: true,
+    img: Imagesvg1,
+    alt: 'Car',
+    dark: false,
+    primary: false,
+    darkText: true
+};
+
+
+export const homeObjThree = {
+
+    id: 'signup',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    topLine: 'Try our product',
+    headline: 'Creating an account is just one click away',
+    description: ' Three Line description needs to be added, Three Line description needs to be added, Three Line description needs to be added, ',
+    buttonLabel: 'Start Now',
+    imgStart: false,
+    img: Imagesvg1,
+    alt: 'Car',
+    dark: false,
+    primary: false,
+    darkText: true
+};
