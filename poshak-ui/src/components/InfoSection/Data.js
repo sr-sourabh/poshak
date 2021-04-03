@@ -1,15 +1,17 @@
+import Imagesvg1 from '../../images/svg-1.svg'
+
 export const homeObjOne = {
 
     id: 'about',
     lightBg: false,
     lightText: true,
     lightTextDesc: true,
-    topLine: 'Premium Bank',
-    headline: 'Ulimited transaction zero fee',
-    description: ' dsf dsf ds f dsf sd fds f dsf sd f sdf sd f sdf sd fs df.',
+    topLine: 'Nutrition Tracker',
+    headline: 'Unlimited service with zero fee',
+    description: ' Three Line description needs to be added, Three Line description needs to be added, Three Line description needs to be added, ',
     buttonLabel: 'Get started',
     imgStart: false,
-    img: require("../../images/apple.svg"),
+    img: Imagesvg1,
     alt: 'Car',
     dark: true,
     primary: true,
