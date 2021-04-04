@@ -93,7 +93,7 @@ margin: 40px auto 0 auto;
 `;
 
 
-export const SocialLogo = styled('Link')`
+export const SocialLogo = styled(Link)`
 color: #fff;
 justify-self: start;
 cursor: pointer;
