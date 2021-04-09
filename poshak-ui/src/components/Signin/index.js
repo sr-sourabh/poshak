@@ -21,7 +21,7 @@ const SignIn = () => {
               <FormWrap>
                   <Icon to='/'>Poshak</Icon>
                   <FormContent>
-                      <Form action='#'>
+                      <Form action='/overview'>
                           <FormH1>Sign In to your account</FormH1>
                           <FormLabel htmlFor='for'>Email</FormLabel>
                           <FormInput type='email' required />
