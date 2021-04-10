@@ -29,8 +29,8 @@ const  HeroSection = () => {
                 <VideoBg autoPlay loop muted src = {Video} type='video/mp4' />
             </HeroBg>
             <HeroContent>
-                <HeroH1>Calorie Tracking Made Easy</HeroH1>
-                <HeroP>Sign up today and start monitoring your calories consumption.</HeroP>
+                <HeroH1>Nutrition Tracking Made Easy</HeroH1>
+                <HeroP>Sign up today and start living a nourishing lifestyle.</HeroP>
                 <HeroBtnWrapper>
                     <Button to='signup' 
                     onMouseEnter={onHover} 
