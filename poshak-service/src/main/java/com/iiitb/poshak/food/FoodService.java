@@ -11,6 +11,10 @@ public class FoodService {
     private FoodRepository foodRepository;
 
     public List<Food> getAllFoodByName(String name) {
-        return foodRepository.findAllByFoodLike(name.toLowerCase());
+        return foodRepository.findAllByFoodContainingIgnoreCase(name.toLowerCase());
+    }
+
+    public List<Food> getAllFood() {
+        return foodRepository.findAll();
     }
 }
