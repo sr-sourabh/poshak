@@ -22,10 +22,10 @@ const UserPersonalInfo = () => {
                         <Form action='/overview'>
                             <FormH1>Enter the below details to complete your profile</FormH1>
                             <FormLabel htmlFor='for'>Name</FormLabel>
-                            <FormInput type='text' placeholder='enter your name' required />
-                            <FormLabel htmlFor='for'>Height (in cm)</FormLabel>
+                            <FormInput type='text' placeholder='enter your full name' required />
+                            <FormLabel htmlFor='for'>Height</FormLabel>
                             <FormInput type='float' placeholder='enter height in centimeters' required />
-                            <FormLabel htmlFor='for'>Weight (in kgs)</FormLabel>
+                            <FormLabel htmlFor='for'>Weight</FormLabel>
                             <FormInput type='float' placeholder='enter weight in kilograms' required />
                             <FormButton type='submit'>Submit Info</FormButton>
                         </Form>
