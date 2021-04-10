@@ -19,7 +19,7 @@ const SignUp = () => {
         <>
           <Container>
               <FormWrap>
-                  <Icon to='/'>Poshak</Icon>
+              <Icon to='/'>Poshak</Icon>
                   <FormContent>
                       <Form action='/overview'>
                           <FormH1>Sign Up Today and start living a nourishing lifestyle</FormH1>
