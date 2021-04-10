@@ -16,4 +16,9 @@ public class FoodController {
     public List<Food> getAllFoodByName(@PathVariable("foodName") String foodName) {
         return foodService.getAllFoodByName(foodName);
     }
+
+    @GetMapping(value = "/food/all")
+    public List<Food> getAllFood() {
+        return foodService.getAllFood();
+    }
 }

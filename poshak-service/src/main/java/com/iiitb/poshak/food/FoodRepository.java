@@ -7,5 +7,7 @@ import java.util.List;
 
 @Repository
 public interface FoodRepository extends MongoRepository<Food, String> {
-    List<Food> findAllByFoodLike(String name);
+    List<Food> findAllByFoodContainingIgnoreCase(String name);
+
+    List<Food> findAll();
 }
