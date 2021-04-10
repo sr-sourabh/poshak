@@ -39,25 +39,8 @@ const Footer = () => {
                             <FooterLink to="/signin"> Investors </FooterLink>
                             <FooterLink to="/signin"> Terms of Service </FooterLink>
                         </FooterLinkItems>
-                        <FooterLinkItems>
-                            <FooterLinkTitle>   Contact us   </FooterLinkTitle>
-                            <FooterLink to="/signin"> How it works </FooterLink>
-                            <FooterLink to="/signin"> Testimonials </FooterLink>
-                            <FooterLink to="/signin"> Career </FooterLink>
-                            <FooterLink to="/signin"> Investors </FooterLink>
-                            <FooterLink to="/signin"> Terms of Service </FooterLink>
-                        </FooterLinkItems>
                     </FooterLinksWrappper>
-
                     <FooterLinksWrappper>
-                        <FooterLinkItems>
-                            <FooterLinkTitle>   Videos  </FooterLinkTitle>
-                            <FooterLink to="/signin"> How it works </FooterLink>
-                            <FooterLink to="/signin"> Testimonials </FooterLink>
-                            <FooterLink to="/signin"> Career </FooterLink>
-                            <FooterLink to="/signin"> Investors </FooterLink>
-                            <FooterLink to="/signin"> Terms of Service </FooterLink>
-                        </FooterLinkItems>
                         <FooterLinkItems>
                             <FooterLinkTitle> Social Media </FooterLinkTitle>
                             <FooterLink to="/signin"> FaceBook</FooterLink>
