@@ -21,17 +21,17 @@ const Services = () => {
                 <ServicesCard>
                     <ServicesIcon src={Icon1}/>
                     <ServicesH2>Reduce Calorie</ServicesH2>
-                    <ServicesP> We help you in manage calorie intake, Keeping a balanced diet </ServicesP>
+                    <ServicesP> We help you in managing your calorie intake and help you in keeping a balanced diet </ServicesP>
                 </ServicesCard>
                 <ServicesCard>
                     <ServicesIcon src={Icon2}/>
                     <ServicesH2>Virtual</ServicesH2>
-                    <ServicesP> You can access our platform anywhere online </ServicesP>
+                    <ServicesP>Access our platform from anywhere, all you need is an internet connection </ServicesP>
                 </ServicesCard>
                 <ServicesCard>
                     <ServicesIcon src={Icon3}/>
-                    <ServicesH2>Premium Benifits</ServicesH2>
-                    <ServicesP> Add few lines. We help you in manage calorie intake, Keeping a balanced diet </ServicesP>
+                    <ServicesH2>Premium Benefits</ServicesH2>
+                    <ServicesP> Generate reports and track all your calories along with both the macro & micro nutrients.</ServicesP>
                 </ServicesCard>
             </ServicesWrapper>
         </ServicesContainer>

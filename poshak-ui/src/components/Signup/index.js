@@ -22,14 +22,14 @@ const SignUp = () => {
                   <Icon to='/'>Poshak</Icon>
                   <FormContent>
                       <Form action='/overview'>
-                          <FormH1>Sign Up to your account</FormH1>
+                          <FormH1>Sign Up Today and start living a nourishing lifestyle</FormH1>
                           <FormLabel htmlFor='for'>Email</FormLabel>
-                          <FormInput type='email' required />
+                          <FormInput type='email' placeholder='example@email.com' required />
                           <FormLabel htmlFor='for'>Password</FormLabel>
-                          <FormInput type='password' required />
+                          <FormInput type='password' placeholder='enter password' required />
                           <FormLabel htmlFor='for'>Confirm Password</FormLabel>
-                          <FormInput type='password' required />
-                          <FormButton type='submit'>Continue</FormButton>
+                          <FormInput type='password'placeholder='confirm password' required />
+                          <FormButton type='submit'>Sign up</FormButton>
                           
                       </Form>
                   </FormContent>
