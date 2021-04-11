@@ -8,7 +8,7 @@ import DashboardPage from './pages/dashboard'
 import Overview from './pages/Overview'
 import UserProfilePage from './pages/UserPersonalInfo';
 import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './pages/Reports';
-import Team from './pages/Team';
+import Logging from './pages/logging';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path='/reports/reports1' exact component={ReportsOne} />
         <Route path='/reports/reports2' exact component={ReportsTwo} />
         <Route path='/reports/reports3' exact component={ReportsThree} />
-        <Route path='/team' exact component={Team} />
+        <Route path='/logging' exact component={Logging} />
       </Switch>
     </Router>
   );

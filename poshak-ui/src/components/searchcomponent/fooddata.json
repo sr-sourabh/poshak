@@ -1,0 +1,401 @@
+[ {
+    "id": 1,
+    "food" : "Cows' milk",
+    "measure" : "1 qt.",
+    "grams" : "976.0",
+    "calories" : "660.0",
+    "protein" : "32.0",
+    "fat" : "40.0",
+    "satFat" : "36.0",
+    "fiber" : "0.0",
+    "carbs" : "48.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164b"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164b"
+      }
+    }
+  }, {
+    "id": 2,
+    "food" : "Milk skim",
+    "measure" : "1 qt.",
+    "grams" : "984.0",
+    "calories" : "360.0",
+    "protein" : "36.0",
+    "fat" : "0.0",
+    "satFat" : "0.0",
+    "fiber" : "0.0",
+    "carbs" : "52.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164c"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164c"
+      }
+    }
+  }, {
+    "id": 3,
+    "food" : "Buttermilk",
+    "measure" : "1 cup",
+    "grams" : "246.0",
+    "calories" : "127.0",
+    "protein" : "9.0",
+    "fat" : "5.0",
+    "satFat" : "4.0",
+    "fiber" : "0.0",
+    "carbs" : "13.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164d"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164d"
+      }
+    }
+  }, {
+    "id": 4,
+    "food" : "Evaporated undiluted",
+    "measure" : "1 cup",
+    "grams" : "252.0",
+    "calories" : "345.0",
+    "protein" : "16.0",
+    "fat" : "20.0",
+    "satFat" : "18.0",
+    "fiber" : "0.0",
+    "carbs" : "24.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164e"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164e"
+      }
+    }
+  }, {
+    "id": 5,
+    "food" : "Fortified milk",
+    "measure" : "6 cups",
+    "grams" : "1419.0",
+    "calories" : "1373.0",
+    "protein" : "89.0",
+    "fat" : "42.0",
+    "satFat" : "23.0",
+    "fiber" : "1.4",
+    "carbs" : "119.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164f"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709164f"
+      }
+    }
+  }, {
+    "id": 6,
+    "food" : "Powdered milk",
+    "measure" : "1 cup",
+    "grams" : "103.0",
+    "calories" : "515.0",
+    "protein" : "27.0",
+    "fat" : "28.0",
+    "satFat" : "24.0",
+    "fiber" : "0.0",
+    "carbs" : "39.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091650"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091650"
+      }
+    }
+  }, {
+    "id": 7,
+    "food" : "skim instant",
+    "measure" : "1 1/3 cups",
+    "grams" : "85.0",
+    "calories" : "290.0",
+    "protein" : "30.0",
+    "fat" : "0.0",
+    "satFat" : "0.0",
+    "fiber" : "0.0",
+    "carbs" : "42.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091651"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091651"
+      }
+    }
+  }, {
+    "id": 8,
+    "food" : "skim non-instant",
+    "measure" : "2/3 cup",
+    "grams" : "85.0",
+    "calories" : "290.0",
+    "protein" : "30.0",
+    "fat" : "0.0",
+    "satFat" : "0.0",
+    "fiber" : "1.0",
+    "carbs" : "42.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091652"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091652"
+      }
+    }
+  }, {
+    "id": 9,
+    "food" : "Goats' milk",
+    "measure" : "1 cup",
+    "grams" : "244.0",
+    "calories" : "165.0",
+    "protein" : "8.0",
+    "fat" : "10.0",
+    "satFat" : "8.0",
+    "fiber" : "0.0",
+    "carbs" : "11.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091653"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091653"
+      }
+    }
+  }, {
+    "id": 10,
+    "food" : "(1/2 cup ice cream)",
+    "measure" : "2 cups",
+    "grams" : "540.0",
+    "calories" : "690.0",
+    "protein" : "24.0",
+    "fat" : "24.0",
+    "satFat" : "22.0",
+    "fiber" : "0.0",
+    "carbs" : "70.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091654"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091654"
+      }
+    }
+  }, {
+    "id": 11,
+    "food" : "Cocoa",
+    "measure" : "1 cup",
+    "grams" : "252.0",
+    "calories" : "235.0",
+    "protein" : "8.0",
+    "fat" : "11.0",
+    "satFat" : "10.0",
+    "fiber" : "0.0",
+    "carbs" : "26.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091655"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091655"
+      }
+    }
+  }, {
+    "id": 12,
+    "food" : "skim. milk",
+    "measure" : "1 cup",
+    "grams" : "250.0",
+    "calories" : "128.0",
+    "protein" : "18.0",
+    "fat" : "4.0",
+    "satFat" : "3.0",
+    "fiber" : "1.0",
+    "carbs" : "13.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091656"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091656"
+      }
+    }
+  }, {
+    "id": 13,
+    "food" : "(cornstarch)",
+    "measure" : "1 cup",
+    "grams" : "248.0",
+    "calories" : "275.0",
+    "protein" : "9.0",
+    "fat" : "10.0",
+    "satFat" : "9.0",
+    "fiber" : "0.0",
+    "carbs" : "40.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091657"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091657"
+      }
+    }
+  }, {
+    "id": 14,
+    "food" : "Custard",
+    "measure" : "1 cup",
+    "grams" : "248.0",
+    "calories" : "285.0",
+    "protein" : "13.0",
+    "fat" : "14.0",
+    "satFat" : "11.0",
+    "fiber" : "0.0",
+    "carbs" : "28.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091658"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091658"
+      }
+    }
+  }, {
+    "id": 15,
+    "food" : "Ice cream",
+    "measure" : "1 cup",
+    "grams" : "188.0",
+    "calories" : "300.0",
+    "protein" : "6.0",
+    "fat" : "18.0",
+    "satFat" : "16.0",
+    "fiber" : "0.0",
+    "carbs" : "29.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091659"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f8907091659"
+      }
+    }
+  }, {
+    "id": 16,
+    "food" : "Ice milk",
+    "measure" : "1 cup",
+    "grams" : "190.0",
+    "calories" : "275.0",
+    "protein" : "9.0",
+    "fat" : "10.0",
+    "satFat" : "9.0",
+    "fiber" : "0.0",
+    "carbs" : "32.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165a"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165a"
+      }
+    }
+  }, {
+    "id": 17,
+    "food" : "Cream or half-and-half",
+    "measure" : "1/2 cup",
+    "grams" : "120.0",
+    "calories" : "170.0",
+    "protein" : "4.0",
+    "fat" : "15.0",
+    "satFat" : "13.0",
+    "fiber" : "0.0",
+    "carbs" : "5.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165b"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165b"
+      }
+    }
+  }, {
+    "id": 18,
+    "food" : "or whipping",
+    "measure" : "1/2 cup",
+    "grams" : "119.0",
+    "calories" : "430.0",
+    "protein" : "2.0",
+    "fat" : "44.0",
+    "satFat" : "27.0",
+    "fiber" : "1.0",
+    "carbs" : "3.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165c"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165c"
+      }
+    }
+  }, {
+    "id": 19,
+    "food" : "Cheese",
+    "measure" : "1 cup",
+    "grams" : "225.0",
+    "calories" : "240.0",
+    "protein" : "30.0",
+    "fat" : "11.0",
+    "satFat" : "10.0",
+    "fiber" : "0.0",
+    "carbs" : "6.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165d"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165d"
+      }
+    }
+  }, {
+    "id": 20,
+    "food" : "uncreamed",
+    "measure" : "1 cup",
+    "grams" : "225.0",
+    "calories" : "195.0",
+    "protein" : "38.0",
+    "fat" : "0.0",
+    "satFat" : "0.0",
+    "fiber" : "0.0",
+    "carbs" : "6.0",
+    "category" : "Dairy products",
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165e"
+      },
+      "food" : {
+        "href" : "http://localhost:8080/foods/6071f83f42485f890709165e"
+      }
+    }
+  } ]

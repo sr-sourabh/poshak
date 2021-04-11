@@ -58,8 +58,8 @@ export const SidebarData = [
     icon: <FaIcons.FaCartPlus />
   },
   {
-    title: 'Team',
-    path: '/team',
+    title: 'Logging',
+    path: '/logging',
     icon: <IoIcons.IoMdPeople />
   },
   {
