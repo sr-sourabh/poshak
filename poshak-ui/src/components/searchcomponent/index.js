@@ -1,106 +1,94 @@
-import { Input } from "antd"
-import { useCombobox } from "downshift"
-import React, { useEffect, useState } from "react"
+import {Input} from "antd"
+import {useCombobox} from "downshift"
+import React, {useEffect, useState} from "react"
 import "./search.css"
-import styled from 'styled-components'
 import fooddata from './fooddata.json'
 
 
 function SearchComp() {
-  const [inputItems, setInputItems] = useState([])
-  const [users, setUsers] = useState([])
-  const [singleUser, setSingleUser] = useState("")
+    const [inputItems, setInputItems] = useState([])
+    const [users, setUsers] = useState([])
+    const [singleUser, setSingleUser] = useState("")
 
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((data) => setUsers(data))
-  // }, [])
-  
-  // useEffect(() => {
-  //   fetch(`${fooddata}.json`)
-  //     .then((response) => response.json())
-  //     .then((data) => setUsers(data))
-  // }, [])
+    useEffect(() => {
+        fetch("http://localhost:8080/food/all")
+            .then((response) => response.json())
+            .then((data) => setUsers(data))
+    }, [])
 
-  useEffect(() => {
-     setUsers(fooddata)
-  }, [])
- 
-  console.log(fooddata);
+    // useEffect(() => {
+    //   fetch(`${fooddata}.json`)
+    //     .then((response) => response.json())
+    //     .then((data) => setUsers(data))
+    // }, [])
 
-  const {
-    isOpen,
-    getMenuProps,
-    getInputProps,
-    getComboboxProps,
-    highlightedIndex,
-    getItemProps,
-  } = useCombobox({
-    items: inputItems,
-    onInputValueChange: ({ inputValue }) => {
-      setInputItems(
-        users.filter((item) =>
-          item.food.toLowerCase().startsWith(inputValue.toLowerCase())
-        )
-      )
-    },
-  })
+    /*useEffect(() => {
+       setUsers(fooddata)
+    }, [])*/
+
+    console.log(fooddata);
+
+    const {
+        isOpen,
+        getMenuProps,
+        getInputProps,
+        getComboboxProps,
+        highlightedIndex,
+        getItemProps,
+    } = useCombobox({
+        items: inputItems,
+        onInputValueChange: ({inputValue}) => {
+            setInputItems(
+                users.filter((item) =>
+                    item.food.toLowerCase().startsWith(inputValue.toLowerCase())
+                )
+            )
+        },
+    })
 
 
-  return (
-    <div className="App">
-      <h1>Current Item: {singleUser}</h1>
-      <div {...getComboboxProps()}>
-        <Input
-          {...getInputProps()}
-          placeholder="Search"
-          enterButton="Search"
-        //   value={singleUser}
-          type="text"
-          size="large"
-        />
-        
-      </div>
-      <ul {...getMenuProps()}>
-        {isOpen &&
-          inputItems.map((item, index) => (
-            <span
-              key={item.id}
-              {...getItemProps({ item, index })}
-              onClick={() => setSingleUser(item.food)}
-            >
+    return (
+        <div className="App">
+            <h1>Current Item: {singleUser}</h1>
+            <div {...getComboboxProps()}>
+                <Input
+                    {...getInputProps()}
+                    placeholder="Search"
+                    enterButton="Search"
+                    //   value={singleUser}
+                    type="text"
+                    size="large"
+                />
+
+            </div>
+            <ul {...getMenuProps()}>
+                {isOpen &&
+                inputItems.map((item, index) => (
+                    <span
+                        key={item.id}
+                        {...getItemProps({item, index})}
+                        onClick={() => setSingleUser(item.food)}
+                    >
               <li
-                style={highlightedIndex === index ? { background: "#ede" } : {}}
+                  style={highlightedIndex === index ? {background: "#ede"} : {}}
               >
                 <h4>{item.food}</h4>
               </li>
             </span>
-          ))}
-      </ul>
-      <h1> <label for="quant">Quantity:</label><br /> </h1>
-      <input 
-        type="text"
-        id="quant"
-        name="quant"    
-        /> <br /><br />
-        <button type='submit' className="btn">Log</button>
-    </div>
-  )
+                ))}
+            </ul>
+            <h1><label for="quant">Quantity:</label><br/></h1>
+            <input
+                type="text"
+                id="quant"
+                name="quant"
+            /> <br/><br/>
+            <button type='submit' className="btn">Log</button>
+        </div>
+    )
 }
 
 export default SearchComp;
-
-
-
-
-
-
-
-
-
-
-
 
 
 // import React, {useEffect, useState} from 'react'
@@ -137,7 +125,6 @@ export default SearchComp;
 //         },
 
 //     })
-
 
 
 //     return (
