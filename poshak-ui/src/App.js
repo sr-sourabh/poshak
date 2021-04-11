@@ -6,6 +6,7 @@ import SigninPage from './pages/signin';
 import SignupPage from './pages/signup';
 import DashboardPage from './pages/dashboard'
 import Overview from './pages/Overview'
+import UserProfilePage from './pages/UserPersonalInfo';
 import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './pages/Reports';
 import Logging from './pages/logging';
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' component = {Home} exact/>
         <Route path='/signin' component = {SigninPage} exact/>
         <Route path='/signup' component = {SignupPage} exact/>
+        <Route path='/userPersonalInfo' component = {UserProfilePage} exact/>
         <Route path='/dashboard' component = {DashboardPage} exact/>
         <Route path='/overview' component = {Overview} exact/>
         <Route path='/reports' exact component={Reports} />
