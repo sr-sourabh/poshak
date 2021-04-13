@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.iiitb</groupId>
     <artifactId>poshak</artifactId>
-    <version>2020.1</version>
+    <version>2021.1</version>
     <packaging>war</packaging>
     <name>poshak</name>
     <description>Poshak nutrition web app</description>
