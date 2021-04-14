@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Chart from '../components/Charts/chart';
 
-class Report1 extends Component {
+class Report3 extends Component {
     constructor(){
       super();
       this.state = {
@@ -48,10 +48,10 @@ class Report1 extends Component {
     render() {
       return (
         <div >
-          <Chart chartData={this.state.chartData} location="daily" legendPosition="bottom"/>
+          <Chart chartData={this.state.chartData} location="monthly" legendPosition="bottom"/>
         </div>
       );
     }
   }
   
-  export default Report1;
+  export default Report3;

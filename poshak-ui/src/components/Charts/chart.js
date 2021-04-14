@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Doughnut, Bar, Line, Pie} from 'react-chartjs-2';
 
 class Chart extends Component{
   constructor(props){
@@ -24,7 +24,7 @@ class Chart extends Component{
           options={{
             title:{
               display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
+              text:'Bar chart showing '+this.props.location+ ' distribution of Macronutrients',
               fontSize:25
             },
             legend:{
@@ -39,7 +39,7 @@ class Chart extends Component{
           options={{
             title:{
               display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
+              text:'Line chart showing '+this.props.location+ ' distribution of Macronutrients',
               fontSize:25
             },
             legend:{
@@ -49,12 +49,12 @@ class Chart extends Component{
           }}
         />
 
-        <Pie
+        <Doughnut
           data={this.state.chartData}
           options={{
             title:{
               display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
+              text:'Pie chart showing '+this.props.location+ ' distribution of Macronutrients',
               fontSize:25
             },
             legend:{
