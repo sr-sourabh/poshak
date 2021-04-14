@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardSidebar from '../components/dashboardSideBar'
 import Chart from "../components/Charts/chart"
+import Report1 from './report1';
 
 export const Reports = () => {
   return (
@@ -17,10 +18,9 @@ export const Reports = () => {
 export const ReportsOne = () => {
   return (
     <>
-     <DashboardSidebar />
-     <Chart />     
+     <DashboardSidebar />  
      <div className='reports'>
-        <h1>Reports/reports1</h1>
+        <Report1 />
       </div>
     </>
     
