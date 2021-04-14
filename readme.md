@@ -25,6 +25,8 @@ sudo systemctl start mongod.service
     sudo mv ./kubectl /usr/local/bin/kubectl
     kubectl version -o json
     
+    sudo systemctl start virtualbox
+    
     minikube start
     kubectl config view
     kubectl cluster-info
@@ -37,6 +39,13 @@ sudo systemctl start mongod.service
     minikube delete
     minikube addons list
     minikube dashboard
+    
+    kubectl describe service <service-name>
+    kubectl get pod -o wide
+    kubectl delete -f deployment.yaml
+    kubectl apply deployment.yaml
+    kubectl get all
+   
 
 ```
 
