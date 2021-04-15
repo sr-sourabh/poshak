@@ -1,7 +1,5 @@
 FROM openjdk:8-jre-alpine
 
-RUN mvn clean install
-
 COPY target/poshak-2021.1.war /home/app.war
 
 CMD ["/usr/bin/java", "-jar", "/home/app.war"]
