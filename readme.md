@@ -46,6 +46,11 @@ sudo systemctl start mongod.service
     kubectl apply deployment.yaml
     kubectl get all
    
+   --assign ip address to open in browser
+   minikube service poshak-ui
+   
+   kubectl delete service --all
+   kubectl delete deployment --all
 
 ```
 
