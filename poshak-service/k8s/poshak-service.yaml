@@ -14,6 +14,7 @@ spec:
       labels:
         app: poshak-service
     spec:
+      dnsPolicy: Default
       containers:
         - name: poshak-service
           image: registry.hub.docker.com/sourabhpayal/poshak-service
@@ -28,6 +29,8 @@ kind: Service
 metadata:
   name: poshak-service
 spec:
+  type: ExternalName
+  externalName: cluster0.ndd9h.mongodb.net
   selector:
     app: poshak-service
   ports:
