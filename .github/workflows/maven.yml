@@ -23,8 +23,7 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn clean install --file poshak-service/pom.xml
-    - name: Build the Docker image poshak-service
-      run: docker build . --file poshak-service/Dockerfile --tag 
+    - name: Build the Docker image poshak-service 
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
         image: sourabhpayal/poshak-service
