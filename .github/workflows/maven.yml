@@ -24,10 +24,10 @@ jobs:
     - name: Build with Maven
       run: mvn clean install --file poshak-service/pom.xml
     - name: Build the Docker image poshak-service 
-      uses: mr-smithers-excellent/docker-build-push@v4
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: sourabhpayal/poshak-service
-        tags: latest
+        tags: v1, latest
         registry: registry.hub.docker.com
         dockerfile: poshak-service/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
