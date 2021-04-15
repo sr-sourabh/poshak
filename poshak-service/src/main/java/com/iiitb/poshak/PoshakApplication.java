@@ -18,7 +18,8 @@ public class PoshakApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/**").allowedOrigins("http://localhost:3000",
+                        "https://poshak-ui-sr-sourabh.cloud.okteto.net/");
             }
         };
     }
