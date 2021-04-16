@@ -11,7 +11,7 @@ function SearchComp() {
     const [singleUser, setSingleUser] = useState("")
 
     useEffect(() => {
-        fetch("https://poshak-ui-sr-sourabh.cloud.okteto.net/")
+        fetch("poshak-service/food/all")
             .then((response) => response.json())
             .then((data) => setUsers(data))
     }, [])
