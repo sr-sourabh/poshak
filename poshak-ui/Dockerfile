@@ -2,6 +2,9 @@ FROM node:13.12.0-alpine
 
 WORKDIR /poshak-ui
 
+RUN pwd .
+RUN pwd ./
+
 ENV PATH /poshak-ui/node_modules/.bin:$PATH
 
 COPY package.json ./
