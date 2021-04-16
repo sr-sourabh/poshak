@@ -7,11 +7,36 @@ import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
 import Nutrients from "./dashboardComponents/nutrients";
 
+import {
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+  buildStyles
+} from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+const percentage = 66;
+
+function Example(props) {
+  return (
+      <div style={{ marginBottom: 80 }}>
+        <hr style={{ border: "2px solid #ddd" }} />
+        <div style={{ marginTop: 30, display: "flex" }}>
+          <div style={{ width: "30%", paddingRight: 30 }}>{props.children}</div>
+          <div style={{ width: "70%" }}>
+            <h3 className="h5">{props.label}</h3>
+            <p>{props.description}</p>
+            <p>{props.description1}</p>
+          </div>
+        </div>
+      </div>
+  );
+}
+
+
 const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle title="Blog Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
+      <PageTitle title="Your Nutrition Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
     </Row>
 
     {/* Small Stats Blocks */}
@@ -31,6 +56,75 @@ const BlogOverview = ({ smallStats }) => (
           />
         </Col>
       ))}
+    </Row>
+
+    <Row>
+      <Col>
+        <Example label="Total Calories" description="Today">
+          <CircularProgressbarWithChildren value={66} strokeWidth={5}>
+            {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
+            <div style={{ fontSize: 12, marginTop: 25 , marginBottom:-3}}>
+              <p><b>2000</b> cal</p>
+            </div>
+            <div style={{ fontSize: 12, marginTop: -5 }}>
+              <p>{percentage}% of Goal</p>
+            </div>
+          </CircularProgressbarWithChildren>
+        </Example>
+      </Col>
+      <Col>
+        <Example label="Macronutrients Goals" >
+          <CircularProgressbarWithChildren
+              value={80}
+              counterClockwise
+              strokeWidth={5}
+              styles={buildStyles({
+                pathColor: "#ff1a75"
+
+              })}
+          >
+            {/*
+          Width here needs to be (100 - 2 * strokeWidth)%
+          in order to fit exactly inside the outer progressbar.
+        */}
+            <div style={{ width: "80%" }}>
+              <CircularProgressbarWithChildren
+                  value={75}
+                  strokeWidth={5}
+                  counterClockwise
+                  styles={buildStyles({
+                    pathColor: "#80dfff",
+                    strokeLinecap: "round"
+                  })}
+              >
+                <div style={{ width: "78%" }}>
+                  <CircularProgressbarWithChildren
+                      value={60}
+                      strokeWidth={6}
+                      counterClockwise
+                      styles={buildStyles({
+                        pathColor: "#00e600",
+                        strokeLinecap: "round"
+                      })}
+                  >
+                    <div style={{ fontSize: 15, marginTop: 165 , marginBottom:-3}}>
+                      <p>fat</p>
+                    </div>
+                    <div style={{ fontSize: 15, marginTop: -5 }}>
+                      <p>carbs</p>
+                    </div>
+                    <div style={{ fontSize: 15, marginTop: -5 }}>
+                      <p>protein</p>
+                    </div>
+                  </CircularProgressbarWithChildren>
+                </div>
+              </CircularProgressbarWithChildren>
+            </div>
+
+          </CircularProgressbarWithChildren>
+        </Example>
+      </Col>
+
     </Row>
 
     <Row>
@@ -88,7 +182,7 @@ BlogOverview.propTypes = {
 BlogOverview.defaultProps = {
   smallStats: [
     {
-      label: "Protien",
+      label: "Protein",
       value: "2,390",
       percentage: "4.7%",
       increase: true,
