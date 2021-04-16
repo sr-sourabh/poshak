@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "5.11.10",
-    "@testing-library/react": "11.2.6",
-    "@testing-library/user-event": "12.8.3",
     "antd": "4.15.1",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.1",
@@ -28,10 +25,14 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
     "react-scroll": "1.8.2",
+<<<<<<< HEAD
     "shards-react": "^1.0.0",
     "shortid": "^2.2.14",
     "styled-components": "^5.2.3",
     "web-vitals": "1.1.1"
+=======
+    
+>>>>>>> fff088c82f741df882e6409ace1d81107ef39d87
   },
   "scripts": {
     "start": "react-scripts start",

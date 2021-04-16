@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poshak-service-deployment
+  labels:
+    app: poshak-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poshak-service
+  template:
+    metadata:
+      labels:
+        app: poshak-service
+    spec:
+      dnsPolicy: Default
+      containers:
+        - name: poshak-service
+          image: registry.hub.docker.com/sourabhpayal/poshak-service
+          ports:
+            - name: port8090
+              containerPort: 8090
+            - name: port27017
+              containerPort: 27017
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: poshak-service
+spec:
+  selector:
+    app: poshak-service
+  ports:
+    - protocol: TCP
+      port: 8090
+      targetPort: 8090

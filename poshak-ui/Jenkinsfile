@@ -1,0 +1,54 @@
+pipeline {
+    environment {
+            registry = "registry.hub.docker.com/sourabhpayal/poshak-ui"
+            registryCredential = 'dockerhub-credentials'
+            dockerImage = ''
+            dockerImageLatest = ''
+    }
+    agent any
+    stages {
+         stage('npm install stage'){
+             steps {
+                dir("poshak-ui") {
+                    sh 'npm install'
+                }
+             }
+         }
+         stage('Build Image'){
+             steps {
+                dir("poshak-ui") {
+                    script{
+                        sh 'docker rmi -f $registry:latest &>/dev/null && echo \'Removed old latest image\' '
+                        sh 'docker rmi -f sourabhpayal/poshak-ui:latest &>/dev/null && echo \'Removed old latest image\' '
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                        dockerImageLatest = docker.build registry + ":latest"
+                    }
+                }
+             }
+         }
+         stage('Push to docker hub'){
+            steps{
+                script{
+                    docker.withRegistry('https://registry.hub.docker.com/', registryCredential){
+                        dockerImage.push()
+                        dockerImageLatest.push()
+                    }
+                }
+            }
+         }
+         stage('Clean up'){
+            steps{
+                sh 'docker rmi $registry:$BUILD_NUMBER'
+                sh 'docker rmi -f $registry:latest'
+            }
+         }
+         stage('Pushing tags to git'){
+            steps{
+                sshagent(['ddddddd']) {
+                    sh 'git tag 2021.1.$BUILD_NUMBER'
+                    sh 'git push origin 2021.1.$BUILD_NUMBER'
+                }
+            }
+         }
+    }
+}
