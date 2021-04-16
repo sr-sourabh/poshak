@@ -11,7 +11,7 @@ function SearchComp() {
     const [singleUser, setSingleUser] = useState("")
 
     useEffect(() => {
-        fetch("http://localhost:8080/food/all")
+        fetch("https://poshak-ui-sr-sourabh.cloud.okteto.net/")
             .then((response) => response.json())
             .then((data) => setUsers(data))
     }, [])
@@ -22,11 +22,11 @@ function SearchComp() {
     //     .then((data) => setUsers(data))
     // }, [])
 
-    /*useEffect(() => {
-       setUsers(fooddata)
-    }, [])*/
+    useEffect(() => {
+        setUsers(fooddata)
+    }, [])
 
-    console.log(fooddata);
+    console.log(users);
 
     const {
         isOpen,
@@ -142,6 +142,3 @@ export default SearchComp;
 // }
 
 // export default searchComp ;
-
-
-

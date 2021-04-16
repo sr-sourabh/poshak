@@ -1,5 +1,9 @@
 import React from 'react';
 import DashboardSidebar from '../components/dashboardSideBar'
+import Chart from "../components/Charts/chart"
+import Report1 from './report1';
+import Report2 from './report2';
+import Report3 from './report3';
 
 export const Reports = () => {
   return (
@@ -15,24 +19,36 @@ export const Reports = () => {
 
 export const ReportsOne = () => {
   return (
-    <div className='reports'>
-      <h1>Reports/reports1</h1>
-    </div>
+    <>
+     <DashboardSidebar />  
+     <div className='reports'>
+        <Report1 />
+      </div>
+    </>
+    
   );
 };
 
 export const ReportsTwo = () => {
   return (
-    <div className='reports'>
-      <h1>Reports/reports2</h1>
-    </div>
+    <>
+     <DashboardSidebar />  
+     <div className='reports'>
+        <Report2 />
+      </div>
+    </>
+    
   );
 };
 
 export const ReportsThree = () => {
   return (
-    <div className='reports'>
-      <h1>Reports/reports3</h1>
-    </div>
+    <>
+     <DashboardSidebar />  
+     <div className='reports'>
+        <Report3 />
+      </div>
+    </>
+    
   );
 };
