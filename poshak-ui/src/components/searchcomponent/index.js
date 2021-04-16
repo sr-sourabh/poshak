@@ -22,9 +22,9 @@ function SearchComp() {
     //     .then((data) => setUsers(data))
     // }, [])
 
-    useEffect(() => {
+    /*useEffect(() => {
         setUsers(fooddata)
-    }, [])
+    }, [])*/
 
     console.log(users);
 
