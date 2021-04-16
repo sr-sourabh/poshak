@@ -17,4 +17,10 @@ public class UserController {
         return users;
     }
 
+    @PutMapping(value = "/user/signup")
+    public User setUser(@RequestBody UserRequest userRequest) {
+        User users = userService.setUser(userRequest);
+        return users;
+    }
+
 }
