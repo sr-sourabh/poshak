@@ -29,6 +29,7 @@ kind: Service
 metadata:
   name: poshak-service
 spec:
+  type: LoadBalancer
   selector:
     app: poshak-service
   ports:
