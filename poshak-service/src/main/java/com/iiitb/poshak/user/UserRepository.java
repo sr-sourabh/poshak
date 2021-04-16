@@ -9,5 +9,4 @@ import java.util.List;
 public interface UserRepository extends MongoRepository<User, String> {
     User findAllByEmailIdAndPassword(String emailId, String password);
 
-//    User insertEmailIdAndPassword(String emailId, String password, int status);
 }

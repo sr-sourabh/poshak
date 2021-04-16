@@ -19,6 +19,10 @@ public class UserService {
         user.setEmailId(userRequest.getEmailId());
         user.setPassword(userRequest.getPassword());
         user.setStatus(1);
+        user.setName(userRequest.getName());
+        user.setHeight(userRequest.getHeight());
+        user.setWeight(userRequest.getWeight());
+
 
         return userRepository.save(user);
     }

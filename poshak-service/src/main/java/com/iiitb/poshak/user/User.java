@@ -26,6 +26,15 @@ public class User {
     @Field(name = "status")
     private int status;
 
+    @Field(name = "name")
+    private String name;
+
+    @Field(name = "height")
+    private int height;
+
+    @Field(name = "weight")
+    private int weight;
+
 }
 
 
