@@ -2,14 +2,11 @@ FROM node:13.12.0-alpine
 
 WORKDIR /poshak-ui
 
-RUN pwd .
-RUN pwd ./
-
 ENV PATH /poshak-ui/node_modules/.bin:$PATH
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY poshak-ui/package.json ./
+COPY poshak-ui/package-lock.json ./
 
-COPY . ./
+COPY poshak-ui/ ./
 
 CMD ["npm", "start"]
