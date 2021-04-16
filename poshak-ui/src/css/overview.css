@@ -1,0 +1,5 @@
+.nav-expanded {
+    transform: translateX(15rem) !important;
+    /* margin-top: -3rem; */
+    width: 80vw;
+}
