@@ -5,6 +5,7 @@ import { Container, Row, Col } from "shards-react";
 import PageTitle from "./dashboardComponents/PageTitle";
 import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
+import Nutrients from "./dashboardComponents/nutrients";
 
 const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
@@ -45,18 +46,19 @@ const BlogOverview = ({ smallStats }) => (
 
       {/* Users by Device */}
       <Col lg="4" md="6" sm="12" className="mb-4">
-        <UsersByDevice />
+        <Nutrients />
       </Col>
 
       </Row>
-      <Row>
+
+      {/* <Row>
       <Col lg="4" md="6" sm="12" className="mb-4">
         <UsersByDevice />
       </Col>
 
       <Col lg="4" md="6" sm="12" className="mb-4">
         <UsersByDevice />
-      </Col>
+      </Col> */}
 
       {/* New Draft */}
       {/* <Col lg="4" md="6" sm="12" className="mb-4">
@@ -72,7 +74,7 @@ const BlogOverview = ({ smallStats }) => (
       {/* <Col lg="3" md="12" sm="12" className="mb-4">
         <TopReferrals />
       </Col> */}
-    </Row>
+    {/* </Row> */}
   </Container>
 );
 
@@ -86,7 +88,7 @@ BlogOverview.propTypes = {
 BlogOverview.defaultProps = {
   smallStats: [
     {
-      label: "Posts",
+      label: "Protien",
       value: "2,390",
       percentage: "4.7%",
       increase: true,
@@ -104,7 +106,7 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Protien",
+      label: "Fat",
       value: "182",
       percentage: "12.4",
       increase: true,
