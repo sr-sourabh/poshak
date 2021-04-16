@@ -10,8 +10,8 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
-    public List<User> getUser(String name) {
-        return userRepository.findAllByName(name);
+    public User getUser(UserRequest userRequest) {
+        return userRepository.findAllByEmailIdAndPassword(userRequest.getEmailId(), userRequest.getPassword());
     }
 
 }

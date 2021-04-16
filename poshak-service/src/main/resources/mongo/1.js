@@ -12,3 +12,9 @@ db.user.insert({"name": "himanshu"});
 db.user.insert({"name": "mike"});
 
 db.user.find();
+
+
+
+db.user.insert({"email_id": "ayush@gmail.com", "password":"apple", "status":0});
+db.user.insert({"email_id": "sourabh@gmail.com", "password":"sourabh", "status":0});
+db.user.insert({"email_id": "himanshu@gmail.com", "password":"himanshu", "status":0});
