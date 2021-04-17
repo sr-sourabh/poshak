@@ -12,65 +12,63 @@ import {
     FormInput,
     FormButton,
     Text
-} 
-from './SigninElements'
+}
+    from './SigninElements';
+
+import Commons from '../commons.js';
 
 const SignIn = () => {
 
-    const [state , setState] = useState({
-        email : "",
-        password : "",
-        datarecived : ""
+    const [state, setState] = useState({
+        email: "",
+        password: "",
+        datarecived: ""
     })
 
-    const [path , setPath] = useState("/signin")
+    const [path, setPath] = useState("/signin")
 
     const handleChange = (e) => {
 
     }
 
     function handleSubmit(e) {
-        // alert(document.getElementById("email").value);
-        // alert(document.getElementById("password").value);
+        e.preventDefault();
         axios({
             method: 'put',
-            url: 'http://localhost:8090/user/login',
+            url: Commons.POSHAK_SERVICE + '/user/login',
             data: {
                 "emailId": document.getElementById("email").value,
-                "password":document.getElementById("password").value
+                "password": document.getElementById("password").value
             }
-        })
-        .then(res => alert(res.data ));
-
-        if(0)
-        {
-            setPath("/overview")
-        }
-        else{
-            setPath("/signin")
-        }
-        // console.log("ddsfsdf");
-        // console.log(state.datarecived);
+        }).then(res => {
+            console.log(res);
+            if (res && res.data !== "" && res.data.id !== "") {
+                console.log("set path to overview");
+                setPath("/overview");
+            } else {
+                console.log("prevent default");
+            }
+        });
     }
 
     return (
         <>
-          <Container>
-              <FormWrap>
-                  <Icon to='/'>Poshak</Icon>
-                  <FormContent>
-                      <Form  action={path}>
-                          <FormH1>Sign In to your account</FormH1>
-                          <FormLabel htmlFor='for'>Email</FormLabel>
-                          <FormInput id="email" type='email' placeholder='example@email.com' required />
-                          <FormLabel htmlFor='for'>Password</FormLabel>
-                          <FormInput id="password" type='password' placeholder='password' required />
-                          <FormButton type='submit' onClick={handleSubmit} >Sign In</FormButton>
-                          <Text>Forgot password</Text>
-                      </Form>
-                  </FormContent>
-              </FormWrap>
-          </Container>  
+            <Container>
+                <FormWrap>
+                    <Icon to='/'>Poshak</Icon>
+                    <FormContent>
+                        <Form action={path}>
+                            <FormH1>Sign In to your account</FormH1>
+                            <FormLabel htmlFor='for'>Email</FormLabel>
+                            <FormInput id="email" type='email' placeholder='example@email.com' required/>
+                            <FormLabel htmlFor='for'>Password</FormLabel>
+                            <FormInput id="password" type='password' placeholder='password' required/>
+                            <FormButton type='submit' onClick={handleSubmit}>Sign In</FormButton>
+                            <Text>Forgot password</Text>
+                        </Form>
+                    </FormContent>
+                </FormWrap>
+            </Container>
         </>
     )
 }
