@@ -44,9 +44,13 @@ const SignIn = () => {
 
         console.log(response);
         if (response && response.data !== "" && response.data.id !== "") {
-            setPath("/overview");
+            // alert("hello");
+            // setPath("/overview");
+            document.location = "/overview"
         } else {
-            setPath("/signin");
+            // alert("bello");
+            // setPath("/signin");
+            document.location = "/signin"
         }
 
     }
@@ -57,7 +61,7 @@ const SignIn = () => {
                 <FormWrap>
                     <Icon to='/'>Poshak</Icon>
                     <FormContent>
-                        <Form action={path}>
+                        <Form >
                             <FormH1>Sign In to your account</FormH1>
                             <FormLabel htmlFor='for'>Email</FormLabel>
                             <FormInput id="email" type='email' placeholder='example@email.com' required/>
