@@ -25,30 +25,30 @@ const SignIn = () => {
         datarecived: ""
     })
 
-    const [path, setPath] = useState("/signin")
+    const [path, setPath] = useState("")
 
     const handleChange = (e) => {
 
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        axios({
+        let response = await axios({
             method: 'put',
             url: Commons.POSHAK_SERVICE + '/user/login',
             data: {
                 "emailId": document.getElementById("email").value,
                 "password": document.getElementById("password").value
             }
-        }).then(res => {
-            console.log(res);
-            if (res && res.data !== "" && res.data.id !== "") {
-                console.log("set path to overview");
-                setPath("/overview");
-            } else {
-                console.log("prevent default");
-            }
         });
+
+        console.log(response);
+        if (response && response.data !== "" && response.data.id !== "") {
+            setPath("/overview");
+        } else {
+            setPath("/signin");
+        }
+
     }
 
     return (
