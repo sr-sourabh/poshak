@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
-
+import "./dashboardStyles.css"
 import PageTitle from "./dashboardComponents/PageTitle";
 import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
@@ -37,8 +37,12 @@ const BlogOverview = ({ smallStats }) => (
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
       <PageTitle title="Your Nutrition Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
+      </Row>
+    <Row>
+      <Col>
+        <a href="logging" className="button3" >Log my meal</a>
+      </Col>
     </Row>
-
     {/* Small Stats Blocks */}
     <Row>
       {smallStats.map((stats, idx) => (
