@@ -17,10 +17,37 @@ public class User {
     @Id
     private String id;
 
-    @Field
+    @Field(name = "email_id")
+    private String emailId;
+
+    @Field(name = "password")
+    private String password;
+
+    @Field(name = "status")
+    private int status;
+
+    @Field(name = "name")
     private String name;
 
-    @DBRef
-    private List<Food> idref;
+    @Field(name = "height")
+    private int height;
+
+    @Field(name = "weight")
+    private int weight;
 
 }
+
+
+//@Document(collection = "user")
+//public class User {
+//    @Id
+//    private String id;
+//
+//    @Field
+//    private String name;
+//
+//    @DBRef
+//    private List<Food> idref;
+//
+//}
+

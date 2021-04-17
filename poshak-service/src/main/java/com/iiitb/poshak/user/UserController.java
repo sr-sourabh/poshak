@@ -1,8 +1,6 @@
 package com.iiitb.poshak.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,9 +11,15 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @GetMapping(value = "/user/{userName}")
-    public List<User> getUser(@PathVariable("userName") String userName) {
-        List<User> users = userService.getUser(userName);
+    @PutMapping(value = "/user/login")
+    public User getUser(@RequestBody UserRequest userRequest) {
+        User users = userService.getUser(userRequest);
+        return users;
+    }
+
+    @PutMapping(value = "/user/signup")
+    public User setUser(@RequestBody UserRequest userRequest) {
+        User users = userService.setUser(userRequest);
         return users;
     }
 
