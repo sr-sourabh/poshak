@@ -23,6 +23,8 @@ const SignIn = () => {
         datarecived : ""
     })
 
+    const [path , setPath] = useState("/signin")
+
     const handleChange = (e) => {
 
     }
@@ -39,6 +41,14 @@ const SignIn = () => {
             }
         })
         .then(res => alert(res.data ));
+
+        if(0)
+        {
+            setPath("/overview")
+        }
+        else{
+            setPath("/signin")
+        }
         // console.log("ddsfsdf");
         // console.log(state.datarecived);
     }
@@ -49,7 +59,7 @@ const SignIn = () => {
               <FormWrap>
                   <Icon to='/'>Poshak</Icon>
                   <FormContent>
-                      <Form  >
+                      <Form  action={path}>
                           <FormH1>Sign In to your account</FormH1>
                           <FormLabel htmlFor='for'>Email</FormLabel>
                           <FormInput id="email" type='email' placeholder='example@email.com' required />
