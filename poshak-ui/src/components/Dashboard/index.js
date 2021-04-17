@@ -7,6 +7,9 @@ import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
 import Nutrients from "./dashboardComponents/nutrients";
 
+
+
+
 import {
   CircularProgressbar,
   CircularProgressbarWithChildren,
@@ -16,6 +19,7 @@ import "react-circular-progressbar/dist/styles.css";
 const percentage = 66;
 
 function Example(props) {
+
   return (
       <div style={{ marginBottom: 80 }}>
         <hr style={{ border: "2px solid #ddd" }} />
@@ -33,6 +37,9 @@ function Example(props) {
 
 
 const BlogOverview = ({ smallStats }) => (
+
+ 
+  
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">

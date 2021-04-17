@@ -46,7 +46,7 @@ const SignIn = () => {
         if (response && response.data !== "" && response.data.id !== "") {
             // alert("hello");
             // setPath("/overview");
-            document.location = "/overview"
+            document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
         } else {
             // alert("bello");
             // setPath("/signin");
