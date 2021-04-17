@@ -18,7 +18,8 @@ public class PoshakApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/**").allowedOriginPatterns("*")
+                        .allowedMethods("GET", "PUT", "POST", "DELETE");
             }
         };
     }
