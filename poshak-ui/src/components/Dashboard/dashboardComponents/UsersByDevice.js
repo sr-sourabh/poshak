@@ -106,20 +106,20 @@ UsersByDevice.propTypes = {
 };
 
 UsersByDevice.defaultProps = {
-  title: "Users by device",
+  title: "Macronutrients % share in your diet",
   chartData: {
     datasets: [
       {
         hoverBorderColor: "#ffffff",
         data: [68.3, 24.2, 7.5],
         backgroundColor: [
-          "rgba(0,123,255,0.9)",
-          "rgba(0,123,255,0.5)",
-          "rgba(0,123,255,0.3)"
+          "#80dfff",
+          "#ff1a75",
+          "#00e600"
         ]
       }
     ],
-    labels: ["Desktop", "Tablet", "Mobile"]
+    labels: ["Carbs", "Protein", "Fat"]
   }
 };
 
