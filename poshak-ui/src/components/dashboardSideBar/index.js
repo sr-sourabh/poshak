@@ -6,6 +6,7 @@ import * as AiIcons from 'react-icons/ai';
 import {SidebarData} from './dashboardSidebarData'
 import SubMenu from './dashboardSubMenu'
 import { IconContext } from 'react-icons/lib';
+import {Link as LinkR} from 'react-router-dom'
 
 
 const Nav = styled.div`
@@ -42,11 +43,52 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
+const NavBtn =styled.nav`
+
+display: flex;
+
+align-items: center;
+
+@media screen and (max-width: 768px) {
+    display: none;
+}
+`;
+
+const NavBtnLink = styled(LinkR)`
+border-radius: 50px;
+background: #01bf71;
+white-space: nowrap;
+padding: 10px 22px;
+color: #010606;
+font-size: 16px;
+outline: none;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+text-decoration: none;
+position: fixed;
+right: 7rem;
+
+&:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+`;
+
 
 const DashboardSidebar = () => {
 
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      sessionStorage.setItem("isLoggedIn", "false");
+          document.location = `/`;
+
+
+  }
 
     return (
         <>
@@ -54,8 +96,14 @@ const DashboardSidebar = () => {
         <Nav>
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
+            
           </NavIcon>
+          <NavBtn>
+                  <NavBtnLink onClick={handleSubmit}>Sign Out</NavBtnLink>
+        </NavBtn>
+          
         </Nav>
+        
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
             <NavIcon to='#'>
@@ -65,7 +113,9 @@ const DashboardSidebar = () => {
               return <SubMenu item={item} key={index} />;
             })}
           </SidebarWrap>
+          
         </SidebarNav>
+        
       </IconContext.Provider>
     </>
     )

@@ -40,7 +40,7 @@ const UserPersonalInfo = () => {
 
         console.log(response);
         if (response && response.data !== "" && response.data.id !== "") {
-            document.location = `/overview?x=${btoa(email)}`;
+            document.location = `/`;
         } else {
             document.location = "/signup"
         }
