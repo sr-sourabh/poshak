@@ -1,15 +1,16 @@
 import './App.css';
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './pages'
 import SigninPage from './pages/signin';
 import SignupPage from './pages/signup';
 import DashboardPage from './pages/dashboard'
 import Overview from './pages/Overview'
 import UserProfilePage from './pages/UserPersonalInfo';
-import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './pages/Reports';
+import {Reports, ReportsOne, ReportsThree, ReportsTwo} from './pages/Reports';
 import Logging from './pages/logging';
 import { ProtectedRoute } from "./protected.route";
+import Admin from "./pages/admin";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/reports/reports2' exact component={ReportsTwo} />
         <Route path='/reports/reports3' exact component={ReportsThree} />
         <Route path='/logging' exact component={Logging} />
+        <Route path='/admin' exact component={Admin}/>
       </Switch>
     </Router>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
-
+import "./dashboardStyles.css"
 import PageTitle from "./dashboardComponents/PageTitle";
 import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
@@ -43,9 +43,13 @@ const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle title="Your Nutrition Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
+      <PageTitle title="Your Nutrition Overview" subtitle="HI, Ron"  className="text-sm-left mb-3" />
+      </Row>
+    <Row>
+      <Col>
+        <a href="logging" className="button3" >Log my meal</a>
+      </Col>
     </Row>
-
     {/* Small Stats Blocks */}
     <Row>
       {smallStats.map((stats, idx) => (
@@ -67,20 +71,20 @@ const BlogOverview = ({ smallStats }) => (
 
     <Row>
       <Col>
-        <Example label="Total Calories" description="Today">
+        <Example label="Total Calories" description="today">
           <CircularProgressbarWithChildren value={66} strokeWidth={5}>
             {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-            <div style={{ fontSize: 12, marginTop: 25 , marginBottom:-3}}>
+            <div style={{ fontSize: 22, marginTop: 25 , marginBottom:-15}}>
               <p><b>2000</b> cal</p>
             </div>
-            <div style={{ fontSize: 12, marginTop: -5 }}>
+            <div style={{ fontSize: 14, marginTop: -5 }}>
               <p>{percentage}% of Goal</p>
             </div>
           </CircularProgressbarWithChildren>
         </Example>
       </Col>
       <Col>
-        <Example label="Macronutrients Goals" >
+        <Example label="Macronutrients Goals" description="today">
           <CircularProgressbarWithChildren
               value={80}
               counterClockwise
