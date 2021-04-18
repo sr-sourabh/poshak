@@ -106,20 +106,24 @@ Nutrients.propTypes = {
 };
 
 Nutrients.defaultProps = {
-  title: "Users by device",
+  title: "Calories consumed in past week",
   chartData: {
     datasets: [
       {
         hoverBorderColor: "#ffffff",
-        data: [68.3, 24.2, 7.5],
+        data: [2300,2200,2140,2500,2400,2550,2600],
         backgroundColor: [
-          "rgba(0,123,255,0.9)",
-          "rgba(0,123,255,0.5)",
-          "rgba(0,123,255,0.3)"
+          "#99e6ff",
+          "#99e6ff",
+          "#99e6ff",
+          "#99e6ff",
+          "#99e6ff",
+          "#99e6ff",
+          "#99e6ff"
         ]
       }
     ],
-    labels: ["Desktop", "Tablet", "Mobile"]
+    labels: ["Sun", "Mon", "Tue","Wed","Thu","Fri","Sat"]
   }
 };
 
