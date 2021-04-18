@@ -16,4 +16,6 @@ public class KafkaModel {
     private String fiber;
     private String carbs;
     private String category;
+    private Integer target;
+    private Integer value;
 }
