@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+import auth from "./auth"
+import { hashHistory } from 'react-router';
 
 import {
     Container,
@@ -17,19 +19,10 @@ import {
 
 import Commons from '../commons.js';
 
-const SignIn = () => {
+const SignIn = (props) => {
 
-    const [state, setState] = useState({
-        email: "",
-        password: "",
-        datarecived: ""
-    })
-
-    const [path, setPath] = useState("")
-
-    const handleChange = (e) => {
-
-    }
+    
+    
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -44,9 +37,22 @@ const SignIn = () => {
 
         console.log(response);
         if (response && response.data !== "" && response.data.id !== "") {
-            setPath("/overview");
+            console.log("hello");
+            // alert("hello");
+            // setPath("/overview");
+            // document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
+            // auth.login(() => {
+            //     // this.props.hashHistory.push("/");
+            //     document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
+            // })
+            sessionStorage.setItem("isLoggedIn", "true");
+            document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
+
+
         } else {
-            setPath("/signin");
+            // alert("bello");
+            // setPath("/signin");
+            document.location = "/signin"
         }
 
     }
@@ -57,7 +63,7 @@ const SignIn = () => {
                 <FormWrap>
                     <Icon to='/'>Poshak</Icon>
                     <FormContent>
-                        <Form action={path}>
+                        <Form >
                             <FormH1>Sign In to your account</FormH1>
                             <FormLabel htmlFor='for'>Email</FormLabel>
                             <FormInput id="email" type='email' placeholder='example@email.com' required/>
