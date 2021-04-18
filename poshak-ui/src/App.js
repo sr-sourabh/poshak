@@ -9,6 +9,7 @@ import Overview from './pages/Overview'
 import UserProfilePage from './pages/UserPersonalInfo';
 import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './pages/Reports';
 import Logging from './pages/logging';
+import { ProtectedRoute } from "./protected.route";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route path='/signup' component = {SignupPage} exact/>
         <Route path='/userPersonalInfo' component = {UserProfilePage} exact/>
         <Route path='/dashboard' component = {DashboardPage} exact/>
-        <Route path='/overview' component = {Overview} exact/>
+        <ProtectedRoute path='/overview' component = {Overview} exact/>
         <Route path='/reports' exact component={Reports} />
         <Route path='/reports/reports1' exact component={ReportsOne} />
         <Route path='/reports/reports2' exact component={ReportsTwo} />

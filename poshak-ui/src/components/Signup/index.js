@@ -18,7 +18,7 @@ from './SignupElements'
 // const emailsign="";
 var passSign="";
 
-const SignUp = (props) => {
+const SignUp = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
