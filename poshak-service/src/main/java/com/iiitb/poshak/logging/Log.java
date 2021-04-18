@@ -1,0 +1,37 @@
+package com.iiitb.poshak.logging;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Data
+@NoArgsConstructor
+public class Log {
+
+    @Id
+    private String id;
+
+    @Field(name = "calorie")
+    private int calorie;
+
+    @Field(name = "protein")
+    private int protein;
+
+    @Field(name = "fat")
+    private int fat;
+
+    @Field(name = "carbs")
+    private int carbs;
+
+    @Field(name = "date")
+    private Data date;
+
+
+//    'Calories': 360.0,
+//            'Protein': 36,
+//            'Fat': 0,
+//            'Sat.Fat': 0.0,
+//            'Fiber': 0.0,
+//            'Carbs': 52.0,
+}
