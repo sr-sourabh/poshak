@@ -16,6 +16,12 @@ public class LoggingService {
 
         Log log = new Log();
         log.setCalorie(loggingRequest.getCalorie());
+        log.setProtein(loggingRequest.getProtein());
+        log.setFat(loggingRequest.getFat());
+        log.setCarbs(loggingRequest.getCarbs());
+        log.setDay(loggingRequest.getDay());
+        log.setMonth(loggingRequest.getMonth());
+        log.setYear(loggingRequest.getYear());
         Logging logging = loggingRepository.findByEmail(loggingRequest.getEmail());
         logging.getLog().add(log);
         logging = loggingRepository.save(logging);

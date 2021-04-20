@@ -16,6 +16,10 @@ public class LoggingRequest {
     private int protein;
     private int fat;
     private int carbs;
+    private int day;
+    private int month;
+    private int year;
+
 //    private Data date;
 }
 

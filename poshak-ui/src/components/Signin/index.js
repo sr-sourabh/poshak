@@ -45,7 +45,9 @@ const SignIn = (props) => {
             //     // this.props.hashHistory.push("/");
             //     document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
             // })
+            var email_check = document.getElementById("email").value;
             sessionStorage.setItem("isLoggedIn", "true");
+            sessionStorage.setItem("email", email_check);
             document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
 
 

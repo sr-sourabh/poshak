@@ -1,4 +1,6 @@
 import React from "react";
+import styled from 'styled-components';
+import {Link as LinkR} from 'react-router-dom'
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
 import "./dashboardStyles.css"
@@ -17,6 +19,42 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 const percentage = 66;
+
+
+
+const NavBtn =styled.nav`
+
+display: flex;
+
+align-items: center;
+
+@media screen and (max-width: 768px) {
+    display: none;
+}
+`;
+
+const NavBtnLink = styled(LinkR)`
+border-radius: 50px;
+background: #01bf71;
+white-space: nowrap;
+padding: 10px 22px;
+color: #010606;
+font-size: 16px;
+outline: none;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+text-decoration: none;
+${'' /* position: fixed;
+right: 7rem; */}
+
+&:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+`;
+
 
 function Example(props) {
 
@@ -50,6 +88,13 @@ const BlogOverview = ({ smallStats }) => (
         <a href="logging" className="button3" >Log my meal</a>
       </Col>
     </Row>
+    <Row>
+    <NavBtn>
+                  <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
+    </NavBtn>
+    </Row>
+
+
     {/* Small Stats Blocks */}
     <Row>
       {smallStats.map((stats, idx) => (
