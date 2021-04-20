@@ -106,12 +106,14 @@ UsersByDevice.propTypes = {
 };
 
 UsersByDevice.defaultProps = {
+  
+
   title: "Macronutrients % share in your diet",
   chartData: {
     datasets: [
       {
         hoverBorderColor: "#ffffff",
-        data: [68.3, 24.2, 7.5],
+        data: [sessionStorage.getItem("PercentCarbs"), sessionStorage.getItem("PercentProtein"), sessionStorage.getItem("PercentFat")],
         backgroundColor: [
           "#80dfff",
           "#ff1a75",

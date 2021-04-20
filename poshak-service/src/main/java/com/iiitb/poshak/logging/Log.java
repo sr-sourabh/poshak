@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Log {
 
-    @Id
+    @Field(name = "id")
     private String id;
 
     @Field(name = "calorie")

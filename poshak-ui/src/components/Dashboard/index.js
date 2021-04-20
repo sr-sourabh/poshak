@@ -8,6 +8,7 @@ import PageTitle from "./dashboardComponents/PageTitle";
 import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
 import Nutrients from "./dashboardComponents/nutrients";
+import axios from 'axios';
 
 
 
@@ -18,7 +19,23 @@ import {
   buildStyles
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-const percentage = 66;
+import { RiGameFill } from "react-icons/ri";
+
+// total standard value
+
+const totalCalorie = 2000;
+const totalProtein = 1000;
+const totalFat = 800;
+const totalCarbs = 1100;
+
+const consumptionProtein = sessionStorage.getItem("Protein")*100/totalProtein;
+const consumptionFat = sessionStorage.getItem("Fat")*100/totalFat;
+const consumptionCarbs = sessionStorage.getItem("Carbs")*100/totalCarbs;
+
+
+
+
+const percentage = sessionStorage.getItem("Calorie")*100/totalCalorie;
 
 
 
@@ -35,7 +52,7 @@ align-items: center;
 
 const NavBtnLink = styled(LinkR)`
 border-radius: 50px;
-background: #01bf71;
+background: #80dfff;
 white-space: nowrap;
 padding: 10px 22px;
 color: #010606;
@@ -74,7 +91,68 @@ function Example(props) {
 }
 
 
+async function handleSubmit(e) {
+  e.preventDefault();
+        let response = await axios({
+            method: 'put',
+            url: "http://localhost:8090/logging/get",
+            data: {
+                // "emailId": sessionStorage.getItem("email")
+                "email": "vijaya@gmail.com"
+            }
+        });
+
+        console.log(response.data.log);
+        console.log(response.data.log.length);
+        var cal = 0;
+        var pro = 0;
+        var fat = 0;
+        var carbs = 0;
+        for(var i = 0; i < response.data.log.length; i++) {
+
+          cal = cal + response.data.log[i].calorie;
+          pro = pro + response.data.log[i].protein;
+          fat = fat + response.data.log[i].fat;
+          carbs = carbs + response.data.log[i].carbs;
+          
+        }
+        console.log(cal);
+        console.log(pro);
+        console.log(fat);
+        console.log(carbs);
+        sessionStorage.setItem("Calorie", cal);
+        sessionStorage.setItem("Protein", pro);
+        sessionStorage.setItem("Fat", fat);
+        sessionStorage.setItem("Carbs", carbs);
+
+
+        var total = pro + fat + carbs;
+
+        var percentProtein = pro*100/total;
+        percentProtein = percentProtein.toFixed(2);
+
+        var percentFat = fat*100/total;
+        percentFat = percentFat.toFixed(2);
+
+        var percentCarbs = carbs*100/total;
+        percentCarbs = percentCarbs.toFixed(2);
+
+        sessionStorage.setItem("PercentProtein", percentProtein);
+        sessionStorage.setItem("PercentFat", percentFat);
+        sessionStorage.setItem("PercentCarbs", percentCarbs);
+
+        // console.log(percentProtein);
+        // console.log(percentFat);
+        // console.log(percentCarbs);
+
+
+        document.location = `/overview`;
+}
+
 const BlogOverview = ({ smallStats }) => (
+
+
+  
 
  
   
@@ -117,10 +195,10 @@ const BlogOverview = ({ smallStats }) => (
     <Row>
       <Col>
         <Example label="Total Calories" description="today">
-          <CircularProgressbarWithChildren value={66} strokeWidth={5}>
+          <CircularProgressbarWithChildren value={percentage} strokeWidth={5}>
             {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
             <div style={{ fontSize: 22, marginTop: 25 , marginBottom:-15}}>
-              <p><b>2000</b> cal</p>
+              <p><b>{sessionStorage.getItem("Calorie")}</b> cal</p>
             </div>
             <div style={{ fontSize: 14, marginTop: -5 }}>
               <p>{percentage}% of Goal</p>
@@ -131,7 +209,7 @@ const BlogOverview = ({ smallStats }) => (
       <Col>
         <Example label="Macronutrients Goals" description="today">
           <CircularProgressbarWithChildren
-              value={80}
+              value={consumptionProtein}
               counterClockwise
               strokeWidth={5}
               styles={buildStyles({
@@ -145,7 +223,7 @@ const BlogOverview = ({ smallStats }) => (
         */}
             <div style={{ width: "80%" }}>
               <CircularProgressbarWithChildren
-                  value={75}
+                  value={consumptionCarbs}
                   strokeWidth={5}
                   counterClockwise
                   styles={buildStyles({
@@ -155,7 +233,7 @@ const BlogOverview = ({ smallStats }) => (
               >
                 <div style={{ width: "78%" }}>
                   <CircularProgressbarWithChildren
-                      value={60}
+                      value={consumptionFat}
                       strokeWidth={6}
                       counterClockwise
                       styles={buildStyles({
@@ -180,6 +258,7 @@ const BlogOverview = ({ smallStats }) => (
           </CircularProgressbarWithChildren>
         </Example>
       </Col>
+      
 
     </Row>
 
@@ -239,7 +318,7 @@ BlogOverview.defaultProps = {
   smallStats: [
     {
       label: "Protein",
-      value: "2,390",
+      value: sessionStorage.getItem("Protein"),
       percentage: "4.7%",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -257,7 +336,7 @@ BlogOverview.defaultProps = {
     },
     {
       label: "Fat",
-      value: "182",
+      value: sessionStorage.getItem("Fat"),
       percentage: "12.4",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -275,7 +354,7 @@ BlogOverview.defaultProps = {
     },
     {
       label: "Carbohydrates",
-      value: "8,147",
+      value: sessionStorage.getItem("Carbs"),
       percentage: "3.8%",
       increase: false,
       decrease: true,

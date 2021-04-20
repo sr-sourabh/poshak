@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 public class LoggingRequest {
 
+    private String id;
     private String email;
     //    private List<Log> log;
     private int calorie;

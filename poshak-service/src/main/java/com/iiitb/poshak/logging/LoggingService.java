@@ -15,6 +15,7 @@ public class LoggingService {
     public Logging setlog(LoggingRequest loggingRequest) {
 
         Log log = new Log();
+        log.setId(loggingRequest.getId());
         log.setCalorie(loggingRequest.getCalorie());
         log.setProtein(loggingRequest.getProtein());
         log.setFat(loggingRequest.getFat());
@@ -25,6 +26,13 @@ public class LoggingService {
         Logging logging = loggingRepository.findByEmail(loggingRequest.getEmail());
         logging.getLog().add(log);
         logging = loggingRepository.save(logging);
+        return logging;
+
+    }
+
+    public Logging getlog(LoggingRequest loggingRequest) {
+
+        Logging logging = loggingRepository.findByEmail(loggingRequest.getEmail());
         return logging;
 
     }
