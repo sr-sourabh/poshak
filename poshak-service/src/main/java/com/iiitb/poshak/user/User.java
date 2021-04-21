@@ -35,5 +35,17 @@ public class User {
     @Field(name = "weight")
     private int weight;
 
+    @Field(name = "calorie_goal")
+    private Float calorieGoal = 2000.0f;
+
+    @Field(name = "fat_goal")
+    private Float fatGoal = 30.0f;
+
+    @Field(name = "carbs_goal")
+    private Float carbsGoal = 250f;
+
+    @Field(name = "protein_goal")
+    private Float proteinGoal = 48f;
+
 }
 

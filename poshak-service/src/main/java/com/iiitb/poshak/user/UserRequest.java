@@ -6,12 +6,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class UserRequest {
-
     private String emailId;
     private String password;
     private String name;
-    private int status;
-    private int height;
-    private int weight;
-
+    private Integer status;
+    private Integer height;
+    private Integer weight;
+    private Float calorieGoal;
+    private Float fatGoal;
+    private Float carbsGoal;
+    private Float proteinGoal;
 }

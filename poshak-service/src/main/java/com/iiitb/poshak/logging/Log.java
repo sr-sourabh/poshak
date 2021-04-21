@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 public class Log {
@@ -23,12 +25,6 @@ public class Log {
     @Field(name = "carbs")
     private int carbs;
 
-    @Field(name = "day")
-    private int day;
-
-    @Field(name = "month")
-    private int month;
-
-    @Field(name = "year")
-    private int year;
+    @Field(name = "date")
+    private Long date;
 }
