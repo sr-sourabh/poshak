@@ -13,16 +13,20 @@ public class UserService {
     private UserRepository userRepository;
 
     public User getUser(UserRequest userRequest) {
+
         String pass = DigestUtils.sha384Hex(userRequest.getPassword());
 
         return userRepository.findAllByEmailIdAndPassword(userRequest.getEmailId(), pass);
     }
 
     public User setUser(UserRequest userRequest) {
+
         User user = new User();
         user.setEmailId(userRequest.getEmailId());
+//        Hashing
         String pass = DigestUtils.sha384Hex(userRequest.getPassword());
         user.setPassword(pass);
+
         user.setStatus(1);
         user.setName(userRequest.getName());
         user.setHeight(userRequest.getHeight());
