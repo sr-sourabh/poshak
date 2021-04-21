@@ -1,10 +1,10 @@
 package com.iiitb.poshak.logging;
 
 
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Objects;
 
 @Service
 public class LoggingService {
@@ -15,7 +15,6 @@ public class LoggingService {
     public Logging setlog(LoggingRequest loggingRequest) {
 
         Log log = new Log();
-
         log.setId(loggingRequest.getId());
         log.setCalorie(loggingRequest.getCalorie());
         log.setProtein(loggingRequest.getProtein());
@@ -32,7 +31,6 @@ public class LoggingService {
         logging = loggingRepository.save(logging);
 
         return logging;
-
     }
 
     public Logging getlog(LoggingRequest loggingRequest) {
@@ -42,16 +40,3 @@ public class LoggingService {
 
     }
 }
-
-//    public User setUser(UserRequest userRequest) {
-//        User user = new User();
-//        user.setEmailId(userRequest.getEmailId());
-//        user.setPassword(userRequest.getPassword());
-//        user.setStatus(1);
-//        user.setName(userRequest.getName());
-//        user.setHeight(userRequest.getHeight());
-//        user.setWeight(userRequest.getWeight());
-//
-//
-//        return userRepository.save(user);
-//    }

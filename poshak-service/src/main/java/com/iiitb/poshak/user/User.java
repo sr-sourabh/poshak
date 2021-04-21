@@ -37,17 +37,3 @@ public class User {
 
 }
 
-
-//@Document(collection = "user")
-//public class User {
-//    @Id
-//    private String id;
-//
-//    @Field
-//    private String name;
-//
-//    @DBRef
-//    private List<Food> idref;
-//
-//}
-

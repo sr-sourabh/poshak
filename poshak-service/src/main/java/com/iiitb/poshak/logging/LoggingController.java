@@ -1,9 +1,6 @@
 package com.iiitb.poshak.logging;
 
 
-import com.iiitb.poshak.user.User;
-import com.iiitb.poshak.user.UserRequest;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
