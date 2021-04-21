@@ -2,10 +2,7 @@ package com.iiitb.poshak.logging;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -34,12 +31,4 @@ public class Log {
 
     @Field(name = "year")
     private int year;
-
-
-//    'Calories': 360.0,
-//            'Protein': 36,
-//            'Fat': 0,
-//            'Sat.Fat': 0.0,
-//            'Fiber': 0.0,
-//            'Carbs': 52.0,
 }

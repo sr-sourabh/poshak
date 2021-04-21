@@ -1,16 +1,19 @@
 package com.iiitb.poshak.user;
 
-import org.springframework.stereotype.Service;
+import com.iiitb.poshak.logging.Logging;
+import com.iiitb.poshak.logging.LoggingRepository;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.Objects;
 
 @Service
 public class UserService {
     @Resource
     private UserRepository userRepository;
+
+    @Resource
+    private LoggingRepository loggingRepository;
 
     public User getUser(UserRequest userRequest) {
 
@@ -23,7 +26,6 @@ public class UserService {
 
         User user = new User();
         user.setEmailId(userRequest.getEmailId());
-//        Hashing
         String pass = DigestUtils.sha384Hex(userRequest.getPassword());
         user.setPassword(pass);
 
@@ -32,6 +34,9 @@ public class UserService {
         user.setHeight(userRequest.getHeight());
         user.setWeight(userRequest.getWeight());
 
+        Logging logging = new Logging();
+        logging.setEmail(userRequest.getEmailId());
+        loggingRepository.save(logging);
 
         return userRepository.save(user);
     }
