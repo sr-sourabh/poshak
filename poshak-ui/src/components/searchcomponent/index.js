@@ -11,11 +11,11 @@ function SearchComp() {
     const [users, setUsers] = useState([])
     const [singleUser, setSingleUser] = useState("")
 
-    // useEffect(() => {
-    //     fetch("https://poshak-service-sr-sourabh.cloud.okteto.net/food/all")
-    //         .then((response) => response.json())
-    //         .then((data) => setUsers(data))
-    // }, [])
+    useEffect(() => {
+        fetch("https://poshak-service-sr-sourabh.cloud.okteto.net/food/all")
+            .then((response) => response.json())
+            .then((data) => setUsers(data))
+    }, [])
 
     // useEffect(() => {
     //   fetch(`${fooddata}.json`)
@@ -23,9 +23,9 @@ function SearchComp() {
     //     .then((data) => setUsers(data))
     // }, [])
 
-    useEffect(() => {
-        setUsers(fooddata)
-    }, [])
+    // useEffect(() => {
+    //     setUsers(fooddata)
+    // }, [])
 
     // console.log(users);
 
