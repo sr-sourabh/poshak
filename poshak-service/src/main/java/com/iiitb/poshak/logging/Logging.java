@@ -21,6 +21,7 @@ public class Logging {
     @Field(name = "email_id")
     private String email;
 
+
     @Field(name = "log")
     private List<Log> log = new ArrayList<>();
 }
