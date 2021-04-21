@@ -3,6 +3,7 @@ import {useCombobox} from "downshift"
 import React, {useEffect, useState} from "react"
 import "./search.css"
 import fooddata from './fooddata.json'
+import axios from 'axios';
 
 
 function SearchComp() {
@@ -22,11 +23,11 @@ function SearchComp() {
     //     .then((data) => setUsers(data))
     // }, [])
 
-    /*useEffect(() => {
-        setUsers(fooddata)
-    }, [])*/
+    // useEffect(() => {
+    //     setUsers(fooddata)
+    // }, [])
 
-    console.log(users);
+    // console.log(users);
 
     const {
         isOpen,
@@ -45,6 +46,47 @@ function SearchComp() {
             )
         },
     })
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        let response = await axios({
+            method: 'get',
+            url: 'https://poshak-service-sr-sourabh.cloud.okteto.net/foodByName/'+singleUser,
+            
+        });
+    
+         console.log(response);
+        if (response && response.data !== "" && response.data.id !== "") {
+            // console.log(response.data[0].calories);
+            // console.log(response.data[0].protein);
+            // console.log(response.data[0].fat);
+            // console.log(response.data[0].carbs);
+            var today = new Date();
+            var dd = parseInt(String(today.getDate()).padStart(2, '0'));
+            var mm = parseInt(String(today.getMonth() + 1).padStart(2, '0')); //January is 0!
+            var yyyy = today.getFullYear();
+
+            // console.log(sessionStorage.getItem("email"));
+
+            e.preventDefault();
+            let response1 = await axios({
+                method: 'put',
+                url: 'http://localhost:8090/logging/log',
+                data: {
+                    "email": sessionStorage.getItem("email"),
+                    "calorie": parseInt(response.data[0].calories),
+                    "protein": parseInt(response.data[0].protein),
+                    "fat": parseInt(response.data[0].fat),
+                    "carbs": parseInt(response.data[0].carbs),
+                    "day": dd,
+                    "month": mm,
+                    "year": yyyy
+                }
+            });
+            console.log(response1);
+
+        }
+    }
 
 
     return (
@@ -83,7 +125,7 @@ function SearchComp() {
                 id="quant"
                 name="quant"
             /> <br/><br/>
-            <button type='submit' className="btn">Log</button>
+            <button type='submit' className="btn" onClick={handleSubmit}>Log</button>
         </div>
     )
 }
