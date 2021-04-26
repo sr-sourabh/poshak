@@ -15,7 +15,7 @@ export default function Admin() {
             method: 'put',
             url: Commons.POSHAK_SERVICE + '/logging/filter',
             data: {
-                "emails": ["vijaya@gmail.com", "sr@sr.com"],
+                "emails": ["vijaya@gmail.com", "sr@sr.com", "srtest@sr.com"],
                 "lastWeek": true
             }
         }).then((response) => {
@@ -68,7 +68,7 @@ export default function Admin() {
                 <Card title={state[key].userName}>
                     <Row justify="center">
                         <Progress type="circle"
-                                  percent={parseFloat(state[key].fatValue / state[key].fatGoal * 100)
+                                  percent={parseFloat(state[key].calorieValue / state[key].calorieGoal * 100)
                                       .toFixed(2)}/>
                     </Row>
                 </Card>
