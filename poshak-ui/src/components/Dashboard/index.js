@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import {Link as LinkR} from 'react-router-dom'
 import PropTypes from "prop-types";
-import { Container, Row, Col } from "shards-react";
+import { Container, Row, Col, FormSelect, } from "shards-react";
 import "./dashboardStyles.css"
 import PageTitle from "./dashboardComponents/PageTitle";
 import SmallStats from "./dashboardComponents/SmallStats";
@@ -149,6 +149,11 @@ async function handleSubmit(e) {
         document.location = `/overview`;
 }
 
+async function handleSubmit1(e) {
+  e.preventDefault();
+        alert(e.target.value);
+}
+
 const BlogOverview = ({ smallStats }) => (
 
 
@@ -167,9 +172,43 @@ const BlogOverview = ({ smallStats }) => (
       </Col>
     </Row>
     <Row>
-    <NavBtn>
-                  <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
-    </NavBtn>
+    <Col lg="9" md="6" sm="12">
+      <NavBtn>
+                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
+      </NavBtn>
+    </Col>
+    {/* <Col lg="1" md="6" sm="12">
+      <NavBtn>
+                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
+      </NavBtn>
+    </Col>
+    <Col lg="1" md="6" sm="12">
+      <NavBtn>
+                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
+      </NavBtn>
+    </Col>
+    <Col lg="1" md="6" sm="12">
+      <NavBtn>
+                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
+      </NavBtn>
+
+    </Col> */}
+
+    <Col>
+    <Col>
+              <FormSelect
+                size="sm"
+                // value="last-week"
+                style={{ maxWidth: "130px" }}
+                onChange={() => {}} onClick={handleSubmit1}>
+                <option value="last-week">Last Week</option>
+                <option value="today">Today</option>
+                <option value="last-month">Last Month</option>
+                <option value="last-year">Last Year</option>
+              </FormSelect>
+            </Col>
+    </Col>
+    
     </Row>
 
 
