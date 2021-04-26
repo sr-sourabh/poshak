@@ -177,22 +177,7 @@ const BlogOverview = ({ smallStats }) => (
                     <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
       </NavBtn>
     </Col>
-    {/* <Col lg="1" md="6" sm="12">
-      <NavBtn>
-                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
-      </NavBtn>
-    </Col>
-    <Col lg="1" md="6" sm="12">
-      <NavBtn>
-                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
-      </NavBtn>
-    </Col>
-    <Col lg="1" md="6" sm="12">
-      <NavBtn>
-                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
-      </NavBtn>
-
-    </Col> */}
+    
 
     <Col>
     <Col>
