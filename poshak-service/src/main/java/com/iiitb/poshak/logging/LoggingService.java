@@ -110,18 +110,28 @@ public class LoggingService {
         users.forEach(user -> userMap.put(user.getEmailId(), user));
 
         AggregationResults<LoggingDto> userLogs = loggingRepository.aggregateLogsSumByTime(startTime, endTime, filter.getEmails());
-        List<LoggingDto> loggingDtos = userLogs.getMappedResults();
-        for (LoggingDto loggingDto : loggingDtos) {
-            if (Objects.nonNull(loggingDto)) {
-                User user = userMap.get(loggingDto.getEmailId());
-                Long duration = (long) (Math.ceil((double) ((endTime - startTime) / millisInDay)));
-                loggingDto.setUserId(user.getId());
-                loggingDto.setUserName(user.getName());
-                loggingDto.setCarbsGoal(user.getCarbsGoal() * duration);
-                loggingDto.setFatGoal(user.getFatGoal() * duration);
-                loggingDto.setProteinGoal(user.getProteinGoal() * duration);
-                loggingDto.setCalorieGoal(user.getCalorieGoal() * duration);
+        List<LoggingDto> loggingDtos = new ArrayList<>(userLogs.getMappedResults());
+        Map<String, LoggingDto> loggingDtoMap = new HashMap<>();
+        loggingDtos.forEach(loggingDto -> {
+            loggingDtoMap.put(loggingDto.getEmailId(), loggingDto);
+        });
+
+        for (String emailId : userMap.keySet()) {
+            User user = userMap.get(emailId);
+            Long duration = (long) (Math.ceil(((double) (endTime - startTime) / millisInDay)));
+            LoggingDto loggingDto = loggingDtoMap.get(emailId);
+            if (Objects.isNull(loggingDto)) {
+                loggingDto = new LoggingDto();
+                loggingDtos.add(loggingDto);
             }
+            loggingDto.setEmailId(user.getEmailId());
+            loggingDto.setUserId(user.getId());
+            loggingDto.setUserName(user.getName());
+            loggingDto.setCarbsGoal(user.getCarbsGoal() * duration);
+            loggingDto.setFatGoal(user.getFatGoal() * duration);
+            loggingDto.setProteinGoal(user.getProteinGoal() * duration);
+            loggingDto.setCalorieGoal(user.getCalorieGoal() * duration);
+
         }
 
         return loggingDtos;
