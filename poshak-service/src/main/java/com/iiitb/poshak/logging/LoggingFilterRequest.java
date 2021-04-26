@@ -3,10 +3,12 @@ package com.iiitb.poshak.logging;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 public class LoggingFilterRequest {
-    private String email;
+    private List<String> emails;
     private boolean today;
     private boolean lastMonth;
     private boolean lastWeek;

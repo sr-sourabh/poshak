@@ -1,21 +1,13 @@
 package com.iiitb.poshak.kafka;
 
+import com.iiitb.poshak.logging.LoggingDto;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-public class KafkaModel {
-    private String food;
-    private String measure;
-    private String grams;
-    private String calories;
-    private String protein;
-    private String fat;
-    private String satFat;
-    private String fiber;
-    private String carbs;
-    private String category;
-    private Integer target;
-    private Integer value;
+public class KafkaModel extends LoggingDto {
+
 }
