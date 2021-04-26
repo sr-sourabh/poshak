@@ -42,10 +42,10 @@ public class ProducerController {
         kafkaModel.setCalorieValue(loggingDto.getCalorieValue());
 
         //kafka summary for 1 week
-        kafkaModel.setCarbsGoal(loggingDto.getCarbsGoal() * 7);
-        kafkaModel.setFatGoal(loggingDto.getFatGoal() * 7);
-        kafkaModel.setProteinGoal(loggingDto.getProteinGoal() * 7);
-        kafkaModel.setCalorieGoal(loggingDto.getCalorieGoal() * 7);
+        kafkaModel.setCarbsGoal(loggingDto.getCarbsGoal());
+        kafkaModel.setFatGoal(loggingDto.getFatGoal());
+        kafkaModel.setProteinGoal(loggingDto.getProteinGoal());
+        kafkaModel.setCalorieGoal(loggingDto.getCalorieGoal());
 
         kafkaTemplate.send(TOPIC, kafkaModel);
     }
