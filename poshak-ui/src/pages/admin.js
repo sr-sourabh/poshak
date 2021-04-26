@@ -3,14 +3,13 @@ import Commons from "../components/commons";
 import {Card, Progress, Row} from "antd";
 import axios from "axios";
 
-function Admin() {
+export default function Admin() {
 
-    const [state, setState] = useState({});
-    let eventSource = undefined;
+    const [state, setState] = useState(23);
+    var eventSource = undefined;
 
 
     useEffect(() => {
-
         var initialData = {};
         axios({
             method: 'put',
@@ -25,8 +24,7 @@ function Admin() {
                     initialData[user.userId] = user;
                 }
             )
-            setState({a: 2});
-            console.log(state)
+            setState(initialData);
         });
 
         eventSource = new EventSource(Commons.POSHAK_SERVICE + "/kafka/live");
@@ -39,8 +37,10 @@ function Admin() {
                 console.log('Exception while parsing json ', e);
             }
             console.log("received:", result);
-            state[result.userId] = result;
-            setState(state)
+            if (result && result.userId) {
+                initialData[result.userId] = result;
+                setState({...initialData});
+            }
         });
 
         eventSource.onerror = (event) => {
@@ -60,25 +60,19 @@ function Admin() {
             console.log("event closed");
         }
 
-    }, [])
+    }, []);
 
     return (
-
-        <>
-            {
-                Object.keys(state).forEach((key) => {
-                    return (<Card title={state[key].userName}>
-                        <Row justify="center">
-                            <Progress type="circle"
-                                      percent={parseFloat(state[key].fatValue / state[key].fatGoal * 100).toFixed(2)}/>
-                        </Row>
-                    </Card>)
-                })
-            }
-        </>
-
-
+        Object.keys(state).map((key) => {
+            return <div key={key}>
+                <Card title={state[key].userName}>
+                    <Row justify="center">
+                        <Progress type="circle"
+                                  percent={parseFloat(state[key].fatValue / state[key].fatGoal * 100)
+                                      .toFixed(2)}/>
+                    </Row>
+                </Card>
+            </div>;
+        })
     );
 }
-
-export default Admin;
