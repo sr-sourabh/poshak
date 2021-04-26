@@ -60,7 +60,7 @@ class UsersByDevice extends React.Component {
             className="blog-users-by-device m-auto"
           />
         </CardBody>
-        <CardFooter className="border-top center">
+        <CardFooter className="border-top">
           <Row>
             {/* <Col>
               <FormSelect

@@ -9,6 +9,7 @@ import SmallStats from "./dashboardComponents/SmallStats";
 import UsersByDevice from "./dashboardComponents/UsersByDevice";
 import Nutrients from "./dashboardComponents/nutrients";
 import axios from 'axios';
+import Bmi from "./bmi"
 
 
 
@@ -23,10 +24,10 @@ import { RiGameFill } from "react-icons/ri";
 
 // total standard value
 
-const totalCalorie = 2000;
-const totalProtein = 1000;
-const totalFat = 800;
-const totalCarbs = 1100;
+const totalCalorie = sessionStorage.getItem("calGoal");
+const totalProtein = sessionStorage.getItem("proGoal");
+const totalFat = sessionStorage.getItem("fatGoal");
+const totalCarbs = sessionStorage.getItem("carbsGoal");
 
 const consumptionProtein = sessionStorage.getItem("Protein")*100/totalProtein;
 const consumptionFat = sessionStorage.getItem("Fat")*100/totalFat;
@@ -35,7 +36,7 @@ const consumptionCarbs = sessionStorage.getItem("Carbs")*100/totalCarbs;
 
 
 
-const percentage = sessionStorage.getItem("Calorie")*100/totalCalorie;
+const percentage = (sessionStorage.getItem("Calorie")*100/totalCalorie).toFixed(2);
 
 
 
@@ -91,39 +92,49 @@ function Example(props) {
 }
 
 
+
+
 async function handleSubmit(e) {
   e.preventDefault();
-        let response = await axios({
+        alert(e.target.value);
+        var com = e.target.value;
+      let response = await axios({
             method: 'put',
-            url: "http://localhost:8090/logging/get",
+            url: "http://localhost:8090/logging/filter",
             data: {
                 // "emailId": sessionStorage.getItem("email")
-                "email": "vijaya@gmail.com"
+                "emails": ["vijaya@gmail.com"],
+                [com] : true
             }
         });
+         console.log(response.data[0]);
 
-        console.log(response.data.log);
-        console.log(response.data.log.length);
-        var cal = 0;
-        var pro = 0;
-        var fat = 0;
-        var carbs = 0;
-        for(var i = 0; i < response.data.log.length; i++) {
 
-          cal = cal + response.data.log[i].calorie;
-          pro = pro + response.data.log[i].protein;
-          fat = fat + response.data.log[i].fat;
-          carbs = carbs + response.data.log[i].carbs;
-          
-        }
+         var cal = response.data[0].calorieValue;
+        var pro = response.data[0].proteinValue;
+        var fat = response.data[0].fatValue;
+        var carbs = response.data[0].carbsValue;
+
+        var calGoal = response.data[0].calorieGoal;
+        var proGoal = response.data[0].proteinGoal;
+        var fatGoal = response.data[0].fatGoal;
+        var carbsGoal = response.data[0].carbsGoal;
+        
         console.log(cal);
         console.log(pro);
         console.log(fat);
         console.log(carbs);
+
+
         sessionStorage.setItem("Calorie", cal);
         sessionStorage.setItem("Protein", pro);
         sessionStorage.setItem("Fat", fat);
         sessionStorage.setItem("Carbs", carbs);
+
+        sessionStorage.setItem("calGoal", calGoal);
+        sessionStorage.setItem("proGoal", proGoal);
+        sessionStorage.setItem("fatGoal", fatGoal);
+        sessionStorage.setItem("carbsGoal", carbsGoal);
 
 
         var total = pro + fat + carbs;
@@ -141,17 +152,16 @@ async function handleSubmit(e) {
         sessionStorage.setItem("PercentFat", percentFat);
         sessionStorage.setItem("PercentCarbs", percentCarbs);
 
+
+        sessionStorage.setItem("BMI", 25);
+
         // console.log(percentProtein);
         // console.log(percentFat);
         // console.log(percentCarbs);
 
-
+        console.log(response.data[0]);
         document.location = `/overview`;
-}
 
-async function handleSubmit1(e) {
-  e.preventDefault();
-        alert(e.target.value);
 }
 
 const BlogOverview = ({ smallStats }) => (
@@ -185,11 +195,11 @@ const BlogOverview = ({ smallStats }) => (
                 size="sm"
                 // value="last-week"
                 style={{ maxWidth: "130px" }}
-                onChange={() => {}} onClick={handleSubmit1}>
-                <option value="last-week">Last Week</option>
+                onChange={() => {}} onClick={handleSubmit}>
                 <option value="today">Today</option>
-                <option value="last-month">Last Month</option>
-                <option value="last-year">Last Year</option>
+                <option value="lastWeek">Last Week</option>
+                <option value="lastMonth">Last Month</option>
+                <option value="lastYear">Last Year</option>
               </FormSelect>
             </Col>
     </Col>
@@ -287,6 +297,27 @@ const BlogOverview = ({ smallStats }) => (
     </Row>
 
     <Row>
+    {/* <Col lg="6" md="6" sm="12" className="mb-4 center">
+        <Example label="BMI" description="today">
+          <CircularProgressbarWithChildren value={22.5} strokeWidth={5} styles={buildStyles({
+                        pathColor: "#00e600",
+                        strokeLinecap: "round"
+                      })}>
+            {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
+            {/* <div style={{ fontSize: 22, marginTop: 25 , marginBottom:-15}}>
+              <p><b>{22.5}</b> cal</p>
+            </div>
+            
+          </CircularProgressbarWithChildren>
+          
+        </Example>
+      </Col> */} 
+
+      <Col lg="6" md="6" sm="12" className="mb-4">
+      <Bmi className= "shrink"/>
+      </Col>
+
+
       {/* Users Overview */}
       {/* <Col lg="8" md="12" sm="12" className="mb-4">
         <UsersOverview />
@@ -413,3 +444,72 @@ BlogOverview.defaultProps = {
 };
 
 export default BlogOverview;
+
+
+
+
+
+
+
+
+
+
+
+
+// async function handleSubmit(e) {
+//   e.preventDefault();
+//         let response = await axios({
+//             method: 'put',
+//             url: "http://localhost:8090/logging/get",
+//             data: {
+//                 // "emailId": sessionStorage.getItem("email")
+//                 "email": "vijaya@gmail.com"
+//             }
+//         });
+
+//         console.log(response.data.log);
+//         console.log(response.data.log.length);
+//         var cal = 0;
+//         var pro = 0;
+//         var fat = 0;
+//         var carbs = 0;
+//         for(var i = 0; i < response.data.log.length; i++) {
+
+//           cal = cal + response.data.log[i].calorie;
+//           pro = pro + response.data.log[i].protein;
+//           fat = fat + response.data.log[i].fat;
+//           carbs = carbs + response.data.log[i].carbs;
+          
+//         }
+//         console.log(cal);
+//         console.log(pro);
+//         console.log(fat);
+//         console.log(carbs);
+//         sessionStorage.setItem("Calorie", cal);
+//         sessionStorage.setItem("Protein", pro);
+//         sessionStorage.setItem("Fat", fat);
+//         sessionStorage.setItem("Carbs", carbs);
+
+
+//         var total = pro + fat + carbs;
+
+//         var percentProtein = pro*100/total;
+//         percentProtein = percentProtein.toFixed(2);
+
+//         var percentFat = fat*100/total;
+//         percentFat = percentFat.toFixed(2);
+
+//         var percentCarbs = carbs*100/total;
+//         percentCarbs = percentCarbs.toFixed(2);
+
+//         sessionStorage.setItem("PercentProtein", percentProtein);
+//         sessionStorage.setItem("PercentFat", percentFat);
+//         sessionStorage.setItem("PercentCarbs", percentCarbs);
+
+//         // console.log(percentProtein);
+//         // console.log(percentFat);
+//         // console.log(percentCarbs);
+
+
+//         document.location = `/overview`;
+// }
