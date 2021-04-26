@@ -9,7 +9,7 @@ import {
   CardBody,
   CardFooter
 } from "shards-react";
-
+import "./center.css"
 import Chart from "./charts";
 
 class UsersByDevice extends React.Component {
@@ -60,9 +60,9 @@ class UsersByDevice extends React.Component {
             className="blog-users-by-device m-auto"
           />
         </CardBody>
-        <CardFooter className="border-top">
+        <CardFooter className="border-top center">
           <Row>
-            <Col>
+            {/* <Col>
               <FormSelect
                 size="sm"
                 value="last-week"
@@ -74,7 +74,7 @@ class UsersByDevice extends React.Component {
                 <option value="last-month">Last Month</option>
                 <option value="last-year">Last Year</option>
               </FormSelect>
-            </Col>
+            </Col> */}
             <Col className="text-right view-report">
               {/* eslint-disable-next-line */}
               <a href="#">View full report &rarr;</a>

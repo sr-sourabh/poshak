@@ -293,41 +293,17 @@ const BlogOverview = ({ smallStats }) => (
       </Col> */}
 
       {/* Users by Device */}
-      <Col lg="4" md="6" sm="12" className="mb-4">
+      <Col lg="4" md="6" sm="12" className="mb-4 center">
         <UsersByDevice />
       </Col>
 
       {/* Users by Device */}
-      <Col lg="4" md="6" sm="12" className="mb-4">
+      {/* <Col lg="4" md="6" sm="12" className="mb-4">
         <Nutrients />
-      </Col>
+      </Col> */}
 
       </Row>
 
-      {/* <Row>
-      <Col lg="4" md="6" sm="12" className="mb-4">
-        <UsersByDevice />
-      </Col>
-
-      <Col lg="4" md="6" sm="12" className="mb-4">
-        <UsersByDevice />
-      </Col> */}
-
-      {/* New Draft */}
-      {/* <Col lg="4" md="6" sm="12" className="mb-4">
-        <NewDraft />
-      </Col> */}
-
-      {/* Discussions */}
-      {/* <Col lg="5" md="12" sm="12" className="mb-4">
-        <Discussions />
-      </Col> */}
-
-      {/* Top Referrals */}
-      {/* <Col lg="3" md="12" sm="12" className="mb-4">
-        <TopReferrals />
-      </Col> */}
-    {/* </Row> */}
   </Container>
 );
 
