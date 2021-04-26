@@ -30,7 +30,7 @@ const UpdateData = (props) => {
             method: 'put',
             url: "http://localhost:8090/user/signup",
             data: {
-                "emailId": "vijaya@gmail.com",
+                "emailId": sessionStorage.getItem("email"),
                 "name": document.getElementById("name1").value,
                 "height": document.getElementById("height1").value,
                 "weight": document.getElementById("weight1").value

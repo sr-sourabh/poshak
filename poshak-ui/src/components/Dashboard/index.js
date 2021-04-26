@@ -96,18 +96,18 @@ function Example(props) {
 
 async function handleSubmit(e) {
   e.preventDefault();
-        alert(e.target.value);
+        // alert(e.target.value);
         var com = e.target.value;
       let response = await axios({
             method: 'put',
             url: "http://localhost:8090/logging/filter",
             data: {
                 // "emailId": sessionStorage.getItem("email")
-                "emails": ["vijaya@gmail.com"],
+                "emails": [sessionStorage.getItem("email")],
                 [com] : true
             }
         });
-        //  console.log(response.data[0]);
+         console.log(response);
 
 
          var cal = response.data[0].calorieValue;
@@ -158,7 +158,7 @@ async function handleSubmit(e) {
             url: "http://localhost:8090/user/signup",
             data: {
                 // "emailId": sessionStorage.getItem("email")
-                "emailId": "vijaya@gmail.com"
+                "emailId": sessionStorage.getItem("email")
             }
         });
 
@@ -175,7 +175,7 @@ async function handleSubmit(e) {
         // console.log(percentCarbs);
 
         // console.log(response.data[0]);
-        // document.location = `/overview`;
+        document.location = `/overview`;
 
 }
 
