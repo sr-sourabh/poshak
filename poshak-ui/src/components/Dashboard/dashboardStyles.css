@@ -24,3 +24,7 @@ a.button3:hover{
         margin:0.2em auto;
     }
 }
+
+.center {
+  text-align: center;
+}

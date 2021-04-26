@@ -11,6 +11,7 @@ import {Reports, ReportsOne, ReportsThree, ReportsTwo} from './pages/Reports';
 import Logging from './pages/logging';
 import { ProtectedRoute } from "./protected.route";
 import Admin from "./pages/admin";
+import Update from "./pages/update"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/reports/reports2' exact component={ReportsTwo} />
         <Route path='/reports/reports3' exact component={ReportsThree} />
         <Route path='/logging' exact component={Logging} />
+        <Route path='/update' exact component={Update} />
         <Route path='/admin' exact component={Admin}/>
       </Switch>
     </Router>

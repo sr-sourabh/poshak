@@ -68,24 +68,28 @@ function SearchComp() {
 
             // console.log(sessionStorage.getItem("email"));
 
-            e.preventDefault();
+            // e.preventDefault();
+            var Quantity = document.getElementById("quant").value;
+            console.log(Quantity);
             let response1 = await axios({
                 method: 'put',
                 url: 'http://localhost:8090/logging/log',
                 data: {
                     "email": sessionStorage.getItem("email"),
-                    "calorie": parseInt(response.data[0].calories),
-                    "protein": parseInt(response.data[0].protein),
-                    "fat": parseInt(response.data[0].fat),
-                    "carbs": parseInt(response.data[0].carbs),
+                    "calorie": (parseInt(response.data[0].calories))*Quantity,
+                    "protein": (parseInt(response.data[0].protein))*Quantity,
+                    "fat": (parseInt(response.data[0].fat))*Quantity,
+                    "carbs": (parseInt(response.data[0].carbs))*Quantity,
                     "day": dd,
                     "month": mm,
                     "year": yyyy
                 }
             });
             console.log(response1);
+            
 
         }
+        document.location = '/overview';
     }
 
 
