@@ -18,6 +18,7 @@ public class UserController {
     public ErrorDto handleException(Exception e) {
         ErrorDto errorDto = new ErrorDto();
         errorDto.getError().add(e.getMessage());
+        errorDto.setExceptionId("IE-" + System.currentTimeMillis());
         return errorDto;
     }
 

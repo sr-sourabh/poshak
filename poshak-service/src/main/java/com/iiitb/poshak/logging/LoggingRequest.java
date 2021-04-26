@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class LoggingRequest {
-
     private String id;
     private String email;
     private int calorie;
