@@ -9,12 +9,12 @@ bottom: 0;
 left: 0;
 right:0;
 top:0;
-z-index:0;
+z-index:-5;
 overflow: hidden;
 background: linear-gradient(
     108deg,
     rgba(1,147,86,1) 0%,
-    rgba(10,201,122,1) 100%
+    rgba(100,501,122,1) 100%
 );
 `;
 

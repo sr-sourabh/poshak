@@ -60,7 +60,7 @@ const UpdateData = (props) => {
 
     return (
         <>
-            {/* <Container> */}
+            <Container>
                 <FormWrap>
                     
                     <FormContent>
@@ -76,7 +76,7 @@ const UpdateData = (props) => {
                         </Form>
                     </FormContent>
                 </FormWrap>
-            {/* </Container> */}
+            </Container>
         </>
     )
 }
