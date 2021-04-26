@@ -25,58 +25,45 @@ const UpdateData = (props) => {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        
         let response = await axios({
             method: 'put',
-            url: Commons.POSHAK_SERVICE + '/user/login',
+            url: "http://localhost:8090/user/signup",
             data: {
-                "emailId": document.getElementById("email").value,
-                "password": document.getElementById("password").value
+                "emailId": "vijaya@gmail.com",
+                "name": document.getElementById("name1").value,
+                "height": document.getElementById("height1").value,
+                "weight": document.getElementById("weight1").value
             }
         });
 
         console.log(response);
-        if (response && response.data !== "" && response.data.id !== "") {
-            console.log("hello");
-            // alert("hello");
-            // setPath("/overview");
-            // document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
-            // auth.login(() => {
-            //     // this.props.hashHistory.push("/");
-            //     document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
-            // })
-            var email_check = document.getElementById("email").value;
-            sessionStorage.setItem("isLoggedIn", "true");
-            sessionStorage.setItem("email", email_check);
-            document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
+        document.location = `/overview`;
 
 
-        } else {
-            // alert("bello");
-            // setPath("/signin");
-            document.location = "/signin"
-        }
+        
 
     }
 
     return (
         <>
-            <Container>
+            {/* <Container> */}
                 <FormWrap>
                     
                     <FormContent>
                         <Form >
                             <FormH1>Enter the below details to Update Your Information</FormH1>
                             <FormLabel htmlFor='for'>Name</FormLabel>
-                            <FormInput id="name" type='text' placeholder='enter your full name' required />
+                            <FormInput id="name1" type='text' placeholder='enter your full name' required />
                             <FormLabel htmlFor='for'>Height</FormLabel>
-                            <FormInput id="height" type='float' placeholder='enter height in centimeters' required />
+                            <FormInput id="height1" type='float' placeholder='enter height in centimeters' required />
                             <FormLabel htmlFor='for'>Weight</FormLabel>
-                            <FormInput id="weight" type='float' placeholder='enter weight in kilograms' required />
+                            <FormInput id="weight1" type='float' placeholder='enter weight in kilograms' required />
                             <FormButton type='submit' onClick={handleSubmit}>Update</FormButton>
                         </Form>
                     </FormContent>
                 </FormWrap>
-            </Container>
+            {/* </Container> */}
         </>
     )
 }

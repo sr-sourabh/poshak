@@ -107,7 +107,7 @@ async function handleSubmit(e) {
                 [com] : true
             }
         });
-         console.log(response.data[0]);
+        //  console.log(response.data[0]);
 
 
          var cal = response.data[0].calorieValue;
@@ -153,14 +153,29 @@ async function handleSubmit(e) {
         sessionStorage.setItem("PercentCarbs", percentCarbs);
 
 
-        sessionStorage.setItem("BMI", 25);
+        let response1 = await axios({
+            method: 'put',
+            url: "http://localhost:8090/user/signup",
+            data: {
+                // "emailId": sessionStorage.getItem("email")
+                "emailId": "vijaya@gmail.com"
+            }
+        });
+
+        var h = response1.data.height/100;
+        var w = response1.data.weight ;
+        var bmi1 = ((w/h)/h).toFixed(2);
+        console.log(response1.data.height);
+        console.log(response1.data.weight);
+        console.log(bmi1);
+        sessionStorage.setItem("BMI", bmi1);
 
         // console.log(percentProtein);
         // console.log(percentFat);
         // console.log(percentCarbs);
 
-        console.log(response.data[0]);
-        document.location = `/overview`;
+        // console.log(response.data[0]);
+        // document.location = `/overview`;
 
 }
 

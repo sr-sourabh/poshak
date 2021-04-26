@@ -48,7 +48,7 @@ const SignIn = (props) => {
             var email_check = document.getElementById("email").value;
             sessionStorage.setItem("isLoggedIn", "true");
             sessionStorage.setItem("email", email_check);
-            sessionStorage.setItem("BMI", 20);
+            sessionStorage.setItem("BMI", 10);
             document.location = `/overview?x=${btoa(document.getElementById("email").value)}`;
 
 
