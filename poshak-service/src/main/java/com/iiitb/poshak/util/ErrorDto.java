@@ -9,5 +9,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class ErrorDto {
+    private String exceptionId;
     private List<String> error = new ArrayList<>();
 }

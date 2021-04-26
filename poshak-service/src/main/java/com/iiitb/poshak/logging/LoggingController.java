@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 public class LoggingController {
@@ -20,6 +21,7 @@ public class LoggingController {
         e.printStackTrace();
         ErrorDto errorDto = new ErrorDto();
         errorDto.getError().add(e.getMessage());
+        errorDto.setExceptionId("IE-" + System.currentTimeMillis());
         return errorDto;
     }
 
@@ -36,7 +38,7 @@ public class LoggingController {
     }
 
     @PutMapping(value = "/logging/filter")
-    public Logging getLogsByFilter(@RequestBody LoggingFilterRequest loggingFilterRequest) throws Exception {
+    public List<LoggingDto> getLogsByFilter(@RequestBody LoggingFilterRequest loggingFilterRequest) throws Exception {
         return loggingService.getLogsByFilter(loggingFilterRequest);
     }
 }
