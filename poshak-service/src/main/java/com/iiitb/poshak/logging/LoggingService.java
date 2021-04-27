@@ -24,9 +24,6 @@ public class LoggingService {
     @Resource
     private UserRepository userRepository;
 
-    @Resource
-    private ProducerController producerController;
-
     public Logging setlog(LoggingRequest loggingRequest) throws Exception {
 
         Log log = new Log();
@@ -47,14 +44,6 @@ public class LoggingService {
         }
         logging.getLog().add(log);
         logging = loggingRepository.save(logging);
-
-        LoggingFilterRequest request = new LoggingFilterRequest();
-        List<String> emails = new ArrayList<>();
-        emails.add(loggingRequest.getEmail());
-        request.setEmails(emails);
-        request.setLastWeek(true);
-        LoggingDto loggingDto = getLogsByFilter(request).get(0);
-        producerController.postUserInfoToKafka(loggingDto);
 
         return logging;
     }

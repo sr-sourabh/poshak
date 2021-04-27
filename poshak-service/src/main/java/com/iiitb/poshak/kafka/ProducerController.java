@@ -22,31 +22,16 @@ public class ProducerController {
     public boolean post(@PathVariable("value") Integer value) {
 
         KafkaModel kafkaModel = new KafkaModel();
-        kafkaModel.setFatGoal(100.0f);
-        kafkaModel.setFatValue((float) value);
+        kafkaModel.setUserEmail("test@test.com");
+        kafkaModel.setFoodGoal(100L);
+        kafkaModel.setFoodValue((long) value);
 
         kafkaTemplate.send(TOPIC, kafkaModel);
 
         return true;
     }
 
-    public void postUserInfoToKafka(LoggingDto loggingDto) {
-        KafkaModel kafkaModel = new KafkaModel();
-        kafkaModel.setUserId(loggingDto.getUserId());
-        kafkaModel.setUserName(loggingDto.getUserName());
-        kafkaModel.setEmailId(loggingDto.getEmailId());
-
-        kafkaModel.setCarbsValue(loggingDto.getCarbsGoal());
-        kafkaModel.setFatValue(loggingDto.getFatValue());
-        kafkaModel.setProteinValue(loggingDto.getProteinValue());
-        kafkaModel.setCalorieValue(loggingDto.getCalorieValue());
-
-        //kafka summary for 1 week
-        kafkaModel.setCarbsGoal(loggingDto.getCarbsGoal());
-        kafkaModel.setFatGoal(loggingDto.getFatGoal());
-        kafkaModel.setProteinGoal(loggingDto.getProteinGoal());
-        kafkaModel.setCalorieGoal(loggingDto.getCalorieGoal());
-
+    public void postUserInfoToKafka(KafkaModel kafkaModel) {
         kafkaTemplate.send(TOPIC, kafkaModel);
     }
 
