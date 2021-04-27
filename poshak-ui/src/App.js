@@ -13,6 +13,7 @@ import { ProtectedRoute } from "./protected.route";
 import Admin from "./pages/admin";
 import Update from "./pages/update"
 import ExcelLoad from './pages/ExcelPage';
+import diet from './pages/diet';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/update' exact component={Update} />
         <Route path='/admin' exact component={Admin}/>
         <Route path='/excel' exact component={ExcelLoad}/>
+        <Route path='/diet' exact component={diet}/>
       </Switch>
     </Router>
   );
