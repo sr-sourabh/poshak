@@ -55,15 +55,15 @@ const Excel = () => {
         e.preventDefault();
         console.log(items);
 
-        let response = await axios({
-            method: 'put',
-            url: "http://localhost:8090/trainer",
-            data: {
-                trainerEmail: "trainer@gmail.com",
-                excelFoods : items
-                }
-        });
-        console.log(response)
+        // let response = await axios({
+        //     method: 'put',
+        //     url: "http://localhost:8090/trainer",
+        //     data: {
+        //         trainerEmail: "trainer@gmail.com",
+        //         excelFoods : items
+        //         }
+        // });
+        // console.log(response)
 
 
     }
@@ -101,7 +101,9 @@ const Excel = () => {
               <td>{d.foodName}</td>
               <td>{d.quantity}</td>
               <td>{d.timeOfDay}</td>
-              <td>{d.date}</td>
+              <td>{d.day}</td>
+              <td>{d.month}</td>
+              <td>{d.year}</td>
               <td><input type="checkbox"/></td>
             </tr>
           ))}
