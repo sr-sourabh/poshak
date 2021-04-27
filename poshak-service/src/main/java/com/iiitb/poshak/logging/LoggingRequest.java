@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 public class LoggingRequest {
     private String id;
     private String email;
-    private int calorie;
-    private int protein;
-    private int fat;
-    private int carbs;
+    private Float calorie;
+    private Float protein;
+    private Float fat;
+    private Float carbs;
     private int day;
     private int month;
     private int year;
