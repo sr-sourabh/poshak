@@ -10,11 +10,11 @@ public class LoggingDto {
     private String userId;
     private String userName;
     private Float fatGoal;
-    private Float fatValue;
+    private Float fatValue = 0f;
     private Float carbsGoal;
-    private Float carbsValue;
+    private Float carbsValue = 0f;
     private Float proteinGoal;
-    private Float proteinValue;
+    private Float proteinValue = 0f;
     private Float calorieGoal;
-    private Float calorieValue;
+    private Float calorieValue = 0f;
 }

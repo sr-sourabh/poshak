@@ -14,16 +14,16 @@ public class Log {
     private String id;
 
     @Field(name = "calorie")
-    private int calorie;
+    private Float calorie;
 
     @Field(name = "protein")
-    private int protein;
+    private Float protein;
 
     @Field(name = "fat")
-    private int fat;
+    private Float fat;
 
     @Field(name = "carbs")
-    private int carbs;
+    private Float carbs;
 
     @Field(name = "date")
     private Long date;
