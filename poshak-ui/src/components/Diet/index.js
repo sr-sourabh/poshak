@@ -67,7 +67,7 @@ function Diet() {
                         <td>{d.quantity}</td>
                         <td>{d.timeOfDay}</td>
                         <td>{d.date}</td>
-                        <td><input id ={d.id} onClick={handlelog} type="checkbox" /></td>
+                        <td><input id ={d.id} onClick={handlelog} type="checkbox" defaultChecked={d.completed} /></td>
                         </tr>
                     ))}
                     </tbody>
