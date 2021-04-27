@@ -29,9 +29,9 @@ public class TrainerController {
     }
 
     @GetMapping(value = "/trainer")
-    public Set<TrainerGoal> getTrainerGoals(@RequestBody List<String> emails) throws Exception {
+    public Set<TrainerGoal> getTrainerGoals(@RequestBody TrainerGetRequest request) throws Exception {
         //0 element is trainerEmail, 1st element is userEmail
-        return trainerService.getTrainerGoals(emails);
+        return trainerService.getTrainerGoals(request);
     }
 
     @PutMapping(value = "/trainer/complete/{goalId}")

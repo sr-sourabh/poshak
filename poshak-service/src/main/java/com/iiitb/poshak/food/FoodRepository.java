@@ -11,5 +11,5 @@ public interface FoodRepository extends MongoRepository<Food, String> {
 
     List<Food> findAll();
 
-    Food findByFoodIgnoreCase(String foodName);
+    List<Food> findByFoodIgnoreCase(String foodName);
 }

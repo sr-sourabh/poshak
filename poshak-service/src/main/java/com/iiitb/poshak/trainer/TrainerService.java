@@ -37,7 +37,11 @@ public class TrainerService {
         request.getExcelFoods().forEach(excelFoodDto -> {
             TrainerGoal trainerGoal = new TrainerGoal();
             trainerGoal.setTrainerEmail(request.getTrainerEmail());
-            Food food = foodRepository.findByFoodIgnoreCase(excelFoodDto.getFoodName());
+            List<Food> foods = foodRepository.findByFoodIgnoreCase(excelFoodDto.getFoodName());
+            Food food = null;
+            if (!CollectionUtils.isEmpty(foods)) {
+                food = foods.get(0);
+            }
             trainerGoal.setFood(food);
             trainerGoal.setUserEmail(excelFoodDto.getUserEmail());
             trainerGoal.setTimeOfDay(excelFoodDto.getTimeOfDay());
@@ -57,11 +61,11 @@ public class TrainerService {
     }
 
     @Transactional
-    public Set<TrainerGoal> getTrainerGoals(List<String> emails) throws Exception {
-        if (CollectionUtils.isEmpty(emails) || emails.size() != 2) {
-            throw new Exception("Please send both trainer and user Emails. Size of list should be 2");
+    public Set<TrainerGoal> getTrainerGoals(TrainerGetRequest request) throws Exception {
+        if (Strings.isBlank(request.getTrainerEmail()) || Strings.isBlank(request.getUserEmail())) {
+            throw new Exception("Please send both trainer and user Emails");
         }
-        return trainerGoalRepository.findAllByTrainerEmailAndUserEmail(emails.get(0), emails.get(1));
+        return trainerGoalRepository.findAllByTrainerEmailAndUserEmail(request.getTrainerEmail(), request.getUserEmail());
     }
 
     @Transactional
