@@ -1,10 +1,10 @@
 package com.iiitb.poshak.trainer;
 
+import com.iiitb.poshak.kafka.KafkaModel;
 import com.iiitb.poshak.util.ErrorDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Set;
 
@@ -37,6 +37,12 @@ public class TrainerController {
     @PutMapping(value = "/trainer/complete/{goalId}")
     public TrainerGoal completeGoal(@PathVariable("goalId") String goalId) throws Exception {
         return trainerService.completeGoal(goalId);
+    }
+
+    //for kafka only
+    @GetMapping(value = "/trainer/{trainerEmail}")
+    public Set<KafkaModel> getCompletedGoalsForTrainer(@PathVariable("trainerEmail") String trainerEmail) throws Exception {
+        return trainerService.getCompletedGoalsForTrainer(trainerEmail);
     }
 
 }

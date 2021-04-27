@@ -10,6 +10,8 @@ public class ExcelFoodDto {
     private String foodName;
     private String timeOfDay;
     private Float quantity = 1f;
-    private String date;
+    private String day;
+    private String month;
+    private String year;
     private boolean isCompleted = false;
 }
