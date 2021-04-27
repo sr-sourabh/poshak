@@ -35,4 +35,7 @@ public class TrainerGoal {
     @Field(name = "date")
     private Date date;
 
+    @Field(name = "isCompleted")
+    private boolean isCompleted = false;
+
 }
