@@ -11,4 +11,5 @@ public class ExcelFoodDto {
     private String timeOfDay;
     private Float quantity = 1f;
     private String date;
+    private boolean isCompleted = false;
 }

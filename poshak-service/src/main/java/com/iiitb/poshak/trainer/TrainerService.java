@@ -10,10 +10,7 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class TrainerService {
@@ -59,5 +56,20 @@ public class TrainerService {
             throw new Exception("Please send both trainer and user Emails. Size of list should be 2");
         }
         return trainerGoalRepository.findAllByTrainerEmailAndUserEmail(emails.get(0), emails.get(1));
+    }
+
+    public TrainerGoal completeGoal(String goalId) throws Exception {
+        if (Strings.isBlank(goalId)) {
+            throw new Exception("Please provide goal id");
+        }
+
+        Optional<TrainerGoal> trainerGoalOptional = trainerGoalRepository.findById(goalId);
+        if (!trainerGoalOptional.isPresent()) {
+            throw new Exception("Trainer goal with id " + goalId + " not found");
+        }
+
+        TrainerGoal trainerGoal = trainerGoalOptional.get();
+        trainerGoal.setCompleted(true);
+        return trainerGoalRepository.save(trainerGoal);
     }
 }
