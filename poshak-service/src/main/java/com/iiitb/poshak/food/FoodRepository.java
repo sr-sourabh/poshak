@@ -10,4 +10,6 @@ public interface FoodRepository extends MongoRepository<Food, String> {
     List<Food> findAllByFoodContainingIgnoreCase(String name);
 
     List<Food> findAll();
+
+    Food findByFoodIgnoreCase(String foodName);
 }
