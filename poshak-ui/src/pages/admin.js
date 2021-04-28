@@ -10,10 +10,11 @@ export default function Admin() {
 
 
     useEffect(() => {
+        console.log(process.env.REACT_APP_POSHAK_SERVICE);
         var initialData = {};
         axios({
             method: 'get',
-            url: Commons.POSHAK_SERVICE + '/trainer/trainer@trainer.com',
+            url: process.env.REACT_APP_POSHAK_SERVICE + '/trainer/trainer@trainer.com',
         }).then((response) => {
             response.data.forEach(
                 (user) => {
@@ -23,7 +24,7 @@ export default function Admin() {
             setState(initialData);
         });
 
-        eventSource = new EventSource(Commons.POSHAK_SERVICE + "/kafka/live");
+        eventSource = new EventSource(process.env.REACT_APP_POSHAK_SERVICE + "/kafka/live");
 
         eventSource.addEventListener(Commons.TOPIC, (event) => {
             var result;
@@ -66,6 +67,11 @@ export default function Admin() {
                         <Progress type="circle"
                                   percent={parseFloat(state[key].foodValue / state[key].foodGoal * 100)
                                       .toFixed(2)}/>
+                        <div>
+                            Total food to eat : {state[key].foodGoal}
+                            <br></br>
+                            Total food eaten : {state[key].foodValue}
+                        </div>
                     </Row>
                 </Card>
             </div>;

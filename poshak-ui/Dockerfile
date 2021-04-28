@@ -9,4 +9,4 @@ COPY poshak-ui/package-lock.json ./
 
 COPY poshak-ui/ ./
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start:prod"]

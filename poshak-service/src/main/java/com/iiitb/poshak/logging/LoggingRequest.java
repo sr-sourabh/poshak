@@ -16,6 +16,8 @@ public class LoggingRequest {
     private int day;
     private int month;
     private int year;
+    private String foodName;
+    private Float quantity;
 }
 
 

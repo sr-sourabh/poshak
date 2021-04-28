@@ -40,10 +40,12 @@
     "shortid": "2.2.14",
     "styled-components": "5.2.3",
     "web-vitals": "1.1.1",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.16.9",
+    "env-cmd": "10.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env-cmd -e dev react-scripts start",
+    "start:prod": "env-cmd -e prod react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

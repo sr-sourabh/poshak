@@ -27,7 +27,7 @@ const UserPersonalInfo = () => {
 
         let response = await axios({
             method: 'put',
-            url: Commons.POSHAK_SERVICE + '/user/signup',
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/user/signup",
             data: {
                 "emailId": email,
                 "password": pass,
