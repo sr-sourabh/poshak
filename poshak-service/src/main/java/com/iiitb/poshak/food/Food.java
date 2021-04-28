@@ -31,7 +31,7 @@ public class Food {
     @Field(name = "Fat")
     private String fat;
 
-    @Field(name = "Sat.Fat")
+    @Field(name = "SatFat")
     private String satFat;
 
     @Field(name = "Fiber")

@@ -27,10 +27,6 @@ public class UserService {
         String pass = DigestUtils.sha384Hex(userRequest.getPassword());
         User user = userRepository.findAllByEmailIdAndPassword(userRequest.getEmailId(), pass);
 
-        if (Objects.isNull(user)) {
-            throw new Exception("User not found");
-        }
-
         return user;
     }
 
