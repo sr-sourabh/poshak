@@ -14,6 +14,10 @@ import Admin from "./pages/admin";
 import Update from "./pages/update"
 import ExcelLoad from './pages/ExcelPage';
 import diet from './pages/diet';
+import TrainerSigninPage from './pages/trainerSignin';
+import TrainerOverview from './pages/trainerOverview';
+import TrainerUpdate from './pages/trainerupdate';
+import TrainerLogging from './pages/TrainerLogging';
 
 function App() {
   return (
@@ -33,7 +37,11 @@ function App() {
         <Route path='/update' exact component={Update} />
         <Route path='/admin' exact component={Admin}/>
         <Route path='/excel' exact component={ExcelLoad}/>
-        <Route path='/diet' exact component={diet}/>
+        <Route path='/diet' exact component={diet}/>TrainerSigninPage
+        <Route path='/trainersignin' exact component={TrainerSigninPage}/>
+        <Route path='/traineroverview' exact component={TrainerOverview}/>
+        <Route path='/trainerupdate' exact component={TrainerUpdate} />TrainerLogging
+        <Route path='/trainerlogging' exact component={TrainerLogging} />
       </Switch>
     </Router>
   );

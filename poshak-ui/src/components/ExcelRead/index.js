@@ -55,15 +55,15 @@ const Excel = () => {
         e.preventDefault();
         console.log(items);
 
-        // let response = await axios({
-        //     method: 'put',
-        //     url: "http://localhost:8090/trainer",
-        //     data: {
-        //         trainerEmail: "trainer@gmail.com",
-        //         excelFoods : items
-        //         }
-        // });
-        // console.log(response)
+        let response = await axios({
+            method: 'put',
+            url: "http://localhost:8090/trainer",
+            data: {
+                trainerEmail: "trainer@gmail.com",
+                excelFoods : items
+                }
+        });
+        console.log(response)
 
 
     }

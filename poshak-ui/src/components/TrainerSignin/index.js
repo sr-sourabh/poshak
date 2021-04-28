@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import axios from 'axios';
-import auth from "./auth"
-import { hashHistory } from 'react-router';
 
 import {
     Container,
@@ -19,7 +17,7 @@ import {
 
 import Commons from '../commons.js';
 
-const SignIn = (props) => {
+const TrainersignIn = (props) => {
 
     
     
@@ -45,30 +43,19 @@ const SignIn = (props) => {
             document.location = `/overview`;
 
         } else {
-            // alert("bello");
-            // setPath("/signin");
             document.location = "/signin"
         }
 
     }
-
-
-    async function handletrainer(e) {
-        e.preventDefault();
-        document.location = `/trainersignin`;
-        }
-
-    
 
     return (
         <>
             <Container>
                 <FormWrap>
                     <Icon to='/'>Poshak</Icon>
-                    <FormButton type='submit' onClick={handletrainer}>Sign In As Trainer</FormButton>
                     <FormContent>
                         <Form >
-                            <FormH1>Sign In to your account</FormH1>
+                            <FormH1>Sign In to your account Trainer</FormH1>
                             <FormLabel htmlFor='for'>Email</FormLabel>
                             <FormInput id="email" type='email' placeholder='example@email.com' required/>
                             <FormLabel htmlFor='for'>Password</FormLabel>
@@ -83,7 +70,7 @@ const SignIn = (props) => {
     )
 }
 
-export default SignIn;
+export default TrainersignIn;
 
 
 
