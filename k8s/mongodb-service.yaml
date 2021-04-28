@@ -1,10 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: mongodb-deployment
+  name: mongodb-stateful
   labels:
     app: mongodb
 spec:
+  serviceName: mongodb-service
   replicas: 1
   selector:
     matchLabels:
@@ -30,6 +31,15 @@ spec:
                 secretKeyRef:
                   name: poshak-secret
                   key: mongo-root-password
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/mongodb
+              subPath:
+          resources:
+            { }
+      volumes:
+        - name: data
+          emptyDir: { }
 ---
 apiVersion: v1
 kind: Service
