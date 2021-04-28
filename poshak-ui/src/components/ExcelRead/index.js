@@ -74,14 +74,15 @@ const Excel = () => {
 
         
       };
-
+      // url: process.env.REACT_APP_POSHAK_SERVICE + "/user/login",
+      // url: "http://localhost:8090/trainer",
       async function handleSubmit(e) {
         e.preventDefault();
         console.log(items);
 
         let response = await axios({
             method: 'put',
-            url: "http://localhost:8090/trainer",
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/trainer",
             data: {
                 trainerEmail: "trainer@gmail.com",
                 excelFoods : items

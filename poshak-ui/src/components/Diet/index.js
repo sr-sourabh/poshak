@@ -12,7 +12,8 @@ function Diet() {
     //     console.log(items);
     // },[items])
 
-    
+    // url: process.env.REACT_APP_POSHAK_SERVICE + "/user/login",
+    sessionStorage.getItem("email")
 
     async function handleSubmit(e) {
         // alert("hello");
@@ -20,10 +21,10 @@ function Diet() {
         console.log(items);
         let response1 = await axios({
             method: 'put',
-            url: 'http://localhost:8090/trainer/get',
+            url: process.env.REACT_APP_POSHAK_SERVICE +"/trainer/get",
             data: {
                 trainerEmail : "trainer@gmail.com",
-                userEmail : "vijaya@gmail.com" 
+                userEmail : sessionStorage.getItem("email") 
                 
             }
 
@@ -44,7 +45,7 @@ function Diet() {
         
         let response1 = await axios({
             method: 'put',
-            url: 'http://localhost:8090/trainer/complete/'+e.target.id
+            url: process.env.REACT_APP_POSHAK_SERVICE +"/trainer/complete/"+e.target.id
             
         });
 
