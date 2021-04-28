@@ -66,6 +66,11 @@ export default function Admin() {
                         <Progress type="circle"
                                   percent={parseFloat(state[key].foodValue / state[key].foodGoal * 100)
                                       .toFixed(2)}/>
+                        <div>
+                            Total food to eat : {state[key].foodGoal}
+                            <br></br>
+                            Total food eaten : {state[key].foodValue}
+                        </div>
                     </Row>
                 </Card>
             </div>;
