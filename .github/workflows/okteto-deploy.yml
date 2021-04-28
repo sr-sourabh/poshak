@@ -23,13 +23,13 @@ jobs:
       uses: okteto/namespace@master
       with:
         namespace: sr-sourabh
-    
-    - name: "Trigger the pipeline"
-      uses: okteto/pipeline@master
+        
+    - name: "Destroy the pipeline"
+      uses: okteto/destroy-pipeline@master
       with:
         name: poshak
     
-    - name: "Destroy the pipeline"
-      uses: okteto/destroy-pipeline@master
+    - name: "Trigger the pipeline"
+      uses: okteto/pipeline@master
       with:
         name: poshak
