@@ -34,7 +34,7 @@ public class InitialDbConfigService {
             try {
                 InputStreamReader inputStreamReader = new InputStreamReader(new ClassPathResource("mongo/2.json").getInputStream());
                 foods = mapper.readValue(inputStreamReader, FoodList.class);
-                List<com.iiitb.poshak.food.Food> foodList = new ArrayList<>();
+                List<com.iiitb.poshak.food.Food> foodList = new ArrayList<>() ;
                 foods.forEach(food -> {
                     com.iiitb.poshak.food.Food food1 = new com.iiitb.poshak.food.Food();
                     food1.setFood(food.getFood());
