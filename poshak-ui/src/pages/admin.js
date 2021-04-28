@@ -10,10 +10,11 @@ export default function Admin() {
 
 
     useEffect(() => {
+        console.log(process.env.REACT_APP_POSHAK_SERVICE);
         var initialData = {};
         axios({
             method: 'get',
-            url: Commons.POSHAK_SERVICE + '/trainer/trainer@trainer.com',
+            url: process.env.REACT_APP_POSHAK_SERVICE + '/trainer/trainer@trainer.com',
         }).then((response) => {
             response.data.forEach(
                 (user) => {
@@ -23,7 +24,7 @@ export default function Admin() {
             setState(initialData);
         });
 
-        eventSource = new EventSource(Commons.POSHAK_SERVICE + "/kafka/live");
+        eventSource = new EventSource(process.env.REACT_APP_POSHAK_SERVICE + "/kafka/live");
 
         eventSource.addEventListener(Commons.TOPIC, (event) => {
             var result;

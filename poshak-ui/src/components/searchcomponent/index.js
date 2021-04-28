@@ -73,7 +73,7 @@ function SearchComp() {
             console.log(Quantity);
             let response1 = await axios({
                 method: 'put',
-                url: 'http://localhost:8090/logging/log',
+                url: process.env.REACT_APP_POSHAK_SERVICE + "/logging/log",
                 data: {
                     "email": sessionStorage.getItem("email"),
                     "calorie": (parseInt(response.data[0].calories))*Quantity,
