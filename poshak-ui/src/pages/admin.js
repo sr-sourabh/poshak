@@ -12,16 +12,12 @@ export default function Admin() {
     useEffect(() => {
         var initialData = {};
         axios({
-            method: 'put',
-            url: Commons.POSHAK_SERVICE + '/logging/filter',
-            data: {
-                "emails": ["vijaya@gmail.com", "sr@sr.com"],
-                "lastWeek": true
-            }
+            method: 'get',
+            url: Commons.POSHAK_SERVICE + '/trainer/trainer@trainer.com',
         }).then((response) => {
             response.data.forEach(
                 (user) => {
-                    initialData[user.userId] = user;
+                    initialData[user.userEmail] = user;
                 }
             )
             setState(initialData);
@@ -37,8 +33,8 @@ export default function Admin() {
                 console.log('Exception while parsing json ', e);
             }
             console.log("received:", result);
-            if (result && result.userId) {
-                initialData[result.userId] = result;
+            if (result && result.userEmail) {
+                initialData[result.userEmail] = result;
                 setState({...initialData});
             }
         });
@@ -65,10 +61,10 @@ export default function Admin() {
     return (
         Object.keys(state).map((key) => {
             return <div key={key}>
-                <Card title={state[key].userName}>
+                <Card title={state[key].userEmail}>
                     <Row justify="center">
                         <Progress type="circle"
-                                  percent={parseFloat(state[key].fatValue / state[key].fatGoal * 100)
+                                  percent={parseFloat(state[key].foodValue / state[key].foodGoal * 100)
                                       .toFixed(2)}/>
                     </Row>
                 </Card>
