@@ -40,7 +40,7 @@ spec:
       volumes:
         - name: data
           hostPath:
-            path: /okteto
+            path: /home
 ---
 apiVersion: v1
 kind: Service
