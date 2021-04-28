@@ -2,16 +2,40 @@ import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import styled from 'styled-components'
 import axios from 'axios';
+import "./style.css"
 
 const FormButton = styled.button`
 background: #01bf71;
 padding: 16px 0;
 border: none;
-border-radius: 4px;
+border-radius: 50px;
 color: #fff;
 font-size: 20px;
 cursor: pointer;
+padding: 10px 22px;
 `;
+
+
+// border-radius: 50px;
+// background: #01bf71;
+// white-space: nowrap;
+// padding: 10px 22px;
+// color: #010606;
+// font-size: 16px;
+// outline: none;
+// cursor: pointer;
+// transition: all 0.2s ease-in-out;
+// text-decoration: none;
+// position: fixed;
+// right: 7rem;
+
+// &:hover {
+//     transition: all 0.2s ease-in-out;
+//     background: #fff;
+//     color: #010606;
+
+
+
 
 const Excel = () => {
 
@@ -69,8 +93,9 @@ const Excel = () => {
     }
 
     return (
-        <>
-            <div>
+        <>  
+            <h1 className="nav-expanded ">Please Select the diet chart to upload</h1>
+            <div className="nav-expanded ">
             <input
                 type="file"
                 onChange={(e) => {
@@ -91,7 +116,7 @@ const Excel = () => {
             <th scope="col">day</th>
             <th scope="col">month</th>
             <th scope="col">year</th>
-            <th scope="col">Checkbox</th>
+            {/* <th scope="col">Checkbox</th> */}
           </tr>
         </thead>
         <tbody>
@@ -104,7 +129,7 @@ const Excel = () => {
               <td>{d.day}</td>
               <td>{d.month}</td>
               <td>{d.year}</td>
-              <td><input type="checkbox"/></td>
+              {/* <td><input type="checkbox"/></td> */}
             </tr>
           ))}
         </tbody>

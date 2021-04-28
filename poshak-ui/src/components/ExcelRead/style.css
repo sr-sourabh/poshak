@@ -1,0 +1,9 @@
+.nav-expanded {
+    transform: translateX(20rem) !important;
+    /* margin-top: -3rem; */
+    width: 80vw;
+}
+
+h1 {
+    color: black;
+}
