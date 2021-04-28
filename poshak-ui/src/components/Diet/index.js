@@ -36,7 +36,15 @@ function Diet() {
         
     }
     async function handlelog(e) {
+        e.preventDefault();
         console.log(e.target.id);
+        
+        let response1 = await axios({
+            method: 'put',
+            url: 'http://localhost:8090/trainer/complete/6088354adfb36a5432d89e9d',
+            
+        });
+        console.log(response1.data);
         
     }
 
@@ -44,19 +52,19 @@ function Diet() {
     return (
         <>
         <div className="App">
-            <h1>Hello</h1> 
+            <h1>Diet Chart</h1> 
             <button type='submit' className="btn" onClick={handleSubmit}>Refresh</button> 
             <button type='submit' className="btn" onClick={handleSubmit1}>check data</button>       
              </div>
 
-             <div>
-                <table class="table container">
+             <div className="beautify">
+                <table class="table container ">
                     <thead>
                     <tr>
                         <th scope="col">Food Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">timeOfDay</th>
-                        <th scope="col">timeOfDay</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Checklist</th>
                     </tr>
                     </thead>
