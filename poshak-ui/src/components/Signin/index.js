@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import auth from "./auth"
 import { hashHistory } from 'react-router';
+import "./style.css"
 
 import {
     Container,
@@ -13,11 +14,14 @@ import {
     FormLabel,
     FormInput,
     FormButton,
-    Text
+    Text,
+    Button1
 }
     from './SigninElements';
 
 import Commons from '../commons.js';
+
+
 
 const SignIn = (props) => {
 
@@ -64,8 +68,12 @@ const SignIn = (props) => {
         <>
             <Container>
                 <FormWrap>
+                    
                     <Icon to='/'>Poshak</Icon>
-                    <FormButton type='submit' onClick={handletrainer}>Sign In As Trainer</FormButton>
+                    
+                    <div className="right_align">
+                    <Button1 type='submit' onClick={handletrainer}>Sign In As Trainer</Button1>
+                    </div>
                     <FormContent>
                         <Form >
                             <FormH1>Sign In to your account</FormH1>

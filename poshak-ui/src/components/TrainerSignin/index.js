@@ -17,6 +17,9 @@ import {
 
 import Commons from '../commons.js';
 
+
+
+
 const TrainersignIn = (props) => {
 
     
@@ -40,10 +43,10 @@ const TrainersignIn = (props) => {
             sessionStorage.setItem("isLoggedIn", "true");
             sessionStorage.setItem("email", email_check);
             sessionStorage.setItem("BMI", 10);
-            document.location = `/overview`;
+            document.location = `/traineroverview`;
 
         } else {
-            document.location = "/signin"
+            document.location = "/trainersignin"
         }
 
     }

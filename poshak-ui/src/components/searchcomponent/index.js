@@ -12,10 +12,12 @@ function SearchComp() {
     const [singleUser, setSingleUser] = useState("")
 
     useEffect(() => {
-        fetch("https://poshak-service-sr-sourabh.cloud.okteto.net/food/all")
+        fetch(process.env.REACT_APP_POSHAK_SERVICE + "/food/all")
             .then((response) => response.json())
             .then((data) => setUsers(data))
     }, [])
+
+
     // dont delete 
 
     // useEffect(() => {
@@ -47,17 +49,17 @@ function SearchComp() {
             )
         },
     })
-
+// url: process.env.REACT_APP_POSHAK_SERVICE + "/user/login",
 
     async function handleSubmit(e) {
         e.preventDefault();
         let response = await axios({
             method: 'get',
-            url: 'https://poshak-service-sr-sourabh.cloud.okteto.net/foodByName/'+singleUser,
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/foodByName/"+singleUser,
             
         });
     
-         console.log(response);
+        //  console.log(response);
         if (response && response.data !== "" && response.data.id !== "") {
             // console.log(response.data[0].calories);
             // console.log(response.data[0].protein);
@@ -84,14 +86,16 @@ function SearchComp() {
                     "carbs": (parseInt(response.data[0].carbs))*Quantity,
                     "day": dd,
                     "month": mm,
-                    "year": yyyy
+                    "year": yyyy,
+                    "foodName": response.data[0].food,
+                    "quantity": Quantity
                 }
             });
             console.log(response1);
             
 
         }
-        document.location = '/overview';
+        // document.location = '/overview';
     }
 
     const [imageFile, setImageFile] = useState(null)

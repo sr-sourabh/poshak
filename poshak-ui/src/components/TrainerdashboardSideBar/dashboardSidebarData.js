@@ -62,11 +62,11 @@ export const SidebarData = [
     path: '/trainerlogging',
     icon: <IoIcons.IoMdPeople />
   },
-  {
-    title: 'Diet chart',
-    path: '/trainerdiet',
-    icon: <IoIcons.IoMdPeople />
-  },
+  // {
+  //   title: 'Diet chart',
+  //   path: '/trainerdiet',
+  //   icon: <IoIcons.IoMdPeople />
+  // },
   {
     title: 'Upload Diet chart',
     path: '/excel',
