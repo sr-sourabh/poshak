@@ -64,7 +64,7 @@ export const SidebarData = [
   },
   {
     title: 'Diet chart',
-    path: '/diet',
+    path: '/trainerdiet',
     icon: <IoIcons.IoMdPeople />
   },
   {
