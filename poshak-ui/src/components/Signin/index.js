@@ -28,7 +28,7 @@ const SignIn = (props) => {
         e.preventDefault();
         let response = await axios({
             method: 'put',
-            url: Commons.POSHAK_SERVICE + '/user/login',
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/user/login",
             data: {
                 "emailId": document.getElementById("email").value,
                 "password": document.getElementById("password").value

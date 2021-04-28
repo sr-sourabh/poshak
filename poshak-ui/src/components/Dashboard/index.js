@@ -100,7 +100,7 @@ async function handleSubmit(e) {
         var com = e.target.value;
       let response = await axios({
             method: 'put',
-            url: "http://localhost:8090/logging/filter",
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/logging/filter",
             data: {
                 // "emailId": sessionStorage.getItem("email")
                 "emails": [sessionStorage.getItem("email")],
@@ -119,7 +119,7 @@ async function handleSubmit(e) {
         var proGoal = response.data[0].proteinGoal;
         var fatGoal = response.data[0].fatGoal;
         var carbsGoal = response.data[0].carbsGoal;
-        
+
         console.log(cal);
         console.log(pro);
         console.log(fat);
@@ -155,7 +155,7 @@ async function handleSubmit(e) {
 
         let response1 = await axios({
             method: 'put',
-            url: "http://localhost:8090/user/signup",
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/user/signup",
             data: {
                 // "emailId": sessionStorage.getItem("email")
                 "emailId": sessionStorage.getItem("email")
@@ -182,10 +182,10 @@ async function handleSubmit(e) {
 const BlogOverview = ({ smallStats }) => (
 
 
-  
 
- 
-  
+
+
+
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
@@ -202,7 +202,7 @@ const BlogOverview = ({ smallStats }) => (
                     <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
       </NavBtn>
     </Col>
-    
+
 
     <Col>
     <Col>
@@ -218,7 +218,7 @@ const BlogOverview = ({ smallStats }) => (
               </FormSelect>
             </Col>
     </Col>
-    
+
     </Row>
 
 
@@ -307,7 +307,7 @@ const BlogOverview = ({ smallStats }) => (
           </CircularProgressbarWithChildren>
         </Example>
       </Col>
-      
+
 
     </Row>
 
@@ -326,7 +326,7 @@ const BlogOverview = ({ smallStats }) => (
           </CircularProgressbarWithChildren>
           
         </Example>
-      </Col> */} 
+      </Col> */}
 
       <Col lg="6" md="6" sm="12" className="mb-4">
       <Bmi className= "shrink"/>
@@ -475,7 +475,7 @@ export default BlogOverview;
 //   e.preventDefault();
 //         let response = await axios({
 //             method: 'put',
-//             url: "http://localhost:8090/logging/get",
+//             url: process.env.REACT_APP_POSHAK_SERVICE + "/logging/get",
 //             data: {
 //                 // "emailId": sessionStorage.getItem("email")
 //                 "email": "vijaya@gmail.com"
@@ -494,7 +494,7 @@ export default BlogOverview;
 //           pro = pro + response.data.log[i].protein;
 //           fat = fat + response.data.log[i].fat;
 //           carbs = carbs + response.data.log[i].carbs;
-          
+
 //         }
 //         console.log(cal);
 //         console.log(pro);

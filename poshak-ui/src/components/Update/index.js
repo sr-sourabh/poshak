@@ -28,7 +28,7 @@ const UpdateData = (props) => {
         
         let response = await axios({
             method: 'put',
-            url: "http://localhost:8090/user/signup",
+            url: process.env.REACT_APP_POSHAK_SERVICE + "/user/signup",
             data: {
                 "emailId": sessionStorage.getItem("email"),
                 "name": document.getElementById("name1").value,
