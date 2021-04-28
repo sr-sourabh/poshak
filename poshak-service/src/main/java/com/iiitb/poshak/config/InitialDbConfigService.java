@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +32,8 @@ public class InitialDbConfigService {
             List<Food> foods = new ArrayList<>();
             // read JSON file and map/convert to java POJO
             try {
-                File file = new ClassPathResource("mongo/2.json").getFile();
-                foods = mapper.readValue(file, FoodList.class);
+                InputStreamReader inputStreamReader = new InputStreamReader(new ClassPathResource("mongo/2.json").getInputStream());
+                foods = mapper.readValue(inputStreamReader, FoodList.class);
                 List<com.iiitb.poshak.food.Food> foodList = new ArrayList<>();
                 foods.forEach(food -> {
                     com.iiitb.poshak.food.Food food1 = new com.iiitb.poshak.food.Food();
