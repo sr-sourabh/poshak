@@ -16,6 +16,7 @@ function SearchComp() {
             .then((response) => response.json())
             .then((data) => setUsers(data))
     }, [])
+    // dont delete 
 
     // useEffect(() => {
     //   fetch(`${fooddata}.json`)
