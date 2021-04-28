@@ -1,12 +1,13 @@
 package com.iiitb.poshak.logging;
 
 
-import com.iiitb.poshak.kafka.ProducerController;
 import com.iiitb.poshak.user.User;
 import com.iiitb.poshak.user.UserRepository;
+import com.iiitb.poshak.util.SequenceService;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.*;
+
+import static com.iiitb.poshak.util.Commons.LOG_SEQUENCE;
 
 @Service
 public class LoggingService {
@@ -24,15 +27,21 @@ public class LoggingService {
     @Resource
     private UserRepository userRepository;
 
+    @Resource
+    private SequenceService sequenceService;
+
+    @Transactional
     public Logging setlog(LoggingRequest loggingRequest) throws Exception {
 
         Log log = new Log();
-        log.setId(loggingRequest.getId());
+        log.setId(sequenceService.getSequenceNextVal(LOG_SEQUENCE));
         log.setCalorie(loggingRequest.getCalorie());
         log.setProtein(loggingRequest.getProtein());
         log.setFat(loggingRequest.getFat());
         log.setCarbs(loggingRequest.getCarbs());
         log.setDate(System.currentTimeMillis());
+        log.setFoodName(loggingRequest.getFoodName());
+        log.setQuantity(loggingRequest.getQuantity());
 
         if (Strings.isBlank(loggingRequest.getEmail())) {
             throw new Exception("Email should not blank");

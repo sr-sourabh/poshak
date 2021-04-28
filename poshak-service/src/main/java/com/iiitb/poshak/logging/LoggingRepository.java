@@ -69,6 +69,12 @@ db.logging.update(
 }}
 )
 
+--delete all nulls in log
+db.logging.update(
+  {},
+  {$pull: {'log': {}
+}})
+
 4. Sum
 db.logging.aggregate([
     { $match: {email_id: "vijaya@gmail.com"}},
