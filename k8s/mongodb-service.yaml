@@ -33,7 +33,7 @@ spec:
                   key: mongo-root-password
           volumeMounts:
             - name: data
-              mountPath: /var/lib/mongodb
+              mountPath: /data/db
               subPath:
           resources:
             { }
