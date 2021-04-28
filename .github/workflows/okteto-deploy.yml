@@ -27,9 +27,9 @@ jobs:
     - name: "Trigger the pipeline"
       uses: okteto/pipeline@master
       with:
-        name: pr-poshak
+        name: poshak
     
     - name: "Destroy the pipeline"
       uses: okteto/destroy-pipeline@master
       with:
-        name: pr-poshak
+        name: poshak
