@@ -47,6 +47,7 @@ function SearchComp() {
         },
     })
 
+
     async function handleSubmit(e) {
         e.preventDefault();
         let response = await axios({
@@ -92,6 +93,36 @@ function SearchComp() {
         document.location = '/overview';
     }
 
+    const [imageFile, setImageFile] = useState(null)
+    const [imagePreview, setImagePreview] = useState("")
+    const [predImage,setPredImage] = useState("")
+
+    async function handleImageChange(e){
+        let image_as_base64 = URL.createObjectURL(e.target.files[0])
+        let image_as_files = e.target.files[0];
+        setImageFile(image_as_files);
+        setImagePreview(image_as_base64);
+    }
+
+    async function handleImageSubmit(e) {
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append('file',imageFile);
+        axios.post(
+            "http://0.0.0.0:5000/predict",
+            formData,{
+                headers:{
+                    "Content-Type": "multipart/form-data"
+                },
+            }
+        ).then(res => {
+            setPredImage(res.data);
+            console.log('Success' + res.data);
+        } ).catch(err => {
+            console.log(err);
+        })
+    }
+
 
     return (
         <div className="App">
@@ -130,7 +161,19 @@ function SearchComp() {
                 name="quant"
             /> <br/><br/>
             <button type='submit' className="btn" onClick={handleSubmit}>Log</button>
+
+            <div>
+                <br/>
+                <br/>
+                <h2>Log food using image :</h2>
+
+                <input type="file" id="myFile" name="filename" onChange={handleImageChange}/>
+                <button type="submit" className="btn" onClick={handleImageSubmit}> Submit... </button>
+                <h3>Predicted image : {predImage}</h3>
+
+            </div>
         </div>
+
     )
 }
 
