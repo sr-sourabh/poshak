@@ -1,0 +1,35 @@
+name: okteto deploy
+
+# Only trigger, when the build workflow succeeded
+on:
+  workflow_run:
+    workflows: ["poshak-service"]
+    types:
+      - completed
+
+jobs:
+  devflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master    
+
+    - name: Login
+      uses: okteto/login@master
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+
+    - name: "Activate Namespace"
+      uses: okteto/namespace@master
+      with:
+        namespace: sr-sourabh
+        
+    - name: "Destroy the pipeline"
+      uses: okteto/destroy-pipeline@master
+      with:
+        name: poshak
+    
+    - name: "Trigger the pipeline"
+      uses: okteto/pipeline@master
+      with:
+        name: poshak
