@@ -5,6 +5,7 @@ import com.iiitb.poshak.food.FoodRepository;
 import com.iiitb.poshak.kafka.KafkaModel;
 import com.iiitb.poshak.kafka.ProducerController;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -80,33 +81,37 @@ public class TrainerService {
         }
 
         TrainerGoal trainerGoal = trainerGoalOptional.get();
-        trainerGoal.setCompleted(true);
+        trainerGoal.setCompleted(!trainerGoal.isCompleted());
+        trainerGoal = trainerGoalRepository.save(trainerGoal);
 
         KafkaModel kafkaModel = new KafkaModel();
         kafkaModel.setUserEmail(trainerGoal.getUserEmail());
         Date date = getDate();
+
         kafkaModel.setFoodGoal(
-                trainerGoalRepository.countTotalGoalsByUserEmailAndTrainerEmailAndDate(
+                trainerGoalRepository.countTotalGoalsByUserEmailAndTrainerEmail(
                         trainerGoal.getUserEmail(),
-                        trainerGoal.getTrainerEmail(),
-                        date));
+                        trainerGoal.getTrainerEmail()));
         kafkaModel.setFoodValue(
-                trainerGoalRepository.countCompletedGoalsByUserEmailAndTrainerEmailAndDate(
+                trainerGoalRepository.countCompletedGoalsByUserEmailAndTrainerEmail(
                         trainerGoal.getUserEmail(),
-                        trainerGoal.getTrainerEmail(),
-                        date
+                        trainerGoal.getTrainerEmail()
                 ));
         producerController.postUserInfoToKafka(kafkaModel);
 
-        return trainerGoalRepository.save(trainerGoal);
+        return trainerGoal;
     }
 
     @Transactional
     public Set<KafkaModel> getCompletedGoalsForTrainer(String trainerEmail) {
-        KafkaModel kafkaModel = new KafkaModel();
-        kafkaModel.setFoodGoal(trainerGoalRepository.countTotalGoalsByTrainerEmailAndDate(trainerEmail, getDate()));
-        kafkaModel.setFoodValue(trainerGoalRepository.countCompletedGoalsByTrainerEmailAndDate(trainerEmail, getDate()));
-        return new HashSet<>();
+
+        AggregationResults<KafkaModel> results = trainerGoalRepository.countTrainerGoalsAndValue(trainerEmail);
+        Set<KafkaModel> kafkaModels = new HashSet<>();
+        results.getMappedResults().forEach(kafkaModel -> {
+            kafkaModel.setUserEmail(kafkaModel.get_id());
+            kafkaModels.add(kafkaModel);
+        });
+        return kafkaModels;
     }
 
     private Date getDate() {
