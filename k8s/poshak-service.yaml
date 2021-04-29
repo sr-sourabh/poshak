@@ -38,6 +38,12 @@ spec:
                 configMapKeyRef:
                   name: poshak-configmap
                   key: database_url
+          volumeMounts:
+            - name: data-logs
+              mountPath: /home/sourabh
+              subPath:
+            resources:
+              { }
 
 ---
 apiVersion: v1
