@@ -16,7 +16,7 @@ spec:
         app: mongodb
     spec:
       securityContext:
-        fsGroup: 1001      
+        privileged: true      
       initContainers:
       containers:
         - name: mongodb
