@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebeat-service-deployment
+  labels:
+    app: filebeat-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebeat-service
+  template:
+    metadata:
+      labels:
+        app: filebeat-service
+    spec:
+      containers:
+        - name: filebeat-service
+          image: registry.hub.docker.com/sourabhpayal/filebeat-service
+          volumeMounts:
+            - name: poshak-log-persistent-storage-claim
+              mountPath: /
+              subPath:
+            resources:
+              { }
+  volumeClaimTemplates:
+    - metadata:
+        name: poshak-log-persistent-storage-claim
+        annotations:
+          volume.beta.kubernetes.io/storage-class: "standard"
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 32Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: filebeat-service
+spec:
+  selector:
+    app: filebeat-service

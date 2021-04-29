@@ -38,6 +38,22 @@ spec:
                 configMapKeyRef:
                   name: poshak-configmap
                   key: database_url
+          volumeMounts:
+            - name: poshak-log-persistent-storage-claim
+              mountPath: /home/sourabh
+              subPath:
+            resources:
+              { }
+  volumeClaimTemplates:
+    - metadata:
+        name: poshak-log-persistent-storage-claim
+        annotations:
+          volume.beta.kubernetes.io/storage-class: "standard"
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 32Mi
 ---
 apiVersion: v1
 kind: Service
