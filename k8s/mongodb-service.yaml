@@ -6,7 +6,7 @@ metadata:
     app: mongodb
 spec:
   serviceName: mongodb-service
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: mongodb
@@ -32,14 +32,21 @@ spec:
                   name: poshak-secret
                   key: mongo-root-password
           volumeMounts:
-            - name: data
+            - name: mongodb-persistent-storage-claim
               mountPath: /data/db
               subPath:
           resources:
-            { }
-      volumes:
-        - name: data
-          emptyDir: { }
+            {}
+  volumeClaimTemplates:
+  - metadata:
+      name: mongodb-persistent-storage-claim
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "standard"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
 ---
 apiVersion: v1
 kind: Service
