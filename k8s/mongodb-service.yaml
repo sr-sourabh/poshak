@@ -15,12 +15,11 @@ spec:
       labels:
         app: mongodb
     spec:
-      securityContext:
-        privileged: true      
-      initContainers:
       containers:
         - name: mongodb
           image: mongo
+          securityContext:
+            privileged: true
           ports:
             - containerPort: 27017
           env:
