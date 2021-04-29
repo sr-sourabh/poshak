@@ -63,6 +63,11 @@ export const SidebarData = [
     icon: <IoIcons.IoMdPeople />
   },
   {
+    title: 'Diet chart',
+    path: '/diet',
+    icon: <IoIcons.IoMdPeople />
+  },
+  {
     title: 'Messages',
     path: '/messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
