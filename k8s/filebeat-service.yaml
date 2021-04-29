@@ -18,21 +18,11 @@ spec:
         - name: filebeat-service
           image: registry.hub.docker.com/sourabhpayal/filebeat-service
           volumeMounts:
-            - name: poshak-log-persistent-storage-claim
+            - name: log-pv
               mountPath: /
               subPath:
             resources:
               { }
-  volumeClaimTemplates:
-    - metadata:
-        name: poshak-log-persistent-storage-claim
-        annotations:
-          volume.beta.kubernetes.io/storage-class: "standard"
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        resources:
-          requests:
-            storage: 32Mi
 ---
 apiVersion: v1
 kind: Service
