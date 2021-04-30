@@ -128,14 +128,14 @@ function SearchComp() {
       <div className="alignleft box-padding">
         <h2>Log Food Using Image</h2>
         <span className="display-inline alignleft large-font">
-          Current Item:
+          Search Item:
         </span>
         <div {...getComboboxProps()} className="display-inline alignright">
           <Input
             {...getInputProps()}
             placeholder="Search"
             enterButton="Search"
-            value={singleUser}
+            // value={singleUser}
             type="text"
             size="large"
           />
@@ -160,6 +160,14 @@ function SearchComp() {
               ))}
           </ul>
         </div>
+
+        <span className="display-inline alignleft large-font separator-top-padding">
+          <label >Selected Item:</label>
+        </span>
+        <div className="display-inline alignright separator-top-padding">
+          <input className="large-font" type="text" value={singleUser}/>
+        </div>
+        <br />
 
         <span className="display-inline alignleft large-font separator-top-padding">
           <label for="quant">Quantity:</label>
