@@ -25,3 +25,7 @@ metadata:
 spec:
   selector:
     app: filebeat-service
+  ports:
+    - protocol: TCP
+      port: 9200
+      targetPort: 9200
