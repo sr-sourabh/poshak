@@ -1,4 +1,4 @@
-name: filebeat-service
+name: filebeat-docker-image
 
 on:
   push:
