@@ -17,12 +17,6 @@ spec:
       containers:
         - name: filebeat-service
           image: registry.hub.docker.com/sourabhpayal/filebeat-service
-          volumeMounts:
-            - name: log-pv
-              mountPath: /
-              subPath:
-            resources:
-              { }
 ---
 apiVersion: v1
 kind: Service
