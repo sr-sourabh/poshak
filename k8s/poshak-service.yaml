@@ -50,7 +50,7 @@ spec:
         image: registry.hub.docker.com/sourabhpayal/filebeat-service    
         volumeMounts:
         - name: shared-data
-          mountPath: /
+          mountPath: /filebeat/pod-data
 ---
 apiVersion: v1
 kind: Service
