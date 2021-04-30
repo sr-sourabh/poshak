@@ -18,13 +18,12 @@ spec:
         - name: filebeat-service
           image: registry.hub.docker.com/sourabhpayal/filebeat-service
           volumeMounts:
-        - mountPath: /data
-          name: data
-          subPath: app1
-  volumes:
-    - name: data
-      persistentVolumeClaim:
-        claimName: 'log-pvc'
+          - mountPath: /data
+            name: data
+        volumes:
+          - name: data
+            persistentVolumeClaim:
+              claimName: 'log-pvc'
 ---
 apiVersion: v1
 kind: Service
