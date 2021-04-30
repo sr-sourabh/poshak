@@ -3,7 +3,7 @@ name: okteto deploy
 # Only trigger, when the build workflow succeeded
 on:
   workflow_run:
-    workflows: ["poshak-service"]
+    workflows: ["poshak-ui"]
     types:
       - completed
 
