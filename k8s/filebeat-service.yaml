@@ -15,15 +15,15 @@ spec:
         app: filebeat-service
     spec:
       containers:
-        - name: filebeat-service
-          image: registry.hub.docker.com/sourabhpayal/filebeat-service
-          volumeMounts:
-          - mountPath: /data
-            name: data
-        volumes:
-          - name: data
-            persistentVolumeClaim:
-              claimName: 'log-pvc'
+      - name: filebeat-service
+        image: registry.hub.docker.com/sourabhpayal/filebeat-service
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: 'log-pvc'
 ---
 apiVersion: v1
 kind: Service
