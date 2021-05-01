@@ -1,38 +1,39 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: filebeat-service-deployment
-  labels:
-    app: filebeat-service
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: filebeat-service
-  template:
-    metadata:
-      labels:
-        app: filebeat-service
-    spec:
-      containers:
-        - name: filebeat-service
-          image: registry.hub.docker.com/sourabhpayal/filebeat-service
-          volumeMounts:
-            - mountPath: /filebeat/pod-data
-              name: data
-        volumes:
-          - name: data
-            persistentVolumeClaim:
-              claimName: log-pvc
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: filebeat-service
-spec:
-  selector:
-    app: filebeat-service
-  ports:
-    - protocol: TCP
-      port: 9200
-      targetPort: 9200
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: filebeat-service-deployment
+#  labels:
+#    app: filebeat-service
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: filebeat-service
+#  template:
+#    metadata:
+#      labels:
+#        app: filebeat-service
+#    spec:
+#      containers:
+#        - name: filebeat-service
+#          image: registry.hub.docker.com/sourabhpayal/filebeat-service
+#          volumeMounts:
+#            - mountPath: /filebeat/pod-data
+#              name: data
+#      volumes:
+#        - name: data
+#          persistentVolumeClaim:
+#            claimName: 'log-pvc'
+
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: filebeat-service
+#spec:
+#  selector:
+#    app: filebeat-service
+#  ports:
+#    - protocol: TCP
+#      port: 9200
+#      targetPort: 9200

@@ -15,9 +15,8 @@ spec:
         app: poshak-service
     spec:
       volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: log-pvc
+      - name: shared-data
+        emptyDir: {}
 
       containers:
       - name: poshak-service
@@ -44,9 +43,14 @@ spec:
                 name: poshak-configmap
                 key: database_url
         volumeMounts:
-          - mountPath: /home/sourabh
-            name: data
+        - name: shared-data
+          mountPath: /home/sourabh
 
+      - name: filebeat-service
+        image: registry.hub.docker.com/sourabhpayal/filebeat-service
+        volumeMounts:
+        - name: shared-data
+          mountPath: /filebeat/pod-data
 ---
 apiVersion: v1
 kind: Service
