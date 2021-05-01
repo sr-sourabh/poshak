@@ -14,7 +14,7 @@ export default function Admin() {
         var initialData = {};
         axios({
             method: 'get',
-            url: process.env.REACT_APP_POSHAK_SERVICE + '/trainer/trainer@trainer.com',
+            url: process.env.REACT_APP_POSHAK_SERVICE + '/trainer/trainer@gmail.com',
         }).then((response) => {
             response.data.forEach(
                 (user) => {
