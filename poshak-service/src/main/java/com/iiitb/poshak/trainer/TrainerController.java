@@ -45,4 +45,9 @@ public class TrainerController {
         return trainerService.getCompletedGoalsForTrainer(trainerEmail);
     }
 
+    @GetMapping(value = "/trainer/all")
+    public Set<TrainerGoal> getAllTrainerGoals(){
+        return trainerService.getAllTrainerGoals();
+    }
+
 }
