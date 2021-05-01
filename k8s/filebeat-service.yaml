@@ -20,10 +20,10 @@ spec:
           volumeMounts:
             - mountPath: /filebeat/pod-data
               name: data
-        volumes:
-          - name: data
-            persistentVolumeClaim:
-              claimName: log-pvc
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: log-pvc
 ---
 apiVersion: v1
 kind: Service
