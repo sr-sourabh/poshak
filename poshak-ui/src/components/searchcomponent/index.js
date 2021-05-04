@@ -114,7 +114,7 @@ function SearchComp() {
         let formData = new FormData();
         formData.append('file',imageFile);
         axios.post(
-            "http://0.0.0.0:5000/predict",
+            process.env.REACT_APP_POSHAK_ML_SERVICE + "/predict",
             formData,{
                 headers:{
                     "Content-Type": "multipart/form-data"
