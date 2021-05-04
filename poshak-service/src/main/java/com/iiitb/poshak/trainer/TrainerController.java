@@ -28,7 +28,7 @@ public class TrainerController {
         return trainerService.setTrainerGoals(request);
     }
 
-    @GetMapping(value = "/trainer")
+    @PutMapping(value = "/trainer/get")
     public Set<TrainerGoal> getTrainerGoals(@RequestBody TrainerGetRequest request) throws Exception {
         //0 element is trainerEmail, 1st element is userEmail
         return trainerService.getTrainerGoals(request);
@@ -43,6 +43,11 @@ public class TrainerController {
     @GetMapping(value = "/trainer/{trainerEmail}")
     public Set<KafkaModel> getCompletedGoalsForTrainer(@PathVariable("trainerEmail") String trainerEmail) throws Exception {
         return trainerService.getCompletedGoalsForTrainer(trainerEmail);
+    }
+
+    @GetMapping(value = "/trainer/all")
+    public Set<TrainerGoal> getAllTrainerGoals(){
+        return trainerService.getAllTrainerGoals();
     }
 
 }

@@ -108,30 +108,3 @@ margin-top: 24px;
 color: #fff;
 font-size: 14px;
 `;
-
-
-export const Button1 = styled(Link)`
-border-radius: 50px;
-background: #010606;
-white-space: nowrap;
-padding: 10px 22px;
-color: #fff;
-font-size: 16px;
-outline: none;
-cursor: pointer;
-transition: all 0.2s ease-in-out;
-text-decoration: none;
-text-align: right;
-margin:20px;
-position: float;
-z-index: 10;
-${'' /* position: fixed;
-right: 7rem; */}
-
-&:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
-}
-
-`;

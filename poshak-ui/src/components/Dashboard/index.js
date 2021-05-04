@@ -91,7 +91,11 @@ function Example(props) {
   );
 }
 
+async function handlerefresh(e) {
+  e.preventDefault();
+  document.location.reload();
 
+}
 
 
 async function handleSubmit(e) {
@@ -175,7 +179,8 @@ async function handleSubmit(e) {
         // console.log(percentCarbs);
 
         // console.log(response.data[0]);
-        document.location = `/overview`;
+        // document.location = `/overview`;
+        document.location.reload();
 
 }
 
@@ -199,7 +204,7 @@ const BlogOverview = ({ smallStats }) => (
     <Row>
     <Col lg="9" md="6" sm="12">
       <NavBtn>
-                    <NavBtnLink onClick={handleSubmit}>Refresh</NavBtnLink>
+                    <NavBtnLink onClick={handlerefresh}>Refresh</NavBtnLink>
       </NavBtn>
     </Col>
 

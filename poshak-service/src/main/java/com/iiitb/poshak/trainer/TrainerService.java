@@ -4,6 +4,8 @@ import com.iiitb.poshak.food.Food;
 import com.iiitb.poshak.food.FoodRepository;
 import com.iiitb.poshak.kafka.KafkaModel;
 import com.iiitb.poshak.kafka.ProducerController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ import java.util.*;
 
 @Service
 public class TrainerService {
+
+    private static final Logger log = LogManager.getLogger(TrainerService.class);
 
     @Resource
     private TrainerGoalRepository trainerGoalRepository;
@@ -104,13 +108,13 @@ public class TrainerService {
 
     @Transactional
     public Set<KafkaModel> getCompletedGoalsForTrainer(String trainerEmail) {
-
         AggregationResults<KafkaModel> results = trainerGoalRepository.countTrainerGoalsAndValue(trainerEmail);
         Set<KafkaModel> kafkaModels = new HashSet<>();
         results.getMappedResults().forEach(kafkaModel -> {
             kafkaModel.setUserEmail(kafkaModel.get_id());
             kafkaModels.add(kafkaModel);
         });
+        log.info("getCompletedGoalsForTrainer request with trainerEmail: {} and result: {}", trainerEmail, kafkaModels);
         return kafkaModels;
     }
 
@@ -120,5 +124,10 @@ public class TrainerService {
         date = new Date(time - time % (24 * 60 * 60 * 1000));
         date = new Date(date.getTime() - 24 * 60 * 60 * 1000);
         return date;
+    }
+
+    public Set<TrainerGoal> getAllTrainerGoals() {
+        log.info("get all trainers request");
+        return new HashSet<>(trainerGoalRepository.findAll());
     }
 }

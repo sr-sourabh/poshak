@@ -1,0 +1,37 @@
+@import "~antd/dist/antd.css";
+.App {
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+.btn {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+    border-radius: 12px;
+  }
+  
+  .btn:hover {
+    background-color: #000000  ;
+    color: white;
+  }
+
+  /* #3e8e41 */
+
+  h1 {
+    color: #80dfff;
+  }
+  .beautify {
+    background-color: #80dfff;
+  }
