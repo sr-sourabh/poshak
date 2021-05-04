@@ -10,8 +10,8 @@ import io
 from PIL import Image
 import sys
 import os
-sys.path.append(os.path.abspath("./model"))
-from load import *
+# sys.path.append(os.path.abspath("./model"))
+from model.load import *
 
 # initialize flask app
 app = Flask(__name__)
