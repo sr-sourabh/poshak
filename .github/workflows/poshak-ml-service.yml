@@ -17,6 +17,6 @@ jobs:
         image: sourabhpayal/poshak-ml-service
         tags: v1, latest
         registry: registry.hub.docker.com
-        dockerfile: poshak-service/elk/Dockerfile
+        dockerfile: poshak-ml-service/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
