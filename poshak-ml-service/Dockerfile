@@ -2,7 +2,9 @@ FROM continuumio/miniconda:latest
 
 WORKDIR /poshak-ml-service
 
-#COPY . /poshak-ml-service
+COPY poshak-ml-service /poshak-ml-service
+
+RUN ls
 
 RUN conda env create -f environment.yml
 
