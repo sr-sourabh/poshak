@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poshak-ml-service-deployment
+  labels:
+    app: poshak-ml-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poshak-ml-service
+  template:
+    metadata:
+      labels:
+        app: poshak-ml-service
+    spec:
+      dnsPolicy: Default
+      containers:
+        - name: poshak-ml-service
+          image: registry.hub.docker.com/sourabhpayal/poshak-ml-service
+          ports:
+            - name: port5000
+              containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: poshak-ml-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: poshak-ml-service
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      #nodePort: 30000
