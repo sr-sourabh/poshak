@@ -104,24 +104,25 @@ function SearchComp() {
     setImagePreview(image_as_base64);
   }
 
-  async function handleImageSubmit(e) {
-    e.preventDefault();
-    let formData = new FormData();
-    formData.append("file", imageFile);
-    axios
-      .post("http://0.0.0.0:5000/predict", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        setPredImage(res.data);
-        console.log("Success" + res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+    async function handleImageSubmit(e) {
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append('file',imageFile);
+        axios.post(
+            process.env.REACT_APP_POSHAK_ML_SERVICE + "/predict",
+            formData,{
+                headers:{
+                    "Content-Type": "multipart/form-data"
+                },
+            }
+        ).then(res => {
+            setPredImage(res.data);
+            console.log('Success' + res.data);
+        } ).catch(err => {
+            console.log(err);
+        })
+    }
+
 
   return (
     <div className="logging-outer-div">
@@ -184,7 +185,7 @@ function SearchComp() {
       </div>
 
       <div className="alignright box-padding">
-        
+
         <h2>Log food using image</h2>
 
         <input

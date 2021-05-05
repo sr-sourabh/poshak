@@ -1,0 +1,11 @@
+#kind: PersistentVolumeClaim
+#apiVersion: v1
+#metadata:
+#  name: log-pvc
+#spec:
+# accessModes:
+#   - ReadOnlyMany
+# storageClassName: standard
+# resources:
+#   requests:
+#     storage: 32Mi
