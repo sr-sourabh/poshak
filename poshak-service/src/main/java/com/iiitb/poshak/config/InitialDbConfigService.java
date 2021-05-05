@@ -2,6 +2,8 @@ package com.iiitb.poshak.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iiitb.poshak.food.FoodRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.ClassPathResource;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class InitialDbConfigService {
 
+    private static final Logger log = LogManager.getLogger(InitialDbConfigService.class);
+
     @Resource
     private FoodRepository foodRepository;
 
@@ -25,16 +29,16 @@ public class InitialDbConfigService {
     @Transactional
     public void setupInitialFood() {
         long foodCount = foodRepository.count();
-        System.out.println("Number of food items present: " + foodCount);
+        log.info("Number of food items present: {}", foodCount);
         if (foodCount == 0L) {
-            System.out.println("Inserting food items");
+            log.info("Inserting food items");
             ObjectMapper mapper = new ObjectMapper();
             List<Food> foods = new ArrayList<>();
             // read JSON file and map/convert to java POJO
             try {
                 InputStreamReader inputStreamReader = new InputStreamReader(new ClassPathResource("mongo/2.json").getInputStream());
                 foods = mapper.readValue(inputStreamReader, FoodList.class);
-                List<com.iiitb.poshak.food.Food> foodList = new ArrayList<>() ;
+                List<com.iiitb.poshak.food.Food> foodList = new ArrayList<>();
                 foods.forEach(food -> {
                     com.iiitb.poshak.food.Food food1 = new com.iiitb.poshak.food.Food();
                     food1.setFood(food.getFood());
