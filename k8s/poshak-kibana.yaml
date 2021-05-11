@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poshak-kibana
+  labels:
+    app: poshak-kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poshak-kibana
+  template:
+    metadata:
+      labels:
+        app: poshak-kibana
+    spec:
+      containers:
+        - name: poshak-kibana
+          env:
+            - name: ELASTICSEARCH_HOSTS
+              value: https://poshak-elasticsearch-sr-sourabh.cloud.okteto.net
+          image: kibana:7.8.0
+          ports:
+            - name: port5601
+              containerPort: 5601
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: poshak-kibana
+spec:
+  type: LoadBalancer
+  selector:
+    app: poshak-kibana
+  ports:
+    - protocol: TCP
+      port: 5601
+      targetPort: 5601

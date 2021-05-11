@@ -16,7 +16,9 @@ spec:
     spec:
       containers:
         - name: poshak-elasticsearch
-          value: single-node
+          env:
+            - name: discovery.type
+              value: single-node
           image: elasticsearch:7.8.0
           ports:
             - name: port9200

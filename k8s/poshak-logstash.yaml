@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poshak-logstash
+  labels:
+    app: poshak-logstash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poshak-logstash
+  template:
+    metadata:
+      labels:
+        app: poshak-logstash
+    spec:
+      containers:
+        - name: poshak-logstash
+          image: registry.hub.docker.com/sourabhpayal/poshak-logstash
+          ports:
+            - name: port5044
+              containerPort: 5044
+          volumeMounts:
+            - name: log-manual-pipeline
+              mountPath: /usr/share/logstash/pipeline/
+            command:
+              - logstash
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: poshak-logstash
+spec:
+  type: LoadBalancer
+  selector:
+    app: poshak-logstash
+  ports:
+    - protocol: TCP
+      port: 5044
+      targetPort: 5044
