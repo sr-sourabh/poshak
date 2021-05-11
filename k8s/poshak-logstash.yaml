@@ -20,6 +20,8 @@ spec:
           ports:
             - name: port5044
               containerPort: 5044
+            - name: port9600
+              containerPort: 9600
           command:
             - logstash
 ---
