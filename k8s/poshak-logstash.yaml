@@ -22,8 +22,8 @@ spec:
               containerPort: 5044
             - name: port9600
               containerPort: 9600
-          command:
-            - logstash
+          #command:
+            #- logstash
 ---
 apiVersion: v1
 kind: Service
