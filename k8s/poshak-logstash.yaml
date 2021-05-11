@@ -37,3 +37,6 @@ spec:
     - protocol: TCP
       port: 5044
       targetPort: 5044
+    - protocol: TCP
+        port: 9600
+        targetPort: 9600

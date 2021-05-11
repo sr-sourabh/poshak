@@ -4,4 +4,4 @@ RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 
 ADD poshak-service/elk/logstash.conf /usr/share/logstash/pipeline/
 
-CMD["logstash"]
+CMD ["logstash"]
