@@ -83,9 +83,10 @@ filebeat.prospectors:
   #hosts: ["localhost:9200"]
 
 output.logstash:
-    hosts: ["db9213e6-daea-467a-a248-99ca55a7ae6f-ls.logit.io:29660"]
-    loadbalance: true
-    ssl.enabled: true
+    #hosts: ["db9213e6-daea-467a-a248-99ca55a7ae6f-ls.logit.io:29660"]
+    hosts: ["poshak-logstash"]
+    #loadbalance: true
+    #ssl.enabled: true
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
