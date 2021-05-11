@@ -34,11 +34,11 @@ spec:
   selector:
     app: poshak-logstash
   ports:
-    #- name: port5044
-      #protocol: TCP
-      #port: 5044
-      #targetPort: 5044
-    - name: port9600
+    - name: port5044
       protocol: TCP
-      port: 9600
-      targetPort: 9600
+      port: 5044
+      targetPort: 5044
+    #- name: port9600
+      #protocol: TCP
+      #port: 9600
+      #targetPort: 9600
