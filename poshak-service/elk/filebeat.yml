@@ -83,7 +83,7 @@ filebeat.prospectors:
   #hosts: ["localhost:9200"]
 
 output.logstash:
-    hosts: ["https://poshak-logstash-sr-sourabh.cloud.okteto.net:5044"]
+    hosts: ["https://poshak-logstash-sr-sourabh.cloud.okteto.net"]
     loadbalance: true
     ssl.enabled: true
 
