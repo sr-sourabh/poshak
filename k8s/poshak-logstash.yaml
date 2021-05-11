@@ -16,6 +16,11 @@ spec:
     spec:
       containers:
         - name: poshak-logstash
+          env:
+            - name: HTTP_HOST
+              value: https://poshak-logstash-sr-sourabh.cloud.okteto.net
+            - name: MONITORING_ELASTICSEARCH_HOSTS
+              value: https://poshak-elasticsearch-sr-sourabh.cloud.okteto.net:443
           image: registry.hub.docker.com/sourabhpayal/poshak-logstash
           ports:
             - name: port5044
