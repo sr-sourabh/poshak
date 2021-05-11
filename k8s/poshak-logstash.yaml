@@ -35,5 +35,5 @@ spec:
     app: poshak-logstash
   ports:
     - protocol: TCP
-      port: 5044
-      targetPort: 5044
+      port: 9600
+      targetPort: 9600
