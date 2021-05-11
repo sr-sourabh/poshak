@@ -20,11 +20,8 @@ spec:
           ports:
             - name: port5044
               containerPort: 5044
-          volumeMounts:
-            - name: log-manual-pipeline
-              mountPath: /usr/share/logstash/pipeline/
-            command:
-              - logstash
+          command:
+            - logstash
 ---
 apiVersion: v1
 kind: Service
