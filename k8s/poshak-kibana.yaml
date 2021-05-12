@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: poshak-kibana
   labels:
     app: poshak-kibana
 spec:
   replicas: 1
+  serviceName: poshak-kibana
   selector:
     matchLabels:
       app: poshak-kibana
@@ -14,6 +15,8 @@ spec:
       labels:
         app: poshak-kibana
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - name: poshak-kibana
           env:
@@ -23,13 +26,22 @@ spec:
           ports:
             - name: port5601
               containerPort: 5601
-          #volumeMounts:
-            #- mountPath: /usr/share/kibana/data
-              #name: kibana-data
-      #volumes:
-        #- name: kibana-data
-          #persistentVolumeClaim:
-            #claimName: kibana-pvc
+          volumeMounts:
+            - name: kibana-persistent-claim
+              mountPath: /usr/share/kibana/data
+              subPath:
+          resources:
+            { }
+  volumeClaimTemplates:
+    - metadata:
+        name: kibana-persistent-claim
+        annotations:
+          volume.beta.kubernetes.io/storage-class: "standard"
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 100Mi
 ---
 apiVersion: v1
 kind: Service
