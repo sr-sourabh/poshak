@@ -1,5 +1,6 @@
 package com.iiitb.poshak.logging;
 
+import com.iiitb.poshak.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,7 +39,7 @@ class LoggingControllerTest {
 
         Mockito.when(loggingService.setlog(loggingRequest)).thenReturn(logging);
 
-        Logging result = new Logging();
+        Logging result = underTest.setlog(loggingRequest);
 
         Assertions.assertEquals(logging,result);
         Assertions.assertEquals("ayush@gmail.com","ayush@gmail.com");
