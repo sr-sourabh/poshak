@@ -28,7 +28,7 @@ spec:
               containerPort: 9300
           volumeMounts:
             - name: elastic-persistent-claim
-              mountPath: /usr/share/elasticsearch/data
+              mountPath: ./esdata:/usr/share/elasticsearch/data
               subPath:
           resources:
             { }
