@@ -1,6 +1,9 @@
 package com.iiitb.poshak.user;
 
+
 import com.iiitb.poshak.util.ErrorDto;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -8,6 +11,8 @@ import java.util.List;
 
 @RestController
 public class UserController {
+
+    private static final Logger log = LogManager.getLogger(UserController.class);
 
     @Resource
     private UserService userService;
@@ -22,12 +27,14 @@ public class UserController {
 
     @PutMapping(value = "/user/login")
     public User getUser(@RequestBody UserRequest userRequest) throws Exception {
+        log.info("get user details: {}", userRequest);
         User users = userService.getUser(userRequest);
         return users;
     }
 
     @PutMapping(value = "/user/signup")
     public User updateUser(@RequestBody UserRequest userRequest) throws Exception {
+        log.info("update user: {}", userRequest);
         User users = userService.updateUser(userRequest);
         return users;
     }
