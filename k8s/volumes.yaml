@@ -1,11 +1,11 @@
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: kibana-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: standard
-  resources:
-    requests:
-      storage: 100Mi
+#kind: PersistentVolumeClaim
+#apiVersion: v1
+#metadata:
+#  name: kibana-pvc
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#  storageClassName: standard
+#  resources:
+#    requests:
+#      storage: 100Mi

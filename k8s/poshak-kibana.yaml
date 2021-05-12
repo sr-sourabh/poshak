@@ -23,13 +23,13 @@ spec:
           ports:
             - name: port5601
               containerPort: 5601
-          volumeMounts:
-            - mountPath: /usr/share/kibana/data
-              name: kibana-data
-      volumes:
-        - name: kibana-data
-          persistentVolumeClaim:
-            claimName: kibana-pvc
+          #volumeMounts:
+            #- mountPath: /usr/share/kibana/data
+              #name: kibana-data
+      #volumes:
+        #- name: kibana-data
+          #persistentVolumeClaim:
+            #claimName: kibana-pvc
 ---
 apiVersion: v1
 kind: Service
