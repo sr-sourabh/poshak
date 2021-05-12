@@ -98,10 +98,12 @@ function SearchComp() {
   const [predImage, setPredImage] = useState("");
 
   async function handleImageChange(e) {
-    let image_as_base64 = URL.createObjectURL(e.target.files[0]);
-    let image_as_files = e.target.files[0];
-    setImageFile(image_as_files);
-    setImagePreview(image_as_base64);
+    if(e.target.files[0]) {
+      let image_as_base64 = URL.createObjectURL(e.target.files[0]);
+      let image_as_files = e.target.files[0];
+      setImageFile(image_as_files);
+      setImagePreview(image_as_base64);
+    }
   }
 
     async function handleImageSubmit(e) {
@@ -109,6 +111,7 @@ function SearchComp() {
         let formData = new FormData();
         formData.append('file',imageFile);
         axios.post(
+            //"http://0.0.0.0:5000/predict",
             process.env.REACT_APP_POSHAK_ML_SERVICE + "/predict",
             formData,{
                 headers:{
@@ -117,6 +120,7 @@ function SearchComp() {
             }
         ).then(res => {
             setPredImage(res.data);
+            setSingleUser(res.data);
             console.log('Success' + res.data);
         } ).catch(err => {
             console.log(err);
