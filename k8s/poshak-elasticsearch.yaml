@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: poshak-elasticsearch
   labels:
     app: poshak-elasticsearch
 spec:
   replicas: 1
+  serviceName: poshak-elasticsearch
   selector:
     matchLabels:
       app: poshak-elasticsearch
@@ -14,6 +15,8 @@ spec:
       labels:
         app: poshak-elasticsearch
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - name: poshak-elasticsearch
           env:
@@ -25,6 +28,22 @@ spec:
               containerPort: 9200
             - name: port9300
               containerPort: 9300
+          volumeMounts:
+            - name: elastic-persistent-claim
+              mountPath: /usr/share/elasticsearch/data
+              subPath:
+          resources:
+            { }
+  volumeClaimTemplates:
+    - metadata:
+        name: elastic-persistent-claim
+        annotations:
+          volume.beta.kubernetes.io/storage-class: "standard"
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 100Mi
 ---
 apiVersion: v1
 kind: Service

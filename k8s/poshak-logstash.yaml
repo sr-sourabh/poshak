@@ -20,8 +20,10 @@ spec:
           ports:
             - name: port5044
               containerPort: 5044
-          command:
-            - logstash
+            - name: port9600
+              containerPort: 9600
+          #command:
+            #- logstash
 ---
 apiVersion: v1
 kind: Service
@@ -32,6 +34,11 @@ spec:
   selector:
     app: poshak-logstash
   ports:
-    - protocol: TCP
+    - name: port5044
+      protocol: TCP
       port: 5044
       targetPort: 5044
+    #- name: port9600
+      #protocol: TCP
+      #port: 9600
+      #targetPort: 9600
