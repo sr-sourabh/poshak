@@ -25,7 +25,83 @@ import Commons from '../commons.js';
 
 const SignIn = (props) => {
 
-    
+    async function handleload(e) {
+        e.preventDefault();
+              
+              var com = "lastYear";
+            let response = await axios({
+                  method: 'put',
+                  url: process.env.REACT_APP_POSHAK_SERVICE + "/logging/filter",
+                  data: {
+                      // "emailId": sessionStorage.getItem("email")
+                      "emails": [sessionStorage.getItem("email")],
+                      [com] : true
+                  }
+              });
+               console.log(response);
+            //    alert("lastYear");
+      
+               var cal = response.data[0].calorieValue;
+              var pro = response.data[0].proteinValue;
+              var fat = response.data[0].fatValue;
+              var carbs = response.data[0].carbsValue;
+      
+              var calGoal = response.data[0].calorieGoal;
+              var proGoal = response.data[0].proteinGoal;
+              var fatGoal = response.data[0].fatGoal;
+              var carbsGoal = response.data[0].carbsGoal;
+      
+              console.log(cal);
+              console.log(pro);
+              console.log(fat);
+              console.log(carbs);
+      
+      
+              sessionStorage.setItem("Calorie", cal);
+              sessionStorage.setItem("Protein", pro);
+              sessionStorage.setItem("Fat", fat);
+              sessionStorage.setItem("Carbs", carbs);
+      
+              sessionStorage.setItem("calGoal", calGoal);
+              sessionStorage.setItem("proGoal", proGoal);
+              sessionStorage.setItem("fatGoal", fatGoal);
+              sessionStorage.setItem("carbsGoal", carbsGoal);
+      
+      
+              var total = pro + fat + carbs;
+      
+              var percentProtein = pro*100/total;
+              percentProtein = percentProtein.toFixed(2);
+      
+              var percentFat = fat*100/total;
+              percentFat = percentFat.toFixed(2);
+      
+              var percentCarbs = carbs*100/total;
+              percentCarbs = percentCarbs.toFixed(2);
+      
+              sessionStorage.setItem("PercentProtein", percentProtein);
+              sessionStorage.setItem("PercentFat", percentFat);
+              sessionStorage.setItem("PercentCarbs", percentCarbs);
+      
+      
+              let response1 = await axios({
+                  method: 'put',
+                  url: process.env.REACT_APP_POSHAK_SERVICE + "/user/signup",
+                  data: {
+                      // "emailId": sessionStorage.getItem("email")
+                      "emailId": sessionStorage.getItem("email")
+                  }
+              });
+      
+              var h = response1.data.height/100;
+              var w = response1.data.weight ;
+              var bmi1 = ((w/h)/h).toFixed(2);
+              console.log(response1.data.height);
+              console.log(response1.data.weight);
+              console.log(bmi1);
+              sessionStorage.setItem("BMI", bmi1);
+              document.location = `/overview`;
+            }
     
 
     async function handleSubmit(e) {
@@ -46,11 +122,15 @@ const SignIn = (props) => {
             sessionStorage.setItem("isLoggedIn", "true");
             sessionStorage.setItem("email", email_check);
             sessionStorage.setItem("BMI", 10);
-            document.location = `/overview`;
+            // console.log(response.data.name)
+            sessionStorage.setItem("name", response.data.name);
+            handleload(e);
+            // document.location = `/overview`;
 
         } else {
             // alert("bello");
             // setPath("/signin");
+            alert("wrong email or password")
             document.location = "/signin"
         }
 
