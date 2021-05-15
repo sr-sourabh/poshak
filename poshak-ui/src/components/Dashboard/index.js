@@ -91,8 +91,16 @@ function Example(props) {
   );
 }
 
+
+// async function handleload(e) {
+//   e.preventDefault();
+//   alert("ayush");
+
+// }
+
 async function handlerefresh(e) {
   e.preventDefault();
+  alert("ayush");
   document.location.reload();
 
 }
@@ -194,7 +202,7 @@ const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle title="Your Nutrition Overview" subtitle="HI, Ron"  className="text-sm-left mb-3" />
+      <PageTitle title="Your Nutrition Overview" subtitle={"Hi " +sessionStorage.getItem("name")}  className="text-sm-left mb-3" />
       </Row>
     <Row>
       <Col>
@@ -204,7 +212,7 @@ const BlogOverview = ({ smallStats }) => (
     <Row>
     <Col lg="9" md="6" sm="12">
       <NavBtn>
-                    <NavBtnLink onClick={handlerefresh}>Refresh</NavBtnLink>
+                    <NavBtnLink onClick={handlerefresh} >Refresh</NavBtnLink>
       </NavBtn>
     </Col>
 
