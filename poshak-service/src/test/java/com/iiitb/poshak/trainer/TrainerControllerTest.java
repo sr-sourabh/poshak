@@ -53,7 +53,7 @@ class TrainerControllerTest {
 
         List<TrainerGoal> result = underTest.setTrainerGoals(trainerExcelRequest);
 
-        Assertions.assertEquals(trainerGoals,result);
+        Assertions.assertEquals(trainerGoals,result); 
 
 
 
