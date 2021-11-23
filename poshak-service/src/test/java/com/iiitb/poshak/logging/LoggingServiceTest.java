@@ -2,6 +2,7 @@ package com.iiitb.poshak.logging;
 
 import com.iiitb.poshak.user.User;
 import com.iiitb.poshak.user.UserRepository;
+import com.iiitb.poshak.util.SequenceService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,30 +27,33 @@ class LoggingServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private SequenceService sequenceService;
+
     @Test
     public void setLog() throws Exception{
-//        LoggingRequest loggingRequest = new LoggingRequest();
-//
-//        loggingRequest.setEmail("ayush@gmail.com");
-//        loggingRequest.setCalorie(100.0F);
-//        loggingRequest.setProtein(8F);
-//        loggingRequest.setFat(15F);
-//        loggingRequest.setCarbs(32F);
-//        loggingRequest.setDay(22);
-//        loggingRequest.setMonth(11);
-//        loggingRequest.setYear(2021);
-//        loggingRequest.setFoodName("Milk");
-//        loggingRequest.setQuantity(2F);
-//
-//        Logging logging = new Logging();
-//        logging.setEmail("ayush@gmail.com");
-//
-//        Mockito.when(loggingRepository.findByEmail(loggingRequest.getEmail())).thenReturn(logging);
-//        Mockito.when(loggingRepository.save(logging)).thenReturn(logging);
-//        Logging result = underTest.setlog(loggingRequest);
-//
-//        //Assertions.assertEquals(logging,result);
-//        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+        LoggingRequest loggingRequest = new LoggingRequest();
+
+        loggingRequest.setEmail("ayush@gmail.com");
+        loggingRequest.setCalorie(100.0F);
+        loggingRequest.setProtein(8F);
+        loggingRequest.setFat(15F);
+        loggingRequest.setCarbs(32F);
+        loggingRequest.setDay(22);
+        loggingRequest.setMonth(11);
+        loggingRequest.setYear(2021);
+        loggingRequest.setFoodName("Milk");
+        loggingRequest.setQuantity(2F);
+
+        Logging logging = new Logging();
+        logging.setEmail("ayush@gmail.com");
+
+        Mockito.when(loggingRepository.findByEmail(loggingRequest.getEmail())).thenReturn(logging);
+        Mockito.when(loggingRepository.save(logging)).thenReturn(logging);
+        Logging result = underTest.setlog(loggingRequest);
+
+        //Assertions.assertEquals(logging,result);
+        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
     }
 
     @Test
