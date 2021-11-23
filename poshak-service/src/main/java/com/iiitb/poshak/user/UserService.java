@@ -4,6 +4,7 @@ import com.iiitb.poshak.logging.Logging;
 import com.iiitb.poshak.logging.LoggingRepository;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +27,7 @@ public class UserService {
 
         String pass = DigestUtils.sha384Hex(userRequest.getPassword());
         User user = userRepository.findAllByEmailIdAndPassword(userRequest.getEmailId(), pass);
-
+        if(user == null) throw new ResourceNotFoundException("User not found");
         return user;
     }
 

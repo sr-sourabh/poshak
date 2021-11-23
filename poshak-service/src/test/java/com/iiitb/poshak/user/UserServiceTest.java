@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ class UserServiceTest {
     private UserRepository userRepository;
 
     @Test
-    public void getUser() throws Exception {
+    public void getUser() {
         UserRequest userRequest = new UserRequest();
         userRequest.setPassword("MyPassword");
         userRequest.setEmailId("email@email.com");
@@ -29,9 +30,13 @@ class UserServiceTest {
         User user = new User();
 
         Mockito.when(userRepository.findAllByEmailIdAndPassword(Mockito.anyString(), Mockito.anyString())).thenReturn(user);
-
-        User result = underTest.getUser(userRequest);
-
+        User result = null;
+        try {
+            result = underTest.getUser(userRequest);
+        } catch (Exception e) {
+            Assertions.fail();
+        }
+        Assertions.assertNotNull(result);
         Assertions.assertEquals(user, result);
     }
 

@@ -23,7 +23,7 @@ public class KafkaConsumer {
     @Value("${com.iiitb.poshak.kafka.topic}")
     private String TOPIC;
 
-    @KafkaListener(topics = "${com.iiitb.poshak.kafka.topic}")
+    //@KafkaListener(topics = "${com.iiitb.poshak.kafka.topic}")
     public void processMessage(String message) throws IOException {
         log.info("Message recieved from kafka: {}", message);
         KafkaModel kafkaModel = new ObjectMapper().readValue(message, KafkaModel.class);
