@@ -23,45 +23,6 @@ class TrainerControllerTest {
     private TrainerService trainerService;
 
     @Test
-    public void setTrainerGoals() throws Exception {
-
-        TrainerExcelRequest trainerExcelRequest =new TrainerExcelRequest();
-        ExcelFoodDto excelFoodDto =new ExcelFoodDto();
-        excelFoodDto.setUserEmail("ayush@gmail.com");
-        excelFoodDto.setFoodName("banana");
-        excelFoodDto.setTimeOfDay("10");
-        excelFoodDto.setQuantity(1F);
-        excelFoodDto.setDay("1");
-        excelFoodDto.setMonth("5");
-        excelFoodDto.setYear("2021");
-        excelFoodDto.setCompleted(true);
-
-        List<ExcelFoodDto> excelFoodDtos = new ArrayList<>();
-        excelFoodDtos.add(excelFoodDto);
-
-        trainerExcelRequest.setTrainerEmail("trainer@gmail.com");
-        trainerExcelRequest.setExcelFoods(excelFoodDtos);
-
-        List<TrainerGoal> trainerGoals =new ArrayList<>();
-
-        TrainerGoal trainerGoal =new TrainerGoal();
-        trainerGoal.setCompleted(true);
-
-        trainerGoals.add(trainerGoal);
-
-        Mockito.when(trainerService.setTrainerGoals(trainerExcelRequest)).thenReturn(trainerGoals);
-
-        List<TrainerGoal> result = underTest.setTrainerGoals(trainerExcelRequest);
-
-        Assertions.assertEquals(trainerGoals,result); 
-
-
-
-
-
-    }
-
-    @Test
     public void getTrainerGoals() throws Exception {
 
         TrainerGetRequest trainerGetRequest = new TrainerGetRequest();
@@ -116,4 +77,49 @@ class TrainerControllerTest {
         Assertions.assertEquals(trainerGoals,result);
 
     }
+
+    @Test
+    public void setTrainerGoals() throws Exception {
+
+        TrainerExcelRequest trainerExcelRequest =new TrainerExcelRequest();
+        ExcelFoodDto excelFoodDto =new ExcelFoodDto();
+        excelFoodDto.setUserEmail("ayush@gmail.com");
+        excelFoodDto.setFoodName("banana");
+        excelFoodDto.setTimeOfDay("10");
+        excelFoodDto.setQuantity(1F);
+        excelFoodDto.setDay("1");
+        excelFoodDto.setMonth("5");
+        excelFoodDto.setYear("2021");
+        excelFoodDto.setCompleted(true);
+
+        List<ExcelFoodDto> excelFoodDtos = new ArrayList<>();
+        excelFoodDtos.add(excelFoodDto);
+
+        trainerExcelRequest.setTrainerEmail("trainer@gmail.com");
+        trainerExcelRequest.setExcelFoods(excelFoodDtos);
+
+        List<TrainerGoal> trainerGoals =new ArrayList<>();
+
+        TrainerGoal trainerGoal =new TrainerGoal();
+        trainerGoal.setCompleted(true);
+
+        trainerGoals.add(trainerGoal);
+
+        Mockito.when(trainerService.setTrainerGoals(trainerExcelRequest)).thenReturn(trainerGoals);
+
+        List<TrainerGoal> result = underTest.setTrainerGoals(trainerExcelRequest);
+
+        Assertions.assertEquals(trainerGoals,result); 
+
+
+
+
+
+    }
+
+
+
+
+
+
 }
