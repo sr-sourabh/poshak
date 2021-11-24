@@ -19,10 +19,7 @@ class FoodControllerTest {
     @Mock
     private FoodService foodService;
 
-<<<<<<<<< Temporary merge branch 1
-=========
 
->>>>>>>>> Temporary merge branch 2
     @Test
 
     public void getAllFoodByFoodName() throws Exception {
@@ -30,11 +27,7 @@ class FoodControllerTest {
         String foodname;
         foodname = "milk";
 
-<<<<<<<<< Temporary merge branch 1
-        Food food = new Food();
-=========
         Food food =new Food();
->>>>>>>>> Temporary merge branch 2
         food.setFood("milk");
         food.setCalories("100");
         food.setCarbs("10");
@@ -80,5 +73,3 @@ class FoodControllerTest {
 
 
 }
-
->>>>>>>>> Temporary merge branch 2

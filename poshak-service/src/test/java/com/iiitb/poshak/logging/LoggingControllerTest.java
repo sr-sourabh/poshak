@@ -20,10 +20,7 @@ class LoggingControllerTest {
     @Mock
     private LoggingService loggingService;
 
-<<<<<<<<< Temporary merge branch 1
-=========
 
->>>>>>>>> Temporary merge branch 2
     @Test
     public void setlog() throws Exception {
 
@@ -47,16 +44,13 @@ class LoggingControllerTest {
 
         Logging result = underTest.setlog(loggingRequest);
 
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+        Assertions.assertEquals(logging, result);
+        Assertions.assertEquals("ayush@gmail.com", logging.getEmail());
 
 
     }
 
-<<<<<<<<< Temporary merge branch 1
-=========
 
->>>>>>>>> Temporary merge branch 2
     @Test
     public void getlog() throws Exception {
 
@@ -70,20 +64,15 @@ class LoggingControllerTest {
 
         Logging result = underTest.getAllLogsByEmail(loggingRequest);
 
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
-<<<<<<<<< Temporary merge branch 1
-    }
-//    getLogsByFilter
-=========
+        Assertions.assertEquals(logging, result);
+        Assertions.assertEquals("ayush@gmail.com", logging.getEmail());
 
 
-        Assertions.assertNotEquals("ayush121@gmail.com",logging.getEmail());
+        Assertions.assertNotEquals("ayush121@gmail.com", logging.getEmail());
     }
 
 
     //    getLogsByFilter
->>>>>>>>> Temporary merge branch 2
 
     @Test
     public void getlogbyfilter() throws Exception {
@@ -97,22 +86,17 @@ class LoggingControllerTest {
 
         LoggingDto loggingDto = new LoggingDto();
         loggingDto.setEmailId("ayush@gmail.com");
-        List<LoggingDto> loggingDtos= new ArrayList<>();
+        List<LoggingDto> loggingDtos = new ArrayList<>();
         loggingDtos.add(loggingDto);
 
         Mockito.when(loggingService.getLogsByFilter(loggingFilterRequest)).thenReturn(loggingDtos);
 
         List<LoggingDto> result = underTest.getLogsByFilter(loggingFilterRequest);
 
-        Assertions.assertEquals(loggingDtos,result);
+        Assertions.assertEquals(loggingDtos, result);
 
 
     }
-<<<<<<<<< Temporary merge branch 1
-=========
 
 
-
-
->>>>>>>>> Temporary merge branch 2
 }
