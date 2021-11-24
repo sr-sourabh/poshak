@@ -22,6 +22,50 @@ class LoggingControllerTest {
     @Mock
     private LoggingService loggingService;
 
+
+    //    getLogsByFilter
+
+    @Test
+    public void getlogbyfilter() throws Exception {
+
+        LoggingFilterRequest loggingFilterRequest = new LoggingFilterRequest();
+        loggingFilterRequest.setEmails(Arrays.asList(new String[]{"ayush@gmail.com"}));
+        loggingFilterRequest.setToday(true);
+        loggingFilterRequest.setLastWeek(false);
+        loggingFilterRequest.setLastMonth(false);
+        loggingFilterRequest.setLastYear(false);
+
+        LoggingDto loggingDto = new LoggingDto();
+        loggingDto.setEmailId("ayush@gmail.com");
+        List<LoggingDto> loggingDtos= new ArrayList<>();
+        loggingDtos.add(loggingDto);
+
+        Mockito.when(loggingService.getLogsByFilter(loggingFilterRequest)).thenReturn(loggingDtos);
+
+        List<LoggingDto> result = underTest.getLogsByFilter(loggingFilterRequest);
+
+        Assertions.assertEquals(loggingDtos,result);
+
+
+    }
+
+    @Test
+    public void getlog() throws Exception {
+
+        LoggingRequest loggingRequest = new LoggingRequest();
+        loggingRequest.setEmail("ayush@gmail.com");
+
+        Logging logging = new Logging();
+        logging.setEmail("ayush@gmail.com");
+
+        Mockito.when(loggingService.getAllLogsByEmail(loggingRequest)).thenReturn(logging);
+
+        Logging result = underTest.getAllLogsByEmail(loggingRequest);
+
+        Assertions.assertEquals(logging,result);
+        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+    }
+
     @Test
     public void setlog() throws Exception {
 
@@ -51,45 +95,6 @@ class LoggingControllerTest {
 
     }
 
-    @Test
-    public void getlog() throws Exception {
-
-        LoggingRequest loggingRequest = new LoggingRequest();
-        loggingRequest.setEmail("ayush@gmail.com");
-
-        Logging logging = new Logging();
-        logging.setEmail("ayush@gmail.com");
-
-        Mockito.when(loggingService.getAllLogsByEmail(loggingRequest)).thenReturn(logging);
-
-        Logging result = underTest.getAllLogsByEmail(loggingRequest);
-
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
-    }
-//    getLogsByFilter
-
-    @Test
-    public void getlogbyfilter() throws Exception {
-
-        LoggingFilterRequest loggingFilterRequest = new LoggingFilterRequest();
-        loggingFilterRequest.setEmails(Arrays.asList(new String[]{"ayush@gmail.com"}));
-        loggingFilterRequest.setToday(true);
-        loggingFilterRequest.setLastWeek(false);
-        loggingFilterRequest.setLastMonth(false);
-        loggingFilterRequest.setLastYear(false);
-
-        LoggingDto loggingDto = new LoggingDto();
-        loggingDto.setEmailId("ayush@gmail.com");
-        List<LoggingDto> loggingDtos= new ArrayList<>();
-        loggingDtos.add(loggingDto);
-
-        Mockito.when(loggingService.getLogsByFilter(loggingFilterRequest)).thenReturn(loggingDtos);
-
-        List<LoggingDto> result = underTest.getLogsByFilter(loggingFilterRequest);
-
-        Assertions.assertEquals(loggingDtos,result);
 
 
-    }
 }
