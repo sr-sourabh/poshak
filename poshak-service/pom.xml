@@ -123,6 +123,27 @@
                         <version>0.15</version>
                     </dependency>
                 </dependencies>
+                <!--<configuration>
+                    <excludedClasses>
+                        <param>com.iiitb.poshak.user.UserRequest</param>
+                        <param>com.iiitb.poshak.user.User</param>
+                        <param>com.iiitb.poshak.config.FoodList</param>
+                        <param>com.iiitb.poshak.config.Food</param>
+                        <param>com.iiitb.poshak.food.Food</param>
+                        <param>com.iiitb.poshak.kafka.KafkaModel</param>
+                        <param>com.iiitb.poshak.logging.Log</param>
+                        <param>com.iiitb.poshak.logging.Logging</param>
+                        <param>com.iiitb.poshak.logging.LoggingDto</param>
+                        <param>com.iiitb.poshak.logging.LoggingFilterRequest</param>
+                        <param>com.iiitb.poshak.logging.LoggingRequest</param>
+                        <param>com.iiitb.poshak.trainer.ExcelFoodDto</param>
+                        <param>com.iiitb.poshak.trainer.TrainerExcelRequest</param>
+                        <param>com.iiitb.poshak.trainer.TrainerGetRequest</param>
+                        <param>com.iiitb.poshak.trainer.TrainerGoal</param>
+                        <param>com.iiitb.poshak.util.ErrorDto</param>
+                        <param>com.iiitb.poshak.util.Sequence</param>
+                    </excludedClasses>
+                </configuration>-->
             </plugin>
         </plugins>
     </build>
