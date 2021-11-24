@@ -1,6 +1,5 @@
 package com.iiitb.poshak.logging;
 
-import com.iiitb.poshak.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-//import sun.util.logging.resources.logging;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +19,6 @@ class LoggingControllerTest {
 
     @Mock
     private LoggingService loggingService;
-
 
     @Test
     public void setlog() throws Exception {
@@ -36,7 +33,7 @@ class LoggingControllerTest {
         loggingRequest.setDay(10);
         loggingRequest.setMonth(4);
         loggingRequest.setYear(2021);
-        loggingRequest.setFoodName("Banana");
+        loggingRequest.setFoodName("Milk");
         loggingRequest.setQuantity(2F);
 
         Logging logging = new Logging();
@@ -51,7 +48,6 @@ class LoggingControllerTest {
 
 
     }
-
 
     @Test
     public void getlog() throws Exception {
@@ -68,13 +64,8 @@ class LoggingControllerTest {
 
         Assertions.assertEquals(logging,result);
         Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
-
-
-        Assertions.assertNotEquals("ayush121@gmail.com",logging.getEmail());
     }
-
-
-    //    getLogsByFilter
+//    getLogsByFilter
 
     @Test
     public void getlogbyfilter() throws Exception {
@@ -99,8 +90,4 @@ class LoggingControllerTest {
 
 
     }
-
-
-
-
 }

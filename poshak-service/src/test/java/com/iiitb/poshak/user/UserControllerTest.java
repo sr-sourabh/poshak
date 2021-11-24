@@ -8,6 +8,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ExtendWith(MockitoExtension.class)
 class UserControllerTest {
 
@@ -49,6 +52,18 @@ class UserControllerTest {
 
         Assertions.assertEquals(user, result);
         Assertions.assertEquals("shourabh@gmail.com", user.getEmailId());
+    }
+
+    @Test
+    public void getAllUsers() throws Exception {
+        List<User> users = new ArrayList<>();
+        User user = new User();
+        user.setEmailId("dave@gmail.com");
+        user.setName("dave");
+        users.add(user);
+        Mockito.when(userService.getAllUsers()).thenReturn(users);
+        List<User> results = underTest.getAllUsers();
+        Assertions.assertEquals(users, results);
     }
 
 }
