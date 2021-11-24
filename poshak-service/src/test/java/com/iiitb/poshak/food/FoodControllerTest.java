@@ -19,6 +19,7 @@ class FoodControllerTest {
     @Mock
     private FoodService foodService;
 
+
     @Test
 
     public void getAllFoodByFoodName() throws Exception {
@@ -26,7 +27,7 @@ class FoodControllerTest {
         String foodname;
         foodname = "milk";
 
-        Food food = new Food();
+        Food food =new Food();
         food.setFood("milk");
         food.setCalories("100");
         food.setCarbs("10");
@@ -63,4 +64,12 @@ class FoodControllerTest {
         Assertions.assertEquals(foods,result);
 
     }
+
+
+
+
+
+
+
+
 }
