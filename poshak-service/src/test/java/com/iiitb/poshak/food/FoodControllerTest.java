@@ -20,28 +20,6 @@ class FoodControllerTest {
     private FoodService foodService;
 
 
-
-    @Test
-    public void getAllFood() throws Exception {
-
-
-        Food food =new Food();
-        food.setFood("milk");
-        food.setCalories("100");
-        food.setCarbs("10");
-        food.setFiber("14");
-
-        List<Food> foods= new ArrayList<>();
-        foods.add(food);
-
-        Mockito.when(foodService.getAllFood()).thenReturn(foods);
-
-        List<Food> result = underTest.getAllFood();
-
-        Assertions.assertEquals(foods,result);
-
-    }
-
     @Test
 
     public void getAllFoodByFoodName() throws Exception {
@@ -65,6 +43,29 @@ class FoodControllerTest {
         Assertions.assertEquals(foods,result);
 
     }
+
+    @Test
+    public void getAllFood() throws Exception {
+
+
+        Food food =new Food();
+        food.setFood("milk");
+        food.setCalories("100");
+        food.setCarbs("10");
+        food.setFiber("14");
+
+        List<Food> foods= new ArrayList<>();
+        foods.add(food);
+
+        Mockito.when(foodService.getAllFood()).thenReturn(foods);
+
+        List<Food> result = underTest.getAllFood();
+
+        Assertions.assertEquals(foods,result);
+
+    }
+
+
 
 
 

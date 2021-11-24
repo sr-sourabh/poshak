@@ -23,62 +23,6 @@ class TrainerControllerTest {
     private TrainerService trainerService;
 
     @Test
-    public void getTrainerGoals() throws Exception {
-
-        TrainerGetRequest trainerGetRequest = new TrainerGetRequest();
-        trainerGetRequest.setTrainerEmail("trainer@gmail.com");
-        trainerGetRequest.setUserEmail("ayush@gmail.com");
-
-        Set<TrainerGoal> trainerGoals = new HashSet<>();
-        TrainerGoal trainerGoal =new TrainerGoal();
-        trainerGoal.setTrainerEmail("trainer@gmail.com");
-
-        trainerGoals.add(trainerGoal);
-
-        Mockito.when(trainerService.getTrainerGoals(trainerGetRequest)).thenReturn(trainerGoals);
-
-        Set<TrainerGoal> result = underTest.getTrainerGoals(trainerGetRequest);
-
-        Assertions.assertEquals(trainerGoals,result);
-
-
-
-    }
-
-    @Test
-    public void completeGoal() throws Exception {
-        String goalId;
-        goalId="235645443";
-
-        TrainerGoal trainerGoal =new TrainerGoal();
-        trainerGoal.setCompleted(true);
-
-        Mockito.when(trainerService.completeGoal(goalId)).thenReturn(trainerGoal);
-
-        TrainerGoal result = underTest.completeGoal(goalId);
-
-        Assertions.assertEquals(trainerGoal,result);
-    }
-
-    @Test
-    public void getAllTrainerGoals() throws Exception {
-
-        Set<TrainerGoal> trainerGoals = new HashSet<>();
-
-        TrainerGoal trainerGoal =new TrainerGoal();
-        trainerGoal.setTrainerEmail("trainer@gmail.com");
-
-        trainerGoals.add(trainerGoal);
-
-        Mockito.when(trainerService.getAllTrainerGoals()).thenReturn(trainerGoals);
-
-        Set<TrainerGoal> result = underTest.getAllTrainerGoals();
-
-        Assertions.assertEquals(trainerGoals,result);
-
-    }
-
-    @Test
     public void setTrainerGoals() throws Exception {
 
         TrainerExcelRequest trainerExcelRequest =new TrainerExcelRequest();
@@ -109,13 +53,75 @@ class TrainerControllerTest {
 
         List<TrainerGoal> result = underTest.setTrainerGoals(trainerExcelRequest);
 
-        Assertions.assertEquals(trainerGoals,result); 
+        Assertions.assertEquals(trainerGoals,result);
 
 
 
 
 
     }
+
+    @Test
+    public void getAllTrainerGoals() throws Exception {
+
+        Set<TrainerGoal> trainerGoals = new HashSet<>();
+
+        TrainerGoal trainerGoal =new TrainerGoal();
+        trainerGoal.setTrainerEmail("trainer@gmail.com");
+
+        trainerGoals.add(trainerGoal);
+
+        Mockito.when(trainerService.getAllTrainerGoals()).thenReturn(trainerGoals);
+
+        Set<TrainerGoal> result = underTest.getAllTrainerGoals();
+
+        Assertions.assertEquals(trainerGoals,result);
+
+    }
+
+    @Test
+    public void completeGoal() throws Exception {
+        String goalId;
+        goalId="235645443";
+
+        TrainerGoal trainerGoal =new TrainerGoal();
+        trainerGoal.setCompleted(true);
+
+        Mockito.when(trainerService.completeGoal(goalId)).thenReturn(trainerGoal);
+
+        TrainerGoal result = underTest.completeGoal(goalId);
+
+        Assertions.assertEquals(trainerGoal,result);
+    }
+
+
+
+    @Test
+    public void getTrainerGoals() throws Exception {
+
+        TrainerGetRequest trainerGetRequest = new TrainerGetRequest();
+        trainerGetRequest.setTrainerEmail("trainer@gmail.com");
+        trainerGetRequest.setUserEmail("ayush@gmail.com");
+
+        Set<TrainerGoal> trainerGoals = new HashSet<>();
+        TrainerGoal trainerGoal =new TrainerGoal();
+        trainerGoal.setTrainerEmail("trainer@gmail.com");
+
+        trainerGoals.add(trainerGoal);
+
+        Mockito.when(trainerService.getTrainerGoals(trainerGetRequest)).thenReturn(trainerGoals);
+
+        Set<TrainerGoal> result = underTest.getTrainerGoals(trainerGetRequest);
+
+        Assertions.assertEquals(trainerGoals,result);
+
+
+
+    }
+
+
+
+
 
 
 

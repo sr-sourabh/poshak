@@ -23,6 +23,57 @@ class LoggingControllerTest {
     private LoggingService loggingService;
 
 
+    @Test
+    public void setlog() throws Exception {
+
+        LoggingRequest loggingRequest = new LoggingRequest();
+
+        loggingRequest.setEmail("ayush@gmail.com");
+        loggingRequest.setCalorie(100.0F);
+        loggingRequest.setProtein(8F);
+        loggingRequest.setFat(15F);
+        loggingRequest.setCarbs(32F);
+        loggingRequest.setDay(10);
+        loggingRequest.setMonth(4);
+        loggingRequest.setYear(2021);
+        loggingRequest.setFoodName("Banana");
+        loggingRequest.setQuantity(2F);
+
+        Logging logging = new Logging();
+        logging.setEmail("ayush@gmail.com");
+
+        Mockito.when(loggingService.setlog(loggingRequest)).thenReturn(logging);
+
+        Logging result = underTest.setlog(loggingRequest);
+
+        Assertions.assertEquals(logging,result);
+        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+
+
+    }
+
+
+    @Test
+    public void getlog() throws Exception {
+
+        LoggingRequest loggingRequest = new LoggingRequest();
+        loggingRequest.setEmail("ayush@gmail.com");
+
+        Logging logging = new Logging();
+        logging.setEmail("ayush@gmail.com");
+
+        Mockito.when(loggingService.getAllLogsByEmail(loggingRequest)).thenReturn(logging);
+
+        Logging result = underTest.getAllLogsByEmail(loggingRequest);
+
+        Assertions.assertEquals(logging,result);
+        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+
+
+        Assertions.assertNotEquals("ayush121@gmail.com",logging.getEmail());
+    }
+
+
     //    getLogsByFilter
 
     @Test
@@ -49,51 +100,6 @@ class LoggingControllerTest {
 
     }
 
-    @Test
-    public void getlog() throws Exception {
-
-        LoggingRequest loggingRequest = new LoggingRequest();
-        loggingRequest.setEmail("ayush@gmail.com");
-
-        Logging logging = new Logging();
-        logging.setEmail("ayush@gmail.com");
-
-        Mockito.when(loggingService.getAllLogsByEmail(loggingRequest)).thenReturn(logging);
-
-        Logging result = underTest.getAllLogsByEmail(loggingRequest);
-
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
-    }
-
-    @Test
-    public void setlog() throws Exception {
-
-        LoggingRequest loggingRequest = new LoggingRequest();
-
-        loggingRequest.setEmail("ayush@gmail.com");
-        loggingRequest.setCalorie(100.0F);
-        loggingRequest.setProtein(8F);
-        loggingRequest.setFat(15F);
-        loggingRequest.setCarbs(32F);
-        loggingRequest.setDay(10);
-        loggingRequest.setMonth(4);
-        loggingRequest.setYear(2021);
-        loggingRequest.setFoodName("Milk");
-        loggingRequest.setQuantity(2F);
-
-        Logging logging = new Logging();
-        logging.setEmail("ayush@gmail.com");
-
-        Mockito.when(loggingService.setlog(loggingRequest)).thenReturn(logging);
-
-        Logging result = underTest.setlog(loggingRequest);
-
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
-
-
-    }
 
 
 
