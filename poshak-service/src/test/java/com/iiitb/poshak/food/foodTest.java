@@ -40,5 +40,42 @@ public class foodTest {
         Assertions.assertEquals("57",food.getCarbs());
         Assertions.assertEquals("milk product",food.getCategory());
 
+
+        String foodString  = "Food(id=" + food.getId() + ", food=" + food.getFood() + ", measure=" + food.getMeasure() + ", " +
+                "grams=" + food.getGrams() + ", calories=" + food.getCalories() + ", protein=" + food.getProtein() + "," +
+                " fat=" + food.getFat() + ", satFat=" + food.getSatFat() + ", fiber=" + food.getFiber() + ", carbs=" +
+                food.getCarbs() + ", category=" + food.getCategory() + ")";
+
+        Assertions.assertEquals(foodString,food.toString());
+        Assertions.assertEquals(hashCode(food),food.hashCode());
+
+    }
+
+
+    public int hashCode(Food food) {
+        int result = 1;
+        Object $id = food.getId();
+        result = result * 59 + ($id == null ? 43 : $id.hashCode());
+        Object $food = food.getFood();
+        result = result * 59 + ($food == null ? 43 : $food.hashCode());
+        Object $measure = food.getMeasure();
+        result = result * 59 + ($measure == null ? 43 : $measure.hashCode());
+        Object $grams = food.getGrams();
+        result = result * 59 + ($grams == null ? 43 : $grams.hashCode());
+        Object $calories = food.getCalories();
+        result = result * 59 + ($calories == null ? 43 : $calories.hashCode());
+        Object $protein = food.getProtein();
+        result = result * 59 + ($protein == null ? 43 : $protein.hashCode());
+        Object $fat = food.getFat();
+        result = result * 59 + ($fat == null ? 43 : $fat.hashCode());
+        Object $satFat = food.getSatFat();
+        result = result * 59 + ($satFat == null ? 43 : $satFat.hashCode());
+        Object $fiber = food.getFiber();
+        result = result * 59 + ($fiber == null ? 43 : $fiber.hashCode());
+        Object $carbs = food.getCarbs();
+        result = result * 59 + ($carbs == null ? 43 : $carbs.hashCode());
+        Object $category = food.getCategory();
+        result = result * 59 + ($category == null ? 43 : $category.hashCode());
+        return result;
     }
 }
