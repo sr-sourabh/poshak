@@ -1,5 +1,6 @@
 package com.iiitb.poshak.user;
 
+import com.iiitb.poshak.util.ErrorDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -64,6 +65,18 @@ class UserControllerTest {
         Mockito.when(userService.getAllUsers()).thenReturn(users);
         List<User> results = underTest.getAllUsers();
         Assertions.assertEquals(users, results);
+    }
+
+    @Test
+    public void handleException() {
+        ErrorDto expected = new ErrorDto();
+        String message = "IE-332";
+        Exception exception = new Exception(message);
+        expected.getError().add(exception.getMessage());
+
+        ErrorDto result = underTest.handleException(exception);
+        Assertions.assertEquals(result.getError().get(0), expected.getError().get(0));
+        Assertions.assertNotNull(result.getExceptionId());
     }
 
 }
