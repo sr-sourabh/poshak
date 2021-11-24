@@ -75,3 +75,7 @@ poshak-uiyarn-error.log*
 poshak-uiposhak-ui.iml
 
 **package-lock.json
+
+logs/
+report/
+poshak-service/logs/

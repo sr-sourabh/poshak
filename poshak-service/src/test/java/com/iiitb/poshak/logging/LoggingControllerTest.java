@@ -1,6 +1,5 @@
 package com.iiitb.poshak.logging;
 
-import com.iiitb.poshak.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-//import sun.util.logging.resources.logging;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +20,10 @@ class LoggingControllerTest {
     @Mock
     private LoggingService loggingService;
 
+<<<<<<<<< Temporary merge branch 1
+=========
 
+>>>>>>>>> Temporary merge branch 2
     @Test
     public void setlog() throws Exception {
 
@@ -52,7 +53,10 @@ class LoggingControllerTest {
 
     }
 
+<<<<<<<<< Temporary merge branch 1
+=========
 
+>>>>>>>>> Temporary merge branch 2
     @Test
     public void getlog() throws Exception {
 
@@ -68,6 +72,10 @@ class LoggingControllerTest {
 
         Assertions.assertEquals(logging,result);
         Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+<<<<<<<<< Temporary merge branch 1
+    }
+//    getLogsByFilter
+=========
 
 
         Assertions.assertNotEquals("ayush121@gmail.com",logging.getEmail());
@@ -75,6 +83,7 @@ class LoggingControllerTest {
 
 
     //    getLogsByFilter
+>>>>>>>>> Temporary merge branch 2
 
     @Test
     public void getlogbyfilter() throws Exception {
@@ -99,8 +108,11 @@ class LoggingControllerTest {
 
 
     }
+<<<<<<<<< Temporary merge branch 1
+=========
 
 
 
 
+>>>>>>>>> Temporary merge branch 2
 }
