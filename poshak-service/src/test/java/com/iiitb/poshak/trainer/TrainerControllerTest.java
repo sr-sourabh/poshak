@@ -15,7 +15,6 @@ import java.util.Set;
 
 @ExtendWith(MockitoExtension.class)
 class TrainerControllerTest {
-
     @InjectMocks
     private TrainerController underTest;
 
@@ -25,8 +24,8 @@ class TrainerControllerTest {
     @Test
     public void setTrainerGoals() throws Exception {
 
-        TrainerExcelRequest trainerExcelRequest =new TrainerExcelRequest();
-        ExcelFoodDto excelFoodDto =new ExcelFoodDto();
+        TrainerExcelRequest trainerExcelRequest = new TrainerExcelRequest();
+        ExcelFoodDto excelFoodDto = new ExcelFoodDto();
         excelFoodDto.setUserEmail("ayush@gmail.com");
         excelFoodDto.setFoodName("banana");
         excelFoodDto.setTimeOfDay("10");
@@ -42,9 +41,9 @@ class TrainerControllerTest {
         trainerExcelRequest.setTrainerEmail("trainer@gmail.com");
         trainerExcelRequest.setExcelFoods(excelFoodDtos);
 
-        List<TrainerGoal> trainerGoals =new ArrayList<>();
+        List<TrainerGoal> trainerGoals = new ArrayList<>();
 
-        TrainerGoal trainerGoal =new TrainerGoal();
+        TrainerGoal trainerGoal = new TrainerGoal();
         trainerGoal.setCompleted(true);
 
         trainerGoals.add(trainerGoal);
@@ -53,10 +52,7 @@ class TrainerControllerTest {
 
         List<TrainerGoal> result = underTest.setTrainerGoals(trainerExcelRequest);
 
-        Assertions.assertEquals(trainerGoals,result);
-
-
-
+        Assertions.assertEquals(trainerGoals, result);
 
 
     }
@@ -66,7 +62,7 @@ class TrainerControllerTest {
 
         Set<TrainerGoal> trainerGoals = new HashSet<>();
 
-        TrainerGoal trainerGoal =new TrainerGoal();
+        TrainerGoal trainerGoal = new TrainerGoal();
         trainerGoal.setTrainerEmail("trainer@gmail.com");
 
         trainerGoals.add(trainerGoal);
@@ -75,25 +71,24 @@ class TrainerControllerTest {
 
         Set<TrainerGoal> result = underTest.getAllTrainerGoals();
 
-        Assertions.assertEquals(trainerGoals,result);
+        Assertions.assertEquals(trainerGoals, result);
 
     }
 
     @Test
     public void completeGoal() throws Exception {
         String goalId;
-        goalId="235645443";
+        goalId = "235645443";
 
-        TrainerGoal trainerGoal =new TrainerGoal();
+        TrainerGoal trainerGoal = new TrainerGoal();
         trainerGoal.setCompleted(true);
 
         Mockito.when(trainerService.completeGoal(goalId)).thenReturn(trainerGoal);
 
         TrainerGoal result = underTest.completeGoal(goalId);
 
-        Assertions.assertEquals(trainerGoal,result);
+        Assertions.assertEquals(trainerGoal, result);
     }
-
 
 
     @Test
@@ -104,7 +99,7 @@ class TrainerControllerTest {
         trainerGetRequest.setUserEmail("ayush@gmail.com");
 
         Set<TrainerGoal> trainerGoals = new HashSet<>();
-        TrainerGoal trainerGoal =new TrainerGoal();
+        TrainerGoal trainerGoal = new TrainerGoal();
         trainerGoal.setTrainerEmail("trainer@gmail.com");
 
         trainerGoals.add(trainerGoal);
@@ -113,19 +108,10 @@ class TrainerControllerTest {
 
         Set<TrainerGoal> result = underTest.getTrainerGoals(trainerGetRequest);
 
-        Assertions.assertEquals(trainerGoals,result);
-
+        Assertions.assertEquals(trainerGoals, result);
 
 
     }
-
-
-
-
-
-
-
-
 
 
 }

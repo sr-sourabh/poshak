@@ -1,6 +1,5 @@
 package com.iiitb.poshak.logging;
 
-import com.iiitb.poshak.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-//import sun.util.logging.resources.logging;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,8 +44,8 @@ class LoggingControllerTest {
 
         Logging result = underTest.setlog(loggingRequest);
 
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+        Assertions.assertEquals(logging, result);
+        Assertions.assertEquals("ayush@gmail.com", logging.getEmail());
 
 
     }
@@ -66,11 +64,11 @@ class LoggingControllerTest {
 
         Logging result = underTest.getAllLogsByEmail(loggingRequest);
 
-        Assertions.assertEquals(logging,result);
-        Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
+        Assertions.assertEquals(logging, result);
+        Assertions.assertEquals("ayush@gmail.com", logging.getEmail());
 
 
-        Assertions.assertNotEquals("ayush121@gmail.com",logging.getEmail());
+        Assertions.assertNotEquals("ayush121@gmail.com", logging.getEmail());
     }
 
 
@@ -88,19 +86,17 @@ class LoggingControllerTest {
 
         LoggingDto loggingDto = new LoggingDto();
         loggingDto.setEmailId("ayush@gmail.com");
-        List<LoggingDto> loggingDtos= new ArrayList<>();
+        List<LoggingDto> loggingDtos = new ArrayList<>();
         loggingDtos.add(loggingDto);
 
         Mockito.when(loggingService.getLogsByFilter(loggingFilterRequest)).thenReturn(loggingDtos);
 
         List<LoggingDto> result = underTest.getLogsByFilter(loggingFilterRequest);
 
-        Assertions.assertEquals(loggingDtos,result);
+        Assertions.assertEquals(loggingDtos, result);
 
 
     }
-
-
 
 
 }
