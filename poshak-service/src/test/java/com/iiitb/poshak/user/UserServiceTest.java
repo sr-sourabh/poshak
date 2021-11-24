@@ -56,7 +56,7 @@ class UserServiceTest {
     @Test
     public void updateUser() throws Exception {
         UserRequest userRequest = new UserRequest();
-        userRequest.setEmailId("email");
+        userRequest.setEmailId("email"); 
 
         User user = new User();
 
