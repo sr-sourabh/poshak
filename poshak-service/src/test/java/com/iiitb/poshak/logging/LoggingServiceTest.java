@@ -12,6 +12,9 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +55,7 @@ class LoggingServiceTest {
         Mockito.when(loggingRepository.save(logging)).thenReturn(logging);
         Logging result = underTest.setlog(loggingRequest);
 
-        //Assertions.assertEquals(logging,result);
+        Assertions.assertEquals(logging,result);
         Assertions.assertEquals("ayush@gmail.com",logging.getEmail());
     }
 
@@ -71,25 +74,32 @@ class LoggingServiceTest {
     @Test
     public void getLogsByFilter() throws Exception{
 //        Long startTime = null;
+//        ZonedDateTime startOfToday = LocalDate.now().atStartOfDay(ZoneId.systemDefault());
+//        startTime = startOfToday.toEpochSecond() * 1000;
 //        Long endTime = System.currentTimeMillis();
 //
 //        LoggingFilterRequest loggingFilterRequest = new LoggingFilterRequest();
-//        loggingFilterRequest.setEmails(Arrays.asList(new String[]{"ayush@gmail.com"}));
+//        loggingFilterRequest.setEmails(Arrays.asList(new String[]{"himanshu@gmail.com"}));
 //        loggingFilterRequest.setToday(true);
 //        loggingFilterRequest.setLastWeek(false);
 //        loggingFilterRequest.setLastMonth(false);
 //        loggingFilterRequest.setLastYear(false);
 //
 //        LoggingDto loggingDto = new LoggingDto();
-//        loggingDto.setEmailId("ayush@gmail.com");
+//        loggingDto.setEmailId("himanshu@gmail.com");
 //
 //        AggregationResults<LoggingDto> userLogs = null;
+//
 //        List<LoggingDto> loggingDtos= new ArrayList<>();
 //        loggingDtos.add(loggingDto);
 //
-//        List<User> users = null;
+//        List<User> users = new ArrayList<>();
+//        User user = new User();
+//        user.setEmailId("himanshu@gmail.com");
+//        users.add(user);
+//
 //        Mockito.when(userRepository.findByEmailIdIn(loggingFilterRequest.getEmails())).thenReturn(users);
-//        Mockito.when(loggingRepository.aggregateLogsSumByTime(startTime,endTime,loggingFilterRequest.getEmails())).thenReturn(userLogs);
+//        //Mockito.when(loggingRepository.aggregateLogsSumByTime(startTime,endTime,loggingFilterRequest.getEmails())).thenReturn(userLogs);
 //
 //        List<LoggingDto> result = underTest.getLogsByFilter(loggingFilterRequest);
 //
